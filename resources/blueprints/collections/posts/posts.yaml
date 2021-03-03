@@ -1,0 +1,142 @@
+title: 'Blog post'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          input_type: text
+          antlers: false
+          display: Title
+          icon: text
+          listable: true
+          validate:
+            - required
+      -
+        handle: content
+        field:
+          always_show_set_button: false
+          buttons:
+            - h2
+            - h3
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - image
+            - table
+            - strikethrough
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          display: Content
+          type: bard
+          icon: bard
+          listable: hidden
+          validate:
+            - required
+      -
+        handle: template
+        field:
+          type: template
+          display: Template
+          localizable: true
+      -
+        handle: synopsis
+        field:
+          always_show_set_button: false
+          buttons:
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - image
+            - table
+            - strikethrough
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          display: Synopsis
+          type: bard
+          icon: bard
+          instructions: 'This will be shown in the posts listing if present.'
+          listable: hidden
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: date
+        field:
+          type: date
+          required: true
+          validate:
+            - required
+          listable: hidden
+          mode: single
+          time_enabled: false
+          time_required: false
+          earliest_date: '1900-01-01'
+          format: YYYY-MM-DD
+          full_width: false
+          inline: false
+          columns: 1
+          rows: 1
+      -
+        handle: display_options
+        field:
+          inline: true
+          options:
+            hide_title: 'Display this post as if it had no title'
+          display: 'Display options'
+          type: checkboxes
+          icon: checkboxes
+          listable: hidden
+      -
+        handle: description
+        field:
+          character_limit: '280'
+          antlers: false
+          display: Description
+          type: textarea
+          icon: textarea
+          instructions: 'This will appear in the description meta tag and the title attribute of links.'
+          listable: true
+      -
+        handle: year
+        field:
+          type: terms
+          taxonomies:
+            - year
+          display: Year
+          mode: typeahead
+          listable: hidden
+          max_items: 1
+          validate:
+            - required
