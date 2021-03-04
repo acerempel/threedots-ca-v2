@@ -99,6 +99,8 @@ $media-small: 376px;
 .prose {
   h1, h2, h3, h4 {
     @include sans-serif;
+    @include mb(var(--paragraph-spacing-factor, 0));
+    &::last-child { margin-bottom: 0; }
   }
   h2 {
     @include font-size-3;

@@ -17,7 +17,8 @@ p, ol, ul, nav, blockquote, aside, details, figcaption {
   --link-text-decoration-line: underline;
   font-size: var(--base-font-size);
   line-height: var(--base-line-height);
-  margin-top: calc(var(--paragraph-spacing-factor, 0) * var(--base-line-height));
+  margin-bottom: calc(var(--paragraph-spacing-factor, 0) * var(--base-line-height));
+  &::last-child { margin-bottom: 0; }
 }
 
 li { margin-inline-start: 1.5em; }
