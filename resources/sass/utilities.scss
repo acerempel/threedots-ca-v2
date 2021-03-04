@@ -1,0 +1,88 @@
+@use "mixins" as *;
+
+.p-space-1 { --paragraph-spacing-factor: 1; }
+.p-space-1\/2 { --paragraph-spacing-factor: 0.5; }
+.p-space-1\/4 { --paragraph-spacing-factor: 0.25; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--base-line-height); }
+/*
+.mt-3\/4 { margin-top: calc(var(--base-line-height)*0.75); }
+.mt-1\/2 { margin-top: calc(var(--base-line-height)*0.5); }
+.mt-1\/4 { margin-top: calc(var(--base-line-height)*0.25); }
+.mt-1\/8 { margin-top: calc(0.125 * var(--base-line-height)); }
+*/
+
+.mx-auto { margin-right: auto; margin-left: auto; }
+
+.mb-1 { margin-bottom: var(--base-line-height); }
+
+$margin-ratios: (1 2) (1 4) (1 8) (3 4);
+
+$abbrev-properties: (
+  mt: margin-top,
+  mb: margin-bottom,
+);
+
+@each $abbrev, $property in $abbrev-properties {
+  @each $numerator, $denominator in $margin-ratios {
+    .#{$abbrev}-#{$numerator}\/#{$denominator} {
+      @include line-height-multiple($property, $numerator / $denominator)
+    }
+  }
+}
+
+.colour-highlight { color: var(--text-colour-highlight) }
+.colour-normal { color: var(--text-colour-normal) }
+.colour-lighter { color: var(--text-colour-lighter) }
+
+.border-top {
+  border-top: calc(var(--base-line-height)*0.0875) solid var(--text-colour-normal);
+  padding-top: calc(var(--base-line-height)*0.9125);
+  margin-top: calc(var(--base-line-height)*1.125);
+}
+
+.font-size-5 { @include font-size-5 }
+.font-size-4\.5 { @include font-size-4\.5 }
+.font-size-4 { @include font-size-4 }
+.font-size-3 { @include font-size-3 }
+.font-size-2 { @include font-size-2 }
+.font-size-1 { @include font-size-1 }
+
+.serif { @include serif; }
+.sans-serif { @include sans-serif; }
+
+.flex { display: flex; }
+.space-between { justify-content: space-between; }
+.row { flex-direction: row; }
+.column { flex-direction: column; }
+.align-right { text-align: right; }
+.wrap { flex-wrap: wrap; }
+.flex-divider {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: var(--base-line-height);
+}
+
+.medium { font-weight: 500; }
+.semibold, b { font-weight: 600; }
+.bold, strong { font-weight: 700; }
+.light { font-weight: 300; }
+.oblique, cite { font-style: oblique; }
+
+.block { display: block; }
+
+.smallcaps {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.02em;
+}
+
+.smaller {
+  font-size: smaller;
+  line-height: calc(var(--base-line-height)*0.875);
+}
+
+.inline-block { display: inline-block; margin-inline-end: 1.5ch; }
+
+.link-plain { --link-text-decoration-line: none; }
+

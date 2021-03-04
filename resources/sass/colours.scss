@@ -1,0 +1,58 @@
+:root {
+  --light-text-normal: #111;
+  --light-text-highlight: #6c2f54;
+  --light-text-lighter: #4d4d4d;
+  --light-text-alternate: #1c513a;
+  --light-background-normal: #f9f7f0;
+  --light-background-lighter: #eceae6;
+  --light-background-alternate: #d4f4e6;
+  --dark-text-normal: #eee;
+  --dark-text-highlight: #e397e0;
+  --dark-text-lighter: #d7d7d7;
+  --dark-text-alternate: #c6eada;
+  --dark-background-normal: #241321;
+  --dark-background-lighter: #313734;
+  --dark-background-alternate: #1c513a;
+}
+
+@mixin colour-scheme-light {
+    --text-colour-normal: var(--light-text-normal);
+    --text-colour-highlight: var(--light-text-highlight);
+    --text-colour-lighter: var(--light-text-lighter);
+    --text-colour-alternate: var(--light-text-alternate);
+    --background-colour-normal: var(--light-background-normal);
+    --background-colour-lighter: var(--light-background-lighter);
+    --background-colour-alternate: var(--light-background-alternate);
+}
+
+@mixin colour-scheme-dark {
+    --text-colour-normal: var(--dark-text-normal);
+    --text-colour-highlight: var(--dark-text-highlight);
+    --text-colour-lighter: var(--dark-text-lighter);
+    --text-colour-alternate: var(--dark-text-alternate);
+    --background-colour-normal: var(--dark-background-normal);
+    --background-colour-lighter: var(--dark-background-lighter);
+    --background-colour-alternate: var(--dark-background-alternate);
+
+}
+
+.colour-scheme-auto {
+  @media (prefers-color-scheme: light) {
+    @include colour-scheme-light;
+  }
+  @media (prefers-color-scheme: dark) {
+      @include colour-scheme-dark;
+  }
+  @media (prefers-color-scheme: no-preference) {
+      @include colour-scheme-light;
+  }
+}
+
+.colour-scheme-light {
+  @include colour-scheme-light;
+}
+
+.colour-scheme-dark {
+  @include colour-scheme-dark;
+}
+

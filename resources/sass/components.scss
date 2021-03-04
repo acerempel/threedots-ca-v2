@@ -1,0 +1,145 @@
+@use "mixins" as *;
+
+.dropdown-nav-control {
+  @media (min-width: 645px) { display: none; }
+  cursor: pointer;
+  &:focus { outline: auto; }
+}
+
+.dropdown-nav-items {
+  @include mt(0.25);
+  @include font-size-2;
+  display: flex;
+  flex-direction: row;
+  @media (max-width: 645.01px) {
+    flex-direction: column;
+    margin-top: 0;
+    .nav-link:not(:first-child) { margin-top: calc(var(--base-line-height)*0.25) }
+    .flex-divider { display: none }
+    padding: 0;
+    background-color: var(--background-colour-normal);
+    border: var(--text-colour-lighter) solid 0em;
+    border-radius: 0.1em;
+    position: absolute;
+    overflow: hidden;
+    height: 0;
+    transition:
+      height 0.2s ease,
+      padding 0.2s ease,
+      border-width 0.2s ease,
+      background-color 0.2s ease;
+  }
+  .dropdown-nav.open & {
+    height: calc(var(--base-line-height) * 8.175);
+    background-color: var(--background-colour-lighter);
+    padding: calc(var(--base-line-height)*0.25) calc(var(--base-line-height)*0.5);
+    padding-top: calc(var(--base-line-height)*0.375);
+    border-width: 0.1em;
+  }
+}
+
+.dropdown-nav {
+  @media (max-width: 645.01px) {
+    margin-inline-start: auto;
+    align-self: center;
+  }
+}
+
+.dropdown-caret {
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+  vertical-align: -0.1em;
+  .dropdown-nav.open & {
+    transform: rotate(90deg);
+  }
+}
+
+.dropdown {
+  position: relative;
+}
+.dropdown-toggle {
+    cursor: pointer;
+}
+.dropdown-inner {
+  position: absolute;
+  width: -webkit-max-content;
+  width: max-content;
+  top: calc(var(--base-line-height)*1.25);
+  background-color: var(--background-colour-lighter);
+  padding: calc(var(--base-line-height)*0.25) calc(var(--base-line-height)*0.5);
+  box-sizing: content-box;
+  border-radius: 0.1em;
+  border: var(--text-colour-lighter) solid 0.1em;
+  right: 0;
+  z-index: 1;
+}
+
+$media-small: 376px;
+
+.inline-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline-start: 1em;
+  @media (min-width: $media-small) {
+    margin-inline-start: 1.5em;
+  }
+  & li {
+    list-style: none;
+    margin-inline-start: 0;
+    margin-inline-end: 1em;
+    @media (min-width: $media-small) {
+      margin-inline-end: 1.5em;
+    }
+    &:first-child::before {
+      content: "\200B";
+    }
+  }
+}
+
+.prose {
+  h1, h2, h3, h4 {
+    @include sans-serif;
+  }
+  h2 {
+    @include font-size-3;
+    font-weight: 600;
+    @include mt(0.75);
+  }
+  h3 {
+    @include font-size-2;
+    font-weight: 500;
+    @include mt(0.5);
+  }
+  p, blockquote, figcaption, aside, details, li {
+    @include serif;
+  }
+  aside {
+    background-color: var(--background-colour-lighter);
+    padding: calc(0.625 * var(--base-line-height));
+    border-radius: 0.1em;
+    color: var(--text-colour-lighter);
+  }
+}
+
+.thingy { flex-direction: row;
+@media (min-width: 645px) { flex-direction: column; }}
+
+.article-list article + article {
+  @include mt(1);
+}
+
+.swing {
+  @include mb(0.5);
+  @include mt(1);
+  @media (min-width: 645px) {
+    height: 0;
+    overflow: visible;
+    transform-origin: top right;
+    transform: translate(-100%, 0) rotate(-90deg) translate(calc(-0.25 * var(--base-line-height)), calc(-2 * var(--base-line-height)));
+    text-align: right;
+    transform-box: border-box;
+    margin: 0;
+    width: min-content;
+  }
+}
+

@@ -1,0 +1,85 @@
+a {
+  color: var(--link-colour, inherit);
+  text-decoration-line: var(--link-text-decoration-line, none);
+  text-decoration-thickness: var(--link-initial-text-decoration-thickness, 0.05em);
+  text-underline-offset: 0.2em;
+  transition: text-decoration-thickness 0.2s;
+}
+a:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--link-hover-text-decoration-thickness, 0.1em);
+}
+
+p, ol, ul, nav, blockquote, aside, details, figcaption {
+  --link-colour: var(--text-colour-highlight);
+  --link-initial-text-decoration-thickness: 0.05em;
+  --link-hover-text-decoration-thickness: 0.14em;
+  --link-text-decoration-line: underline;
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+  margin-top: calc(var(--paragraph-spacing-factor, 0) * var(--base-line-height));
+}
+
+li { margin-inline-start: 1.5em; }
+
+code {
+  font-family: Monaco, Hack, Menlo, 'Fira Code', 'Courier Next', monospace;
+  font-size: 0.9em;
+}
+
+label {
+  margin-inline-end: 0.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  --link-text-decoration-line: none;
+  --link-colour: inherit;
+  --link-initial-text-decoration-thickness: 0.07em;
+  --link-hover-text-decoration-thickness: 0.1em;
+}
+
+blockquote {
+  margin-left: 4%;
+  margin-right: 4%;
+  color: var(--text-colour-lighter);
+}
+
+abbr[title] {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.2em;
+}
+
+figcaption {
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: calc(var(--base-line-height)*0.25);
+  font-size: calc(var(--base-font-size)*0.9375);
+}
+
+img { width: 100%; }
+
+sup {
+  font-size: 0.625em;
+  vertical-align: baseline;
+  position: relative;
+  top: calc(var(--base-line-height)*-0.25);
+}
+
+mark {
+  background-color: var(--background-colour-alternate);
+  color: var(--text-colour-alternate);
+  padding: 0.015em 0.1em;
+  font-weight: 500;
+  border-radius: 0.2em;
+}
+
+nav {
+  --link-hover-text-decoration-thickness: 0.15em;
+  --link-initial-text-decoration-thickness: 0.1em;
+}
+
+li { margin-bottom: calc(var(--base-line-height)*0.25); }
+li::last-child { margin-bottom: 0; }
