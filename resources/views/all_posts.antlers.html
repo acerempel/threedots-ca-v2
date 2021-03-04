@@ -13,7 +13,8 @@
   <section itemscope itemtype="https://schema.org/Blog">
         <header class="sans-serif flex thingy">
           <h1 class="font-size-5 bold">Blog</h1>
-          <nav aria-labelledby="jty" class="dropdown-nav colour-highlight">
+          <section class="mt-1/4">{{ content }}</section>
+          <nav aria-labelledby="jty" class="mt-1/4 dropdown-nav colour-highlight">
             <h2 class="font-size-2 mt-1/4 medium dropdown-nav-control"
                 id="jty" tabindex="0"
               >{{ partial:caret_right }}Jump to year …</h2>
@@ -25,17 +26,16 @@
             </span>
           </nav>
         </header>
-        {{ content | wrap:section }}
-        {{ taxonomy:year sort="title:desc" }}
+        {{ taxonomy:year sort="title:desc" collection="posts" }}
         <section id="y{{ title }}" class="article-list mt-3/4">
-          <h2 class="font-size-4 semibold sans-serif swing">{{ title }}</h2>
+          <h2 class="font-size-4 medium sans-serif swing">{{ title }}</h2>
             {{ entries }}
-              <article>
-                {{ partial:date :date="date" }}
+              <article class="serif p-space-1/4">
+                <div class="sans-serif">{{ partial:date :date="date" }}</div>
                 {{ unless (display_options | raw | in_array:hide_title) }}
-                <h3>{{ title }}</h3>
+                <h3 class="sans-serif font-size-2 semibold mt-1/8"><a href="{{ url }}">{{ title }}</a></h3>
                 {{ /unless }}
-                {{ description ?? content }}
+                {{ if description }}<p>{{ description }}</p>{{ else }}{{ content }}{{ /if }}
               </article>
             {{ /entries }}
         </section>
