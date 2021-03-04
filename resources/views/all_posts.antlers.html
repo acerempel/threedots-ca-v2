@@ -35,7 +35,10 @@
                 {{ unless (display_options | raw | in_array:hide_title) }}
                 <h3 class="sans-serif font-size-2 semibold mt-1/8"><a href="{{ url }}">{{ title }}</a></h3>
                 {{ /unless }}
-                {{ if description }}<p>{{ description }}</p>{{ else }}{{ content }}{{ /if }}
+                {{ if description }}
+                <p>{{ description }}</p>
+                <p class="link-plain"><a href="{{ url }}" aria-label="Continue reading “{{ title }}”">Continue reading …</a></p>
+                {{ else }}{{ content }}{{ /if }}
               </article>
             {{ /entries }}
         </section>
