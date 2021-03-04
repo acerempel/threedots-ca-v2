@@ -1,5 +1,6 @@
 import { setUpControl, setColourScheme, setLineHeight } from './colour-scheme.js';
 
+document.addEventListener('DOMContentLoaded', () => {
   let setValue = (control, val) => { control.value = val };
   let loadFancyFonts = (val) => {
     if (val === 'fancy') {
@@ -24,3 +25,4 @@ import { setUpControl, setColourScheme, setLineHeight } from './colour-scheme.js
       dropdown.classList.remove('open');
     }
   });
+});
