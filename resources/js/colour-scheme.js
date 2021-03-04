@@ -4,10 +4,9 @@ var prefix = "colour-scheme-";
 var colourSchemeClassNames = ['auto', 'light', 'dark'].map(c => prefix.concat(c));
 
 function setColourScheme(colourScheme) {
-  var element = document.querySelector("body");
   var colourSchemeClassName = prefix.concat(colourScheme);
-  element.classList.remove(...colourSchemeClassNames);
-  element.classList.add(colourSchemeClassName);
+  document.body.classList.remove(...colourSchemeClassNames);
+  document.body.classList.add(colourSchemeClassName);
 }
 
 function setFontSize(size) {
