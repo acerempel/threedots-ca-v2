@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b6c2734b381cfe02f6d6c6eb67c28f4",
+    "content-hash": "39c8c6fc992143183293e99da9c8aa5c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3621,6 +3621,51 @@
                 }
             ],
             "time": "2021-02-22T14:45:08+00:00"
+        },
+        {
+            "name": "statamic/ssg",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/statamic/ssg.git",
+                "reference": "d82e7cd9194acffbb2ba420138166dfa1c8d13f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/statamic/ssg/zipball/d82e7cd9194acffbb2ba420138166dfa1c8d13f1",
+                "reference": "d82e7cd9194acffbb2ba420138166dfa1c8d13f1",
+                "shasum": ""
+            },
+            "require": {
+                "statamic/cms": "3.0.*"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0"
+            },
+            "type": "statamic-addon",
+            "extra": {
+                "statamic": {
+                    "name": "Static Site Generator",
+                    "description": "Static Site Generator addon"
+                },
+                "laravel": {
+                    "providers": [
+                        "Statamic\\StaticSite\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Statamic\\StaticSite\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Static site generator for Statamic 3.",
+            "support": {
+                "issues": "https://github.com/statamic/ssg/issues",
+                "source": "https://github.com/statamic/ssg/tree/master"
+            },
+            "time": "2020-08-21T21:18:00+00:00"
         },
         {
             "name": "statamic/stringy",
