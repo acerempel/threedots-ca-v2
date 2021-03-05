@@ -1,10 +1,10 @@
 ---
 title: Introduction
 parent: home
-description: 'I am Alan; I have a website; it has words on it; they mostly don''t make any sense.'
+description: 'A few words of explanation about this ‘website’ affair. I am Alan; I drink tea; this is my website; hi; etc.'
 link_text: About
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1614877972
+updated_at: 1614962483
 id: e7849b47-140b-4e7a-828b-cad6d1af069d
 content:
   -
