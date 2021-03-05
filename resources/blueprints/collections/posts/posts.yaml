@@ -85,7 +85,7 @@ sections:
         field:
           inline: true
           options:
-            hide_title: 'Display this post as if it had no title'
+            hide_title: 'This post is a shorty-pants'
           display: 'Display options'
           type: checkboxes
           icon: checkboxes
@@ -100,6 +100,8 @@ sections:
           icon: textarea
           instructions: 'This will appear in the description meta tag and the title attribute of links.'
           listable: true
+          unless:
+            display_options: 'contains hide_title'
       -
         handle: year
         field:
