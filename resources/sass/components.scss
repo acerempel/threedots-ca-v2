@@ -164,3 +164,17 @@ $media-medium: 645px;
     grid-column-gap: 2ch;
   }
 }
+
+.two-grid {
+  & > * {
+    margin-top: var(--base-line-height);
+    &::first-child { margin-top: 0; }
+  }
+  @media (min-width: $media-medium) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2ch;
+    grid-row-gap: calc(0.5 * var(--base-line-height));
+    & > * { margin-top: 0; }
+  }
+}

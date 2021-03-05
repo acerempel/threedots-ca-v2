@@ -30,16 +30,7 @@
         <section id="y{{ title }}" class="article-list mt-3/4">
           <h2 class="font-size-4 medium sans-serif swing">{{ title }}</h2>
             {{ entries sort="date:desc" status:is="published" }}
-              <article class="serif p-space-1/4">
-                <div class="sans-serif mb-1/8 colour-lighter light">{{ partial:date :date="date" }}</div>
-                {{ unless (display_options | raw | in_array:hide_title) }}
-                <h3 class="sans-serif font-size-2 semibold mb-1/4"><a href="{{ url }}">{{ title }}</a></h3>
-                {{ /unless }}
-                {{ if description }}
-                <p>{{ description }}</p>
-                <p class="link-plain"><a href="{{ url }}" aria-label="Continue reading “{{ title }}”">Continue reading …</a></p>
-                {{ else }}{{ content }}{{ /if }}
-              </article>
+              {{ partial:post-summary }}
             {{ /entries }}
         </section>
         {{ /taxonomy:year }}
