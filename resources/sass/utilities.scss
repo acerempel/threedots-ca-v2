@@ -64,6 +64,7 @@ $abbrev-properties: (
   max-width: var(--base-line-height);
 }
 
+.regular { font-weight: 400; }
 .medium { font-weight: 500; }
 .semibold, b { font-weight: 600; }
 .bold, strong { font-weight: 700; }
