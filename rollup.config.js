@@ -12,6 +12,6 @@ export default (async () => { return {
   plugins: [
     resolve(),
     replace({ 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV) }),
-    production && (await import('rollup-plugin-terser').terser({ ecma: 2017 }))
+    production && (await import('rollup-plugin-terser')).terser({ ecma: 2017 })
   ]
 } })();
