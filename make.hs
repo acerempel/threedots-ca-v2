@@ -30,13 +30,14 @@ makeShakeOptions options =
 
 rollupConfig = "rollup.config.js"
 yarnLockfile = "pnpm-lock.yaml"
-sourceDirectory = "resources"
-outputDirectory = "public"
+assetSourceDirectory = "resources"
+assetOutputDirectory = "public"
+siteOutputDirectory = "storage/app/static"
 jsSubdirectory = "js"
 scssSubdirectory = "sass"
 mainScssFile = "main.scss"
-cssFile = outputDirectory </> "css/main.css"
-jsBundle = outputDirectory </> "js/main.js"
+cssFile = assetOutputDirectory </> "css/main.css"
+jsBundle = assetOutputDirectory </> "js/main.js"
 
 data EnvQ = EnvQ
   deriving stock ( Eq, Show, Generic )
@@ -58,10 +59,11 @@ build options = do
     let realTargets = map realTarget (targets options)
     parallel realTargets
 
-  needEnv <- addOracle $ \EnvQ -> return (mode options)
+  needEnv <- addOracle $ \EnvQ -> return $
+    if "ssg" `elem` targets options then Production else mode options
 
   jsBundle %> \_ -> do
-    jsFiles <- getDirectoryFiles "" [sourceDirectory </> jsSubdirectory </> "*.js" ]
+    jsFiles <- getDirectoryFiles "" [assetSourceDirectory </> jsSubdirectory </> "*.js" ]
     need $ rollupConfig : yarnLockfile : jsFiles
     env <- needEnv EnvQ
     let envString = case env of
@@ -74,9 +76,9 @@ build options = do
     cmd_ (UserCommand "install JS dependencies") "pnpm install"
 
   cssFile %> \_ -> do
-    scssFiles <- getDirectoryFiles "" [sourceDirectory </> scssSubdirectory </> "**/*.scss"]
+    scssFiles <- getDirectoryFiles "" [assetSourceDirectory </> scssSubdirectory </> "**/*.scss"]
     need scssFiles
-    let mainScssPath = sourceDirectory </> scssSubdirectory </> mainScssFile
+    let mainScssPath = assetSourceDirectory </> scssSubdirectory </> mainScssFile
     cmd_ "sass" mainScssPath cssFile "--embed-sources"
     env <- needEnv EnvQ
     when (env == Production) $ do
@@ -94,9 +96,9 @@ runSiteQ :: SiteQ -> Maybe ByteString -> RunMode -> Action (RunResult ())
 runSiteQ (SiteQ _buildMode) _mbStored runMode = do
 
   let sourceFileExtensions =
-        ["html", "yaml", "md", "css", "md"]
+        ["html", "yaml", "yml", "md", "css", "md"]
   let sourceDirectories =
-        [sourceDirectory </> "views", sourceDirectory </> "blueprints", "content"]
+        [assetSourceDirectory </> "views", assetSourceDirectory </> "blueprints", "content"]
   let sourceFilePatterns =
         [ dir </> "**/*" <.> ext
         | dir <- sourceDirectories
@@ -104,7 +106,7 @@ runSiteQ (SiteQ _buildMode) _mbStored runMode = do
   inputFiles <- getDirectoryFiles "" sourceFilePatterns
   need $ jsBundle : cssFile : inputFiles
 
-  outDirExists <- liftIO $ IO.doesDirectoryExist outputDirectory
+  outDirExists <- liftIO $ IO.doesDirectoryExist siteOutputDirectory
 
   if | not outDirExists -> rebuild
      | RunDependenciesChanged <- runMode -> rebuild
@@ -112,7 +114,7 @@ runSiteQ (SiteQ _buildMode) _mbStored runMode = do
 
  where
   rebuild = do
-    cmd_ (UserCommand "build") "echo haha this does not do anything yet"
+    cmd_ (UserCommand "ssg") "php please ssg:generate"
     return $ RunResult ChangedRecomputeDiff mempty ()
 
   don'tRebuild =
