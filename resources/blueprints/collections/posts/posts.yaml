@@ -52,34 +52,6 @@ sections:
           type: template
           display: Template
           localizable: true
-      -
-        handle: synopsis
-        field:
-          always_show_set_button: false
-          buttons:
-            - bold
-            - italic
-            - unorderedlist
-            - orderedlist
-            - removeformat
-            - quote
-            - anchor
-            - image
-            - table
-            - strikethrough
-          save_html: false
-          toolbar_mode: fixed
-          link_noopener: false
-          link_noreferrer: false
-          target_blank: false
-          reading_time: false
-          fullscreen: true
-          allow_source: true
-          display: Synopsis
-          type: bard
-          icon: bard
-          instructions: 'This will be shown in the posts listing if present.'
-          listable: hidden
   sidebar:
     display: Sidebar
     fields:
