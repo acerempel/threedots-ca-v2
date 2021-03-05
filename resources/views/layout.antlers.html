@@ -29,12 +29,12 @@
     <div class="container mx-auto">
       <header class="mt-1 sans-serif">
         <div class="flex row space-between wrap">
-          <h1 class="bold font-size-1"><a href="/">three dots …</a></h1>
+          <span class="bold font-size-1">three dots …</span>
           {{ partial:settings }}
         </div>
         {{ unless url == "/" }}
         <nav class="semibold colour-highlight flex row link-plain">
-          {{ nav }}
+          {{ nav include_home="true" }}
             <a href="{{ url }}"
                {{ if description }}title="{{ description }}"{{ /if }}
                {{ if type }}type="{{ type }}"{{ /if }}
