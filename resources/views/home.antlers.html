@@ -13,10 +13,10 @@
   </dl>
 </nav>
 <section class="mt-1/2">
-  <div class="prose mb-3/4"><h2 lang="fr">Quoi de neuf?</h2></div>
+  <div class="prose mb-1/2"><h2 lang="fr">Quoi de neuf?</h2></div>
   <div class="article-list">
     {{ collection:posts limit="3" sort="date:desc" }}
-    {{ partial:post-summary }}
+    {{ partial:post-summary mode="grid" format="j. M Y" }}
     {{ /collection:posts }}
   </div>
 </section>

@@ -160,8 +160,8 @@ $media-medium: 645px;
 .dl-grid {
   @media (min-width: $media-medium) {
     display: grid;
-    grid-template-columns: 8ch 1fr;
-    grid-column-gap: 2ch;
+    grid-template-columns: var(--width-narrow, 6ch) 1fr;
+    grid-column-gap: var(--column-gap, 2ch);
   }
 }
 
@@ -173,7 +173,7 @@ $media-medium: 645px;
   @media (min-width: $media-medium) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 2ch;
+    grid-column-gap: var(--column-gap, 2ch);
     grid-row-gap: calc(0.5 * var(--base-line-height));
     & > * { margin-top: 0; }
   }
