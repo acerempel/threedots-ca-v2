@@ -29,7 +29,7 @@
         {{ taxonomy:year sort="title:desc" collection="posts" }}
         <section id="y{{ title }}" class="article-list mt-3/4">
           <h2 class="font-size-4 medium sans-serif swing">{{ title }}</h2>
-            {{ entries status:is="published" }}
+            {{ entries sort="date:desc" status:is="published" }}
               <article class="serif p-space-1/4">
                 <div class="sans-serif mb-1/8 colour-lighter light">{{ partial:date :date="date" }}</div>
                 {{ unless (display_options | raw | in_array:hide_title) }}
