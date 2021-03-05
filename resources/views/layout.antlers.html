@@ -32,6 +32,7 @@
           <h1 class="bold font-size-1"><a href="/">three dots …</a></h1>
           {{ partial:settings }}
         </div>
+        {{ unless url == "/" }}
         <nav class="semibold colour-highlight flex row link-plain">
           {{ nav }}
             <a href="{{ url }}"
@@ -42,6 +43,7 @@
             <span class="flex-divider"></span>
           {{ /nav }}
         </nav>
+        {{ /unless }}
       </header>
       <main class="mt-3/4 mb-1">
         {{ template_content }}
