@@ -1,7 +1,10 @@
 @use "mixins" as *;
 
+$media-small: 376px;
+$media-medium: 645px;
+
 .dropdown-nav-control {
-  @media (min-width: 645px) { display: none; }
+  @media (min-width: $media-medium) { display: none; }
   cursor: pointer;
   &:focus { outline: auto; }
 }
@@ -11,7 +14,7 @@
   @include font-size-2;
   display: flex;
   flex-direction: row;
-  @media (max-width: 645.01px) {
+  @media (max-width: $media-medium + 0.1px) {
     flex-direction: column;
     margin-top: 0;
     .nav-link:not(:first-child) { margin-top: calc(var(--base-line-height)*0.25) }
@@ -39,7 +42,7 @@
 }
 
 .dropdown-nav {
-  @media (max-width: 645.01px) {
+  @media (max-width: $media-medium + 0.1px) {
     margin-inline-start: auto;
     align-self: center;
   }
@@ -73,8 +76,6 @@
   right: 0;
   z-index: 1;
 }
-
-$media-small: 376px;
 
 .inline-list {
   display: flex;
@@ -135,7 +136,7 @@ $media-small: 376px;
 }
 
 .thingy { flex-direction: row;
-@media (min-width: 645px) { flex-direction: column; }}
+@media (min-width: $media-medium) { flex-direction: column; }}
 
 .article-list article + article {
   @include mt(1);
@@ -144,7 +145,7 @@ $media-small: 376px;
 .swing {
   @include mb(0.5);
   @include mt(1);
-  @media (min-width: 645px) {
+  @media (min-width: $media-medium) {
     height: 0;
     overflow: visible;
     transform-origin: top right;
