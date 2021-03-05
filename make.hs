@@ -9,6 +9,7 @@ import Development.Shake
 import Development.Shake.FilePath
 import Development.Shake.Rule
 import Development.Shake.Classes
+import Control.Monad (when)
 import GHC.Generics (Generic)
 import Data.ByteString (ByteString)
 import qualified System.Directory as IO
@@ -77,6 +78,9 @@ build options = do
     need scssFiles
     let mainScssPath = sourceDirectory </> scssSubdirectory </> mainScssFile
     cmd_ "sass" mainScssPath cssFile "--embed-sources"
+    env <- needEnv EnvQ
+    when (env == Production) $ do
+      cmd_ "pnpx postcss" cssFile "--replace --map --env production"
 
 newtype SiteQ = SiteQ Mode
   deriving stock ( Eq, Show, Generic )
