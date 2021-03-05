@@ -40,5 +40,5 @@
   line-height: var(--base-line-height);
 }
 
-@mixin serif { font-family: var(--font-serif, rien), var(--default-font-stack) }
-@mixin sans-serif { font-family: var(--font-sans-serif, rien), var(--default-font-stack) }
+@mixin serif { font-family: var(--font-serif), var(--default-font-stack) }
+@mixin sans-serif { font-family: var(--font-sans-serif), var(--default-font-stack) }
