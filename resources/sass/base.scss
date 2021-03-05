@@ -21,11 +21,6 @@ body {
   background-color: var(--background-colour-normal);
 }
 
-.container {
-  padding-left: 20px; padding-right: 20px;
-  max-width: var(--container-max-width);
-}
-
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 .fonts-default {

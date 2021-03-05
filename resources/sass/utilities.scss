@@ -4,29 +4,29 @@
 .p-space-1\/2 { --paragraph-spacing-factor: 0.5; }
 .p-space-1\/4 { --paragraph-spacing-factor: 0.25; }
 
-.mt-0 { margin-top: 0; }
-.mt-1 { margin-top: var(--base-line-height); }
-/*
-.mt-3\/4 { margin-top: calc(var(--base-line-height)*0.75); }
-.mt-1\/2 { margin-top: calc(var(--base-line-height)*0.5); }
-.mt-1\/4 { margin-top: calc(var(--base-line-height)*0.25); }
-.mt-1\/8 { margin-top: calc(0.125 * var(--base-line-height)); }
-*/
-
 .mx-auto { margin-right: auto; margin-left: auto; }
 
-.mb-1 { margin-bottom: var(--base-line-height); }
-
-$margin-ratios: (1 2) (1 4) (1 8) (3 4);
+$margin-ratios: (1 1) (1 2) (1 4) (1 8) (3 4);
 
 $abbrev-properties: (
   mt: margin-top,
   mb: margin-bottom,
+  pl: padding-left,
+  pr: padding-right,
 );
 
+@function ratio-string($numerator, $denominator) {
+  @if $numerator == 0 {
+    @return "0";
+  } @else if $numerator == 1 and $denominator == 1 {
+    @return "1";
+  } @else {
+    @return "#{$numerator}\\/#{$denominator}";
+  }
+}
 @each $abbrev, $property in $abbrev-properties {
   @each $numerator, $denominator in $margin-ratios {
-    .#{$abbrev}-#{$numerator}\/#{$denominator} {
+    .#{$abbrev}-#{ratio-string($numerator, $denominator)} {
       @include line-height-multiple($property, $numerator / $denominator)
     }
   }
@@ -87,3 +87,4 @@ $abbrev-properties: (
 
 .link-plain { --link-text-decoration-line: none; }
 
+.max-width { max-width: var(--container-max-width); }
