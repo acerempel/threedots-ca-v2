@@ -27,11 +27,13 @@
         </header>
         <section class="mt-1/2">{{ content }}</section>
         {{ taxonomy:year sort="title:desc" collection="posts" }}
-        <section id="y{{ title }}" class="article-list mt-3/4">
+        <section id="y{{ title }}" class="mt-3/4">
           <h2 class="font-size-4 medium sans-serif swing">{{ title }}</h2>
+          <div class="space-y-1">
             {{ entries sort="date:desc" status:is="published" }}
-              {{ partial:post-summary }}
+            {{ partial:post-summary }}
             {{ /entries }}
+          </div>
         </section>
         {{ /taxonomy:year }}
        </section>

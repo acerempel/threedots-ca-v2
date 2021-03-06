@@ -138,10 +138,6 @@ $media-medium: 645px;
 .thingy { flex-direction: row;
 @media (min-width: $media-medium) { flex-direction: column; }}
 
-.article-list article + article {
-  @include mt(1);
-}
-
 .swing {
   @include mb(0.5);
   @include mt(1);

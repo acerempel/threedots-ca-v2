@@ -24,6 +24,17 @@ $abbrev-properties: (
     @return "#{$numerator}\\/#{$denominator}";
   }
 }
+
+@each $num, $denom in $margin-ratios {
+  .space-y-#{ratio-string($num, $denom)} > * {
+    $ratio: $num / $denom;
+    @include line-height-multiple(margin-top, $ratio);
+    @include line-height-multiple(margin-bottom, $ratio);
+    &:first-child { @include mt(0) }
+    &:last-child { @include mb(0) }
+  }
+}
+
 @each $abbrev, $property in $abbrev-properties {
   @each $numerator, $denominator in $margin-ratios {
     .#{$abbrev}-#{ratio-string($numerator, $denominator)} {
