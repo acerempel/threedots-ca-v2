@@ -5,7 +5,6 @@
     "type": "project",
     "require": {
         "php": "^7.3 || ^8.0",
-        "edalzell/blade-directives": "^2.1",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
