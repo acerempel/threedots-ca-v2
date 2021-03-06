@@ -1,4 +1,4 @@
-<article class="serif p-space-1/4{{ if mode == "grid" }} dl-grid{{ /if }}">
+<article class="serif{{ if mode == "grid" }} dl-grid{{ /if }}">
      <div class="sans-serif mb-1/8 colour-lighter light">{{ partial:date :date="date" }}</div>
      <div>
        {{ unless (display_options | raw | in_array:hide_title) }}

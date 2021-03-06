@@ -14,7 +14,7 @@
 </nav>
 <section class="mt-1/2">
   <div class="prose mb-1/2"><h2 lang="fr">Quoi de neuf?</h2></div>
-  <div class="space-y-1/2">
+  <div class="space-y-1/2 p-space-1/8">
     {{ collection:posts limit="3" sort="date:desc" }}
     {{ partial:post-summary mode="grid" format="j. M Y" }}
     {{ /collection:posts }}
