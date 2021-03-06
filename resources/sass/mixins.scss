@@ -1,5 +1,11 @@
 @mixin line-height-multiple($property, $factor) {
-  #{$property}: calc(#{$factor} * var(--base-line-height));
+  @if $factor == 0 {
+    #{$property}: 0;
+  } @else if $factor == 1 {
+    #{$property}: var(--base-line-height);
+  } @else {
+    #{$property}: calc(#{$factor} * var(--base-line-height));
+  }
 }
 
 @mixin mt($factor) {
