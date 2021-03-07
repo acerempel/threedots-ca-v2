@@ -33,7 +33,7 @@
           {{ partial:settings }}
         </div>
         {{ unless url == "/" }}
-        <nav class="semibold colour-highlight flex row link-plain">
+        <nav class="semibold colour-highlight flex row wrap link-plain">
           {{ nav include_home="true" scope="item" }}
             <a href="{{ url }}"
                {{ if item:description }}title="{{ description }}"{{ /if }}
