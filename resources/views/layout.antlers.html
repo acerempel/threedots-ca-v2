@@ -34,12 +34,12 @@
         </div>
         {{ unless url == "/" }}
         <nav class="semibold colour-highlight flex row link-plain">
-          {{ nav include_home="true" }}
+          {{ nav include_home="true" scope="item" }}
             <a href="{{ url }}"
-               {{ if description }}title="{{ description }}"{{ /if }}
+               {{ if item:description }}title="{{ description }}"{{ /if }}
                {{ if type }}type="{{ type }}"{{ /if }}
                {{ if is_current }}aria-current="page"{{ /if }}
-            >{{ link_text ?? title }}</a>
+            >{{ item:link_text ?? item:title }}</a>
             <span class="flex-divider"></span>
           {{ /nav }}
         </nav>

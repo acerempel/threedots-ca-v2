@@ -1,0 +1,42 @@
+title: Prose
+fields:
+  -
+    handle: description
+    field:
+      character_limit: '280'
+      antlers: false
+      display: Description
+      type: textarea
+      icon: textarea
+      instructions: 'This will appear in the description meta tag and the title attribute of links.'
+      listable: true
+  -
+    handle: content
+    field:
+      always_show_set_button: false
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - anchor
+        - image
+        - table
+        - strikethrough
+        - horizontalrule
+      save_html: false
+      toolbar_mode: fixed
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      reading_time: false
+      fullscreen: true
+      allow_source: true
+      display: Content
+      type: bard
+      icon: bard
+      listable: false

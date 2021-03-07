@@ -3,12 +3,7 @@
   <h2>Table of contents</h2>
   <dl class="dl-grid">
     {{ nav }}
-    <dt>
-      <a href="{{ url }}"
-         {{ if type }}type="{{ type }}"{{ /if }}
-      >{{ link_text ?? title }}</a>
-    </dt>
-    <dd>{{ description }}</dd>
+    {{ partial:dl-link }}
     {{ /nav }}
   </dl>
 </nav>

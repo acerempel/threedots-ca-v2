@@ -1,0 +1,43 @@
+title: Marks
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: content
+        field: prose.content
+        config:
+          buttons:
+            - h2
+            - h3
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - image
+            - table
+            - strikethrough
+            - horizontalrule
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          validate:
+            - required
+      -
+        handle: description
+        field: prose.description
