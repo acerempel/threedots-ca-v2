@@ -27,13 +27,13 @@
   </head>
   <body class="colour-scheme-auto font-size-1">
     <div class="mx-auto pr-1 pl-1 max-width mt-1">
-      <header>
+      <header class="sans-serif">
         <div class="flex row space-between wrap">
-          <span class="semibold font-size-1 sans-serif">three dots …</span>
+          <span class="semibold font-size-1">three dots …</span>
           {{ partial:settings }}
         </div>
         {{ unless url == "/" }}
-        <nav class="regular colour-highlight flex row wrap link-plain sans-serif">
+        <nav class="regular colour-highlight flex row wrap link-plain">
           {{ nav include_home="true" scope="item" }}
             <a href="{{ url }}"
                {{ if item:description }}title="{{ description }}"{{ /if }}

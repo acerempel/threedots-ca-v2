@@ -21,7 +21,7 @@ p, ol, ul, nav, blockquote, aside, details, figcaption, dl, dd {
   line-height: var(--base-line-height);
   margin-bottom: calc(var(--paragraph-spacing-factor, 0) * var(--base-line-height));
   &:last-child { margin-bottom: 0; }
-  @include serif;
+  .prose & { @include serif };
 }
 
 li { margin-inline-start: 1.5em; }
