@@ -3,6 +3,11 @@ import replace from "@rollup/plugin-replace";
 
 const production = process.env.NODE_ENV === 'production';
 
+const replaceOptions = {
+  'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+  preventAssignment: true,
+};
+
 export default (async () => { return {
   input: 'resources/js/main.js',
   output: {
@@ -11,7 +16,7 @@ export default (async () => { return {
   },
   plugins: [
     resolve(),
-    replace({ 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV) }),
+    replace(replaceOptions),
     production && (await import('rollup-plugin-terser')).terser({ ecma: 2017 })
   ]
 } })();
