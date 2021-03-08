@@ -1,0 +1,9 @@
+[build]
+publish = "storage/app/static"
+command = "./build.sh"
+
+[build.environment]
+PHP_VERSION = "7.4"
+YARN_VERSION = "1.22.10"
+NODE_VERSION = "14.16.0"
+NODE_ENV = "production"

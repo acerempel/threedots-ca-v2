@@ -29,7 +29,7 @@ makeShakeOptions options =
     }
 
 rollupConfig = "rollup.config.js"
-yarnLockfile = "pnpm-lock.yaml"
+yarnLockfile = "yarn.lock"
 assetSourceDirectory = "resources"
 assetOutputDirectory = "public"
 siteOutputDirectory = "storage/app/static"
@@ -69,11 +69,11 @@ build options = do
     let envString = case env of
                       Development -> "development"
                       Production -> "production"
-    cmd_ (UserCommand "rollup -c") (AddEnv "NODE_ENV" envString) "pnpx rollup -c"
+    cmd_ (UserCommand "rollup -c") (AddEnv "NODE_ENV" envString) "yarn run rollup -c"
 
   yarnLockfile %> \_ -> do
     need ["package.json"]
-    cmd_ (UserCommand "install JS dependencies") "pnpm install"
+    cmd_ (UserCommand "install JS dependencies") "yarn install"
 
   cssFile %> \_ -> do
     scssFiles <- getDirectoryFiles "" [assetSourceDirectory </> scssSubdirectory </> "**/*.scss"]
@@ -82,7 +82,7 @@ build options = do
     cmd_ "sass" mainScssPath cssFile "--embed-sources"
     env <- needEnv EnvQ
     when (env == Production) $ do
-      cmd_ "pnpx postcss" cssFile "--replace --map --env production"
+      cmd_ "yarn run postcss" cssFile "--replace --map --env production"
 
 newtype SiteQ = SiteQ Mode
   deriving stock ( Eq, Show, Generic )
