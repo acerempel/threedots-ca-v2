@@ -1,16 +1,17 @@
 :root {
-  --base-line-height: 1.5rem;
-  --base-font-size: 1rem;
+  --base-font-size: clamp(0.875rem, 0.625vw + 12px, 1.125rem);
+  --base-line-height: clamp(1.3125rem, 0.9375vw + 18px, 1.6875rem);
   --default-font-stack: system-ui, -apple-system, BlinkMacSystemFont,
                Inter, 'Segoe UI', Lato, 'Open Sans',
                Ubuntu, Roboto, Noto,
                sans-serif;
-  --font-serif: 'Newsreader';
-  --font-sans-serif: 'Work Sans';
+  --font-serif: Vollkorn;
+  --font-sans-serif: Palanquin;
   --container-max-width: 56ch;
 }
 
 body {
+  font-size: var(--base-font-size);
   font-family: var(--default-font-stack);
   font-variant-ligatures: contextual;
   font-variant-numeric: proportional-nums;

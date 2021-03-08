@@ -1,4 +1,4 @@
-import { setUpControl, setColourScheme, setLineHeight } from './colour-scheme.js';
+import { setUpControl, setColourScheme } from './colour-scheme.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   let setValue = (control, val) => { control.value = val };
@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
   setUpControl("colour-scheme", setColourScheme, setValue);
-  setUpControl("line-height", setLineHeight, setValue);
   setUpControl("fonts", loadFancyFonts, (control, value) => { value === 'fancy' && (control.checked = true) });
   document.addEventListener("click", function(event) {
     let closestDropdown = event.target.closest(".dropdown");
