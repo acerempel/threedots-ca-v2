@@ -1,0 +1,80 @@
+title: 'Taxonomy Index'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: taxonomies
+        field:
+          max_items: 1
+          mode: default
+          display: Taxonomy
+          type: taxonomies
+          icon: taxonomy
+          listable: hidden
+      -
+        handle: content
+        field: prose.content
+        config:
+          buttons:
+            - h2
+            - h3
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - image
+            - table
+            - strikethrough
+            - horizontalrule
+          display: Preface
+      -
+        handle: template
+        field:
+          hide_partials: true
+          display: Template
+          type: template
+          icon: template
+          listable: hidden
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: link_text
+        field:
+          input_type: text
+          antlers: false
+          display: 'Link text'
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true
+      -
+        handle: description
+        field: prose.description
