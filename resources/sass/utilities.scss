@@ -1,4 +1,31 @@
 @use "mixins" as *;
+@use "settings";
+@use "sass:list";
+
+$responsive-utilities: (
+  flex: (display flex),
+  column: (flex-direction column),
+  row: (flex-direction row),
+  grid: (display grid),
+  hidden: (display none),
+  shown: (display initial),
+);
+
+@mixin class($class-name, $property) {
+  .#{$class-name} { #{list.nth($property, 1)}: list.nth($property, 2); }
+}
+
+@each $class-name, $property in $responsive-utilities {
+  @include class($class-name, $property);
+}
+
+@each $name, $width in settings.$media {
+  @each $class-name, $property in $responsive-utilities {
+    @media (min-width: $width) {
+      @include class($name + \: + $class-name, $property);
+    }
+  }
+}
 
 .p-space-1 { --paragraph-spacing-factor: 1; }
 .p-space-1\/2 { --paragraph-spacing-factor: 0.5; }
@@ -64,10 +91,7 @@ $abbrev-properties: (
 .serif { @include serif; }
 .sans-serif { @include sans-serif; }
 
-.flex { display: flex; }
 .space-between { justify-content: space-between; }
-.row { flex-direction: row; }
-.column { flex-direction: column; }
 .align-right { text-align: right; }
 .wrap { flex-wrap: wrap; }
 .flex-divider {

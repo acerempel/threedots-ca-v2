@@ -1,3 +1,12 @@
+@use "settings";
+@use "sass:map";
+
+@mixin min-width($media-name) {
+  @media (min-width: map.get(settings.$media, $media-name)) {
+    @content;
+  }
+}
+
 @mixin line-height-multiple($property, $factor) {
   @if $factor == 0 {
     #{$property}: 0;
@@ -48,3 +57,5 @@
 
 @mixin serif { font-family: var(--font-serif), var(--default-font-stack) }
 @mixin sans-serif { font-family: var(--font-sans-serif), var(--default-font-stack) }
+
+

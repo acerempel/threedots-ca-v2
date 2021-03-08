@@ -1,10 +1,8 @@
 @use "mixins" as *;
-
-$media-small: 376px;
-$media-medium: 645px;
+@use "settings";
+@use "sass:map";
 
 .dropdown-nav-control {
-  @media (min-width: $media-medium) { display: none; }
   cursor: pointer;
   &:focus { outline: auto; }
 }
@@ -12,13 +10,9 @@ $media-medium: 645px;
 .dropdown-nav-items {
   @include mt(0.25);
   @include font-size-2;
-  display: flex;
-  flex-direction: row;
-  @media (max-width: $media-medium + 0.1px) {
-    flex-direction: column;
+  @media (max-width: map.get(settings.$media, md) + 0.1px) {
     margin-top: 0;
     .nav-link:not(:first-child) { margin-top: calc(var(--base-line-height)*0.25) }
-    .flex-divider { display: none }
     padding: 0;
     background-color: var(--background-colour-normal);
     border: var(--text-colour-lighter) solid 0em;
@@ -42,9 +36,9 @@ $media-medium: 645px;
 }
 
 .dropdown-nav {
-  @media (max-width: $media-medium + 0.1px) {
-    margin-inline-start: auto;
-    align-self: center;
+  margin-inline-start: auto;
+  @include min-width(md) {
+    margin-inline-start: 0;
   }
 }
 
@@ -81,14 +75,14 @@ $media-medium: 645px;
   display: flex;
   flex-wrap: wrap;
   margin-inline-start: 1em;
-  @media (min-width: $media-small) {
+  @include min-width(sm) {
     margin-inline-start: 1.5em;
   }
   & li {
     list-style: none;
     margin-inline-start: 0;
     margin-inline-end: 1em;
-    @media (min-width: $media-small) {
+    @include min-width(sm) {
       margin-inline-end: 1.5em;
     }
     &:first-child::before {
@@ -135,13 +129,10 @@ $media-medium: 645px;
   h3 { @include font-size-3 }
 }
 
-.thingy { flex-direction: row;
-@media (min-width: $media-medium) { flex-direction: column; }}
-
 .swing {
   @include mb(0.5);
   @include mt(1);
-  @media (min-width: $media-medium) {
+  @include min-width(md) {
     height: 0;
     overflow: visible;
     transform-origin: top right;
@@ -154,7 +145,7 @@ $media-medium: 645px;
 }
 
 .dl-grid {
-  @media (min-width: $media-medium) {
+  @include min-width(md) {
     display: grid;
     grid-template-columns: var(--width-narrow, 6ch) 1fr;
     grid-column-gap: var(--column-gap, 2ch);
