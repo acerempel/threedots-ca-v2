@@ -3,9 +3,10 @@ title: Home
 template: home
 description: 'The website of Alan Rempel, an elliptical human man.'
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1614961966
-id: home
+updated_at: 1615566185
 blueprint: pages
+link_text: 'three dots …'
+id: home
 content:
   -
     type: heading

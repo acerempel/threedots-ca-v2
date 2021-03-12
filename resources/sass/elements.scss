@@ -4,7 +4,7 @@ a {
   color: var(--link-colour, inherit);
   text-decoration-line: var(--link-text-decoration-line, none);
   text-decoration-thickness: var(--link-initial-text-decoration-thickness, 0.05em);
-  text-underline-offset: 0.2em;
+  text-underline-offset: 0.18em;
   transition: text-decoration-thickness 0.2s;
 }
 a:hover {
@@ -15,7 +15,7 @@ a:hover {
 p, ol, ul, nav, blockquote, aside, details, figcaption, dl, dd {
   --link-colour: var(--text-colour-highlight);
   --link-initial-text-decoration-thickness: 0.05em;
-  --link-hover-text-decoration-thickness: 0.14em;
+  --link-hover-text-decoration-thickness: 0.1em;
   --link-text-decoration-line: underline;
   font-size: var(--base-font-size);
   line-height: var(--base-line-height);
@@ -78,11 +78,6 @@ mark {
   padding: 0.015em 0.1em;
   font-weight: 500;
   border-radius: 0.2em;
-}
-
-nav {
-  --link-hover-text-decoration-thickness: 0.15em;
-  --link-initial-text-decoration-thickness: 0.1em;
 }
 
 li { margin-bottom: calc(var(--base-line-height)*0.25); }
