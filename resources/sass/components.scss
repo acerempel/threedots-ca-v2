@@ -58,17 +58,19 @@
     cursor: pointer;
 }
 .dropdown-inner {
-  position: absolute;
-  width: -webkit-max-content;
-  width: max-content;
-  top: calc(var(--base-line-height)*1.25);
-  background-color: var(--background-colour-lighter);
-  padding: calc(var(--base-line-height)*0.25) calc(var(--base-line-height)*0.5);
-  box-sizing: content-box;
-  border-radius: 0.1em;
-  border: var(--text-colour-lighter) solid 0.1em;
-  right: 0;
-  z-index: 1;
+  @include min-width(md) {
+    position: absolute;
+    background-color: var(--background-colour-lighter);
+    padding: calc(var(--base-line-height)*0.25) calc(var(--base-line-height)*0.5);
+    box-sizing: content-box;
+    border-radius: 0.1em;
+    border: var(--text-colour-lighter) solid 0.1em;
+    right: 0;
+    z-index: 1;
+    width: -webkit-max-content;
+    width: max-content;
+    top: calc(var(--base-line-height)*1.25);
+  }
 }
 
 .inline-list {
@@ -149,5 +151,61 @@
     display: grid;
     grid-template-columns: var(--width-narrow, 6ch) 1fr;
     grid-column-gap: var(--column-gap, 2ch);
+  }
+}
+
+$full-width: settings.$max-width-content;
+$narrow-width: 10ch;
+
+.main-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  grid-template-areas: "header" "footer" "main";
+
+  @include min-width(md) {
+    grid-template-columns: minmax(auto, 30em) minmax(10ch, 6em);
+    grid-template-areas: "header footer" "main main";
+  }
+
+  @include min-width(lg) {
+    grid-template-columns: 16ch $full-width 16ch;
+    grid-template-areas: "header main footer";
+  }
+
+  & > header { grid-area: header; }
+  & > footer { grid-area: footer; }
+  & > main { grid-area: main; }
+}
+
+.top-nav > a {
+  flex: 1 0 auto;
+  margin-right: 1ch;
+  max-width: $narrow-width;
+  text-transform: lowercase;
+  &:last-child { margin-right: 0; }
+  @include min-width(lg) {
+    @include mb(0.25);
+  }
+}
+
+.main-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: calc(0.25 * var(--base-line-height)) var(--base-line-height);
+  background-color: var(--background-colour-lighter);
+  @include min-width(md) {
+    position: static;
+    padding: 0;
+    background-color: transparent;
+  }
+}
+
+body {
+  padding-bottom: var(--base-line-height);
+  @include min-width(md) {
+    padding-bottom: 0;
   }
 }
