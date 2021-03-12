@@ -145,7 +145,7 @@
 }
 
 .dl-grid {
-  @include min-width(md) {
+  @include min-width(sm) {
     display: grid;
     grid-template-columns: var(--width-narrow, 6ch) 1fr;
     grid-column-gap: var(--column-gap, 2ch);
