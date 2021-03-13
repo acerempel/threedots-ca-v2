@@ -47,6 +47,7 @@
       <main class="mt-3/4 mb-1">
           {{ template_content }}
       </main>
-    <script data-goatcounter="https://threedots_ca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <template id="goatcounter"><script data-goatcounter="https://threedots_ca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></template>
+    <script>if (window.location.hostname === 'www.threedots.ca') {document.body.appendChild(document.getElementById('goatcounter'))}</script>
   </body>
 </html>
