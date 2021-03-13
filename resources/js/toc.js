@@ -11,6 +11,12 @@ export default class extends HTMLElement {
     let nav = document.createElement('nav');
     nav.style.setProperty('display', 'flex');
     nav.style.setProperty('flex-direction', 'column');
+    let title = this.getAttribute('title');
+    if (title) {
+      let titleElement = document.createElement('h2');
+      titleElement.textContent = title;
+      this.shadowRoot.appendChild(titleElement);
+    }
     for (let heading of headings) {
       let id;
       if (!heading.id) {
