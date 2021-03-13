@@ -1,22 +1,23 @@
 import slugify from 'slug';
 
+const tocTemplate = document.createElement('template');
+tocTemplate.innerHTML = `
+<link rel="stylesheet" href="/css/main.css">
+<nav class="flex column">
+  <slot name="title"></slot>
+</nav>
+`;
+
 export default class extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({mode: 'open'});
+    let shadowRoot = this.attachShadow({mode: 'open'});
+    shadowRoot.appendChild(tocTemplate.content);
   }
 
   connectedCallback() {
     let headings = document.getElementById(this.getAttribute('for')).querySelectorAll('h2');
-    let nav = document.createElement('nav');
-    nav.style.setProperty('display', 'flex');
-    nav.style.setProperty('flex-direction', 'column');
-    let title = this.getAttribute('title');
-    if (title) {
-      let titleElement = document.createElement('h2');
-      titleElement.textContent = title;
-      this.shadowRoot.appendChild(titleElement);
-    }
+    let nav = this.shadowRoot.lastElementChild;
     for (let heading of headings) {
       let id;
       if (!heading.id) {
@@ -30,6 +31,5 @@ export default class extends HTMLElement {
       link.innerHTML = heading.innerHTML;
       nav.appendChild(link);
     }
-    this.shadowRoot.appendChild(nav);
   }
 }
