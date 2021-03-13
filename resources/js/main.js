@@ -1,4 +1,5 @@
 import { setUpControl, setColourScheme } from './colour-scheme.js';
+import TOC from './toc.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   let setValue = (control, val) => { control.value = val };
@@ -24,4 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
       dropdown.classList.remove('open');
     }
   });
+
+  if ('customElements' in window) {
+    customElements.define('table-of-contents', TOC);
+  }
 });

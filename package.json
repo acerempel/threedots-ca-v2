@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-replace": "^2.3.4",
     "autoprefixer": "^10.2.4",
@@ -15,6 +16,7 @@
     "postcss-cli": "^8.3.1",
     "rollup": "^2.34.0",
     "rollup-plugin-terser": "^7.0.2",
-    "sass": "^1.32.8"
+    "sass": "^1.32.8",
+    "slug": "^4.0.3"
   }
 }
