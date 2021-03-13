@@ -11,19 +11,8 @@
   })
 </script>
   <section itemscope itemtype="https://schema.org/Blog" id="all-posts">
-        <header class="sans-serif flex row md:column">
+        <header>
           <h1 class="font-size-5 regular">{{ title }}</h1>
-          <nav aria-labelledby="jty" class="mt-1/4 dropdown-nav colour-highlight">
-            <h2 class="font-size-2 mt-1/4 medium dropdown-nav-control md:hidden"
-                id="jty" tabindex="0"
-              >{{ partial:caret_right }}Jump to year …</h2>
-            <span id="years-nav" class="dropdown-nav-items link-plain flex column md:row">
-              {{ taxonomy:year sort="title:desc" }}
-              <a class="nav-link" href="#y{{ title }}">{{ title }}</a>
-              {{ unless last }}<span class="flex-divider hidden md:shown"></span>{{ /unless }}
-              {{ /taxonomy:year }}
-            </span>
-          </nav>
         </header>
         <section class="mt-1/2 prose">{{ content }}</section>
         {{ taxonomy:year sort="title:desc" collection="posts" }}
