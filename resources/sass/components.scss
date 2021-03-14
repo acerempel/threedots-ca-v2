@@ -2,55 +2,6 @@
 @use "settings";
 @use "sass:map";
 
-.dropdown-nav-control {
-  cursor: pointer;
-  &:focus { outline: auto; }
-}
-
-.dropdown-nav-items {
-  @include mt(0.25);
-  @include font-size-2;
-  @media (max-width: map.get(settings.$media, md) + 0.1px) {
-    margin-top: 0;
-    .nav-link:not(:first-child) { margin-top: calc(var(--base-line-height)*0.25) }
-    padding: 0;
-    background-color: var(--background-colour-normal);
-    border: var(--text-colour-lighter) solid 0em;
-    border-radius: 0.1em;
-    position: absolute;
-    overflow: hidden;
-    height: 0;
-    transition:
-      height 0.2s ease,
-      padding 0.2s ease,
-      border-width 0.2s ease,
-      background-color 0.2s ease;
-  }
-  .dropdown-nav.open & {
-    height: calc(var(--base-line-height) * 8.175);
-    background-color: var(--background-colour-lighter);
-    padding: calc(var(--base-line-height)*0.25) calc(var(--base-line-height)*0.5);
-    padding-top: calc(var(--base-line-height)*0.375);
-    border-width: 0.1em;
-  }
-}
-
-.dropdown-nav {
-  margin-inline-start: auto;
-  @include min-width(md) {
-    margin-inline-start: 0;
-  }
-}
-
-.dropdown-caret {
-  transform: rotate(0deg);
-  transition: transform 0.2s ease;
-  vertical-align: -0.1em;
-  .dropdown-nav.open & {
-    transform: rotate(90deg);
-  }
-}
-
 .dropdown {
   position: relative;
 }
