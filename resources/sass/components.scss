@@ -82,7 +82,7 @@
 .swing {
   @include mb(0.5);
   @include mt(1);
-  @include min-width(md) {
+  @include min-width(bg) {
     height: 0;
     overflow: visible;
     transform-origin: top right;
@@ -108,12 +108,14 @@ $narrow-width: 10ch;
 .main-grid {
   display: grid;
   justify-content: center;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(auto, $full-width);
   grid-template-areas: "header" "footer" "main";
   grid-row-gap: calc(0.25 * var(--base-line-height));
 
+  $mini-column: 21ch;
+
   @include min-width(bg) {
-    grid-template-columns: minmax(auto, 22em) minmax(14ch, 14em);
+    grid-template-columns: minmax(auto, $full-width - $mini-column) minmax(14ch, $mini-column);
     grid-template-areas: "header footer" "main main";
   }
 

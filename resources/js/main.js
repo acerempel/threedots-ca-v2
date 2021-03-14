@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   };
 
-  const isLargeViewport = window.matchMedia('(min-width: 1024px)');
+  const isLargeViewport = window.matchMedia('(min-width: 960px)');
   setOpen(isLargeViewport);
   isLargeViewport.addEventListener('change', setOpen);
 
