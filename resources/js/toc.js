@@ -42,7 +42,7 @@ export default class extends HTMLElement {
       }
       let link = document.createElement('a');
       link.href = '#' + id;
-      link.className = 'mt-1/8';
+      link.className = 'mt-1/8 light';
       link.innerHTML = heading.innerHTML;
       nav.appendChild(link);
       let knownHeading = { target: heading, link, preceding };

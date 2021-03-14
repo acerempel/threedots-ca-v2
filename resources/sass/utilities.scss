@@ -6,6 +6,7 @@ $responsive-utilities: (
   flex: (display flex),
   column: (flex-direction column),
   row: (flex-direction row),
+  row-reverse: (flex-direction row-reverse),
   grid: (display grid),
   hidden: (display none),
   shown: (display initial),
@@ -36,7 +37,7 @@ $responsive-utilities: (
 
 .mx-auto { margin-right: auto; margin-left: auto; }
 
-$margin-ratios: (1 1) (1 2) (1 4) (1 8) (3 4) (2 1);
+$margin-ratios: (1 1) (1 2) (1 4) (1 8) (3 8) (3 4) (2 1);
 
 $abbrev-properties: (
   mt: margin-top,
@@ -100,10 +101,9 @@ $abbrev-properties: (
 .space-between { justify-content: space-between; }
 .align-right { text-align: right; }
 .wrap { flex-wrap: wrap; }
-.flex-divider {
-  flex-basis: 0;
-  flex-grow: 1;
-  max-width: var(--base-line-height);
+
+.flexible-items > * {
+  flex: 1 0 auto;
 }
 
 .regular { font-weight: 400; }

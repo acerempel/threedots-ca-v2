@@ -138,7 +138,6 @@ $narrow-width: 10ch;
 }
 
 .top-nav > a {
-  flex: 1 0 auto;
   margin-right: 1ch;
   max-width: $narrow-width;
   text-transform: lowercase;
@@ -152,10 +151,9 @@ $narrow-width: 10ch;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: calc(0.25 * var(--base-line-height)) var(--base-line-height);
   background-color: var(--background-colour-lighter);
   @include min-width(md) {
-    padding: 0;
+    padding: 0 !important; // oh my
     background-color: transparent;
   }
 }
