@@ -16,3 +16,4 @@ yarn-error.log
 /make
 /public/css/
 /public/js/
+/.rollup.cache/

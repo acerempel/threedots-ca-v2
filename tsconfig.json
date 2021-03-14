@@ -1,0 +1,15 @@
+{
+  "include": ["resources/js/**/*"],
+  "compilerOptions": {
+    "strict": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "composite": true,
+    "target": "ES2017",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "outDir": "compiled"
+  }
+}
