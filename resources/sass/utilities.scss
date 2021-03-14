@@ -6,9 +6,12 @@ $responsive-utilities: (
   flex: (display flex),
   column: (flex-direction column),
   row: (flex-direction row),
+  row-reverse: (flex-direction row-reverse),
   grid: (display grid),
   hidden: (display none),
   shown: (display initial),
+  relative: (position relative),
+  fixed: (position fixed),
 );
 
 @mixin class($class-name, $property) {
@@ -32,22 +35,26 @@ $responsive-utilities: (
 .p-space-1\/4 { --paragraph-spacing-factor: 0.25; }
 .p-space-1\/8 { --paragraph-spacing-factor: 0.125; }
 
-.mx-auto { margin-right: auto; margin-left: auto; }
-
-$margin-ratios: (1 1) (1 2) (1 4) (1 8) (3 4);
+$margin-ratios: (1 1) (1 2) (1 4) (1 8) (3 8) (3 4) (2 1);
 
 $abbrev-properties: (
   mt: margin-top,
   mb: margin-bottom,
+  mr: margin-right,
+  ml: margin-left,
   pl: padding-left,
   pr: padding-right,
+  pt: padding-top,
+  pb: padding-bottom,
+  left: left,
+  right: right,
 );
 
 @function ratio-string($numerator, $denominator) {
   @if $numerator == 0 {
     @return "0";
-  } @else if $numerator == 1 and $denominator == 1 {
-    @return "1";
+  } @else if $denominator == 1 {
+    @return $numerator;
   } @else {
     @return "#{$numerator}\\/#{$denominator}";
   }
@@ -75,12 +82,6 @@ $abbrev-properties: (
 .colour-normal { color: var(--text-colour-normal) }
 .colour-lighter { color: var(--text-colour-lighter) }
 
-.border-top {
-  border-top: calc(var(--base-line-height)*0.0875) solid var(--text-colour-normal);
-  padding-top: calc(var(--base-line-height)*0.9125);
-  margin-top: calc(var(--base-line-height)*1.125);
-}
-
 .font-size-5 { @include font-size-5 }
 .font-size-4\.5 { @include font-size-4\.5 }
 .font-size-4 { @include font-size-4 }
@@ -92,12 +93,10 @@ $abbrev-properties: (
 .sans-serif { @include sans-serif; }
 
 .space-between { justify-content: space-between; }
-.align-right { text-align: right; }
 .wrap { flex-wrap: wrap; }
-.flex-divider {
-  flex-basis: 0;
-  flex-grow: 1;
-  max-width: var(--base-line-height);
+
+.flexible-items > * {
+  flex: 1 0 auto;
 }
 
 .regular { font-weight: 400; }
@@ -106,8 +105,6 @@ $abbrev-properties: (
 .bold, strong { font-weight: 700; }
 .light { font-weight: 300; }
 .oblique, cite { font-style: oblique; }
-
-.block { display: block; }
 
 .smallcaps {
   font-variant-caps: all-small-caps;
@@ -118,8 +115,6 @@ $abbrev-properties: (
   font-size: smaller;
   line-height: calc(var(--base-line-height)*0.875);
 }
-
-.inline-block { display: inline-block; margin-inline-end: 1.5ch; }
 
 .link-plain { --link-text-decoration-line: none; }
 

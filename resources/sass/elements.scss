@@ -20,8 +20,11 @@ p, ol, ul, nav, blockquote, aside, details, figcaption, dl, dd {
   font-size: var(--base-font-size);
   line-height: var(--base-line-height);
   margin-bottom: calc(var(--paragraph-spacing-factor, 0) * var(--base-line-height));
-  &:last-child { margin-bottom: 0; }
   .prose & { @include serif };
+}
+
+p, ol, ul, nav, blockquote, aside {
+    &:last-child { margin-bottom: 0; }
 }
 
 li { margin-inline-start: 1.5em; }
@@ -82,3 +85,5 @@ mark {
 
 li { margin-bottom: calc(var(--base-line-height)*0.25); }
 li::last-child { margin-bottom: 0; }
+
+details > summary { cursor: pointer }

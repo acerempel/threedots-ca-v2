@@ -2,74 +2,28 @@
 @use "settings";
 @use "sass:map";
 
-.dropdown-nav-control {
-  cursor: pointer;
-  &:focus { outline: auto; }
-}
-
-.dropdown-nav-items {
-  @include mt(0.25);
-  @include font-size-2;
-  @media (max-width: map.get(settings.$media, md) + 0.1px) {
-    margin-top: 0;
-    .nav-link:not(:first-child) { margin-top: calc(var(--base-line-height)*0.25) }
-    padding: 0;
-    background-color: var(--background-colour-normal);
-    border: var(--text-colour-lighter) solid 0em;
-    border-radius: 0.1em;
-    position: absolute;
-    overflow: hidden;
-    height: 0;
-    transition:
-      height 0.2s ease,
-      padding 0.2s ease,
-      border-width 0.2s ease,
-      background-color 0.2s ease;
-  }
-  .dropdown-nav.open & {
-    height: calc(var(--base-line-height) * 8.175);
-    background-color: var(--background-colour-lighter);
-    padding: calc(var(--base-line-height)*0.25) calc(var(--base-line-height)*0.5);
-    padding-top: calc(var(--base-line-height)*0.375);
-    border-width: 0.1em;
-  }
-}
-
-.dropdown-nav {
-  margin-inline-start: auto;
-  @include min-width(md) {
-    margin-inline-start: 0;
-  }
-}
-
-.dropdown-caret {
-  transform: rotate(0deg);
-  transition: transform 0.2s ease;
-  vertical-align: -0.1em;
-  .dropdown-nav.open & {
-    transform: rotate(90deg);
-  }
-}
-
-.dropdown {
-  position: relative;
-}
-.dropdown-toggle {
-    cursor: pointer;
-}
-.dropdown-inner {
-  @include min-width(md) {
+@mixin dropdown-inner {
     position: absolute;
     background-color: var(--background-colour-lighter);
     padding: calc(var(--base-line-height)*0.25) calc(var(--base-line-height)*0.5);
     box-sizing: content-box;
-    border-radius: 0.1em;
-    border: var(--text-colour-lighter) solid 0.1em;
-    right: 0;
+    border-radius: 0.25em;
+    box-shadow: 0px 2px 8px 1px rgba(16 16 16 / 0.5);
     z-index: 1;
     width: -webkit-max-content;
     width: max-content;
-    top: calc(var(--base-line-height)*1.25);
+    bottom: calc(2.125 * var(--base-line-height));
+    @include min-width(md) {
+      bottom: initial;
+      top: calc(var(--base-line-height)*1.25);
+    }
+}
+
+.dropdown-inner { @include dropdown-inner; }
+
+.md-max\:dropdown-inner {
+  @media (max-width: map.get(settings.$media, lg) - 0.1px) {
+    @include dropdown-inner;
   }
 }
 
@@ -117,12 +71,6 @@
   p, blockquote, figcaption, aside, details, li {
     @include serif;
   }
-  aside {
-    background-color: var(--background-colour-lighter);
-    padding: calc(0.625 * var(--base-line-height));
-    border-radius: 0.1em;
-    color: var(--text-colour-lighter);
-  }
 }
 
 .big {
@@ -162,15 +110,17 @@ $narrow-width: 10ch;
   justify-content: center;
   grid-template-columns: 1fr;
   grid-template-areas: "header" "footer" "main";
+  grid-row-gap: calc(0.25 * var(--base-line-height));
 
-  @include min-width(md) {
-    grid-template-columns: minmax(auto, 30em) minmax(10ch, 6em);
+  @include min-width(bg) {
+    grid-template-columns: minmax(auto, 22em) minmax(14ch, 14em);
     grid-template-areas: "header footer" "main main";
   }
 
   @include min-width(lg) {
-    grid-template-columns: 16ch $full-width 16ch;
+    grid-template-columns: 14ch $full-width 14ch;
     grid-template-areas: "header main footer";
+    grid-column-gap: 2ch;
   }
 
   & > header { grid-area: header; }
@@ -179,7 +129,6 @@ $narrow-width: 10ch;
 }
 
 .top-nav > a {
-  flex: 1 0 auto;
   margin-right: 1ch;
   max-width: $narrow-width;
   text-transform: lowercase;
@@ -190,22 +139,12 @@ $narrow-width: 10ch;
 }
 
 .main-footer {
-  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: calc(0.25 * var(--base-line-height)) var(--base-line-height);
   background-color: var(--background-colour-lighter);
   @include min-width(md) {
-    position: static;
-    padding: 0;
+    padding: 0 !important; // oh my
     background-color: transparent;
-  }
-}
-
-body {
-  padding-bottom: var(--base-line-height);
-  @include min-width(md) {
-    padding-bottom: 0;
   }
 }

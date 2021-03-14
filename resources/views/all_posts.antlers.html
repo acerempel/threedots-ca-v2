@@ -1,29 +1,6 @@
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const navControl = document.querySelector('.dropdown-nav-control');
-    navControl.addEventListener('click', (event) => {
-      let dropdown = event.target.closest('.dropdown-nav');
-      dropdown.classList.toggle("open");
-    });
-    navControl.addEventListener('keydown', (event) => {
-      if (event.key === "Enter") event.target.closest('.dropdown-nav').classList.toggle('open');
-    });
-  })
-</script>
-  <section itemscope itemtype="https://schema.org/Blog">
-        <header class="sans-serif flex row md:column">
+  <section itemscope itemtype="https://schema.org/Blog" id="all-posts">
+        <header>
           <h1 class="font-size-5 regular">{{ title }}</h1>
-          <nav aria-labelledby="jty" class="mt-1/4 dropdown-nav colour-highlight">
-            <h2 class="font-size-2 mt-1/4 medium dropdown-nav-control md:hidden"
-                id="jty" tabindex="0"
-              >{{ partial:caret_right }}Jump to year …</h2>
-            <span id="years-nav" class="dropdown-nav-items link-plain flex column md:row">
-              {{ taxonomy:year sort="title:desc" }}
-              <a class="nav-link" href="#y{{ title }}">{{ title }}</a>
-              {{ unless last }}<span class="flex-divider hidden md:shown"></span>{{ /unless }}
-              {{ /taxonomy:year }}
-            </span>
-          </nav>
         </header>
         <section class="mt-1/2 prose">{{ content }}</section>
         {{ taxonomy:year sort="title:desc" collection="posts" }}
@@ -37,3 +14,12 @@
         </section>
         {{ /taxonomy:year }}
        </section>
+
+{{ section:footer }}
+<details class="dropdown lg:open">
+  <summary class="lg:hidden">Jump to year …</summary>
+  <table-of-contents for="all-posts" class="md-max:dropdown-inner left-1/2">
+    <h2 class="font-size-2 medium mb-1/4 hidden lg:shown" slot="title">Jump to year …</h2>
+  </table-of-contents>
+</details>
+{{ /section:footer }}
