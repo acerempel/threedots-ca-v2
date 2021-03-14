@@ -79,7 +79,7 @@ export default class extends HTMLElement {
       }
       let headingObserverOptions = {
         threshold: 1.0,
-        rootMargin: "0px 0px 0px 12.5%",
+        rootMargin: "0px 0px 0px 25%",
       };
       let headingObserver = new IntersectionObserver(headingObserverCallback, headingObserverOptions);
       for (let heading of headings) {
