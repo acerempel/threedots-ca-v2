@@ -159,10 +159,3 @@ $narrow-width: 10ch;
     background-color: transparent;
   }
 }
-
-body {
-  padding-bottom: var(--base-line-height);
-  @include min-width(md) {
-    padding-bottom: 0;
-  }
-}

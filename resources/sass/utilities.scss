@@ -36,7 +36,7 @@ $responsive-utilities: (
 
 .mx-auto { margin-right: auto; margin-left: auto; }
 
-$margin-ratios: (1 1) (1 2) (1 4) (1 8) (3 4);
+$margin-ratios: (1 1) (1 2) (1 4) (1 8) (3 4) (2 1);
 
 $abbrev-properties: (
   mt: margin-top,
@@ -52,8 +52,8 @@ $abbrev-properties: (
 @function ratio-string($numerator, $denominator) {
   @if $numerator == 0 {
     @return "0";
-  } @else if $numerator == 1 and $denominator == 1 {
-    @return "1";
+  } @else if $denominator == 1 {
+    @return $numerator;
   } @else {
     @return "#{$numerator}\\/#{$denominator}";
   }
