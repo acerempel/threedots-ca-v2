@@ -2,10 +2,6 @@
 @use "settings";
 @use "sass:map";
 
-.dropdown {
-  position: relative;
-}
-
 @mixin dropdown-inner {
     position: absolute;
     background-color: var(--background-colour-lighter);
@@ -13,19 +9,20 @@
     box-sizing: content-box;
     border-radius: 0.25em;
     box-shadow: 0px 2px 8px 1px rgba(16 16 16 / 0.5);
-    right: 0;
     z-index: 1;
     width: -webkit-max-content;
     width: max-content;
-    top: calc(var(--base-line-height)*1.25);
+    bottom: calc(2.125 * var(--base-line-height));
+    @include min-width(md) {
+      bottom: initial;
+      top: calc(var(--base-line-height)*1.25);
+    }
 }
 
-.md\:dropdown-inner {
-  @include min-width(md) { @include dropdown-inner; }
-}
+.dropdown-inner { @include dropdown-inner; }
 
-.md-only\:dropdown-inner {
-  @media (min-width: map.get(settings.$media, md)) and (max-width: map.get(settings.$media, lg) - 0.1px) {
+.md-max\:dropdown-inner {
+  @media (max-width: map.get(settings.$media, lg) - 0.1px) {
     @include dropdown-inner;
   }
 }
