@@ -41,9 +41,11 @@
           {{ /nav }}
         </nav>
       </header>
-      <footer class="main-footer mt-1 sans-serif">
+      <footer class="main-footer mt-1 sans-serif fixed md:relative">
+        <div class="lg:fixed">
           {{ partial:settings }}
           {{ yield:footer }}
+        </div>
       </footer>
       <main class="mt-3/4 mb-1">
           {{ template_content }}

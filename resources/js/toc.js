@@ -3,7 +3,8 @@ import slugify from 'slug';
 const tocTemplate = document.createElement('template');
 tocTemplate.innerHTML = `
 <link rel="stylesheet" href="/css/main.css">
-<nav class="flex column">
+<style>:host { display: block } a[aria-current = "true"] { font-weight: 500; }</style>
+<nav class="flex column link-plain">
   <slot name="title"></slot>
 </nav>
 `;
@@ -41,6 +42,7 @@ export default class extends HTMLElement {
       }
       let link = document.createElement('a');
       link.href = '#' + id;
+      link.className = 'mt-1/8';
       link.innerHTML = heading.innerHTML;
       nav.appendChild(link);
       let knownHeading = { target: heading, link, preceding };

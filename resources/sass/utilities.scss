@@ -9,6 +9,8 @@ $responsive-utilities: (
   grid: (display grid),
   hidden: (display none),
   shown: (display initial),
+  relative: (position relative),
+  fixed: (position fixed),
 );
 
 @mixin class($class-name, $property) {

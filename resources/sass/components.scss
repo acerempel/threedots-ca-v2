@@ -169,8 +169,9 @@ $narrow-width: 10ch;
   }
 
   @include min-width(lg) {
-    grid-template-columns: 16ch $full-width 16ch;
+    grid-template-columns: 14ch $full-width 14ch;
     grid-template-areas: "header main footer";
+    grid-column-gap: 2ch;
   }
 
   & > header { grid-area: header; }
@@ -190,14 +191,12 @@ $narrow-width: 10ch;
 }
 
 .main-footer {
-  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   padding: calc(0.25 * var(--base-line-height)) var(--base-line-height);
   background-color: var(--background-colour-lighter);
   @include min-width(md) {
-    position: static;
     padding: 0;
     background-color: transparent;
   }
