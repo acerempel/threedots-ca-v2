@@ -15,9 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   setUpControl("fonts", loadFancyFonts, (control, value) => { value === 'fancy' && (control.checked = true) });
   document.addEventListener("click", function(event) {
     let closestDropdown = event.target.closest(".dropdown");
-    let dropdown;
     if (closestDropdown) return;
-    if (dropdown = document.querySelector('.dropdown[open]')) {
+    for (let dropdown of document.querySelectorAll('.dropdown[open]')) {
       dropdown.open = false;
     }
   });
@@ -25,4 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if ('customElements' in window) {
     customElements.define('table-of-contents', TOC);
   }
+
+  const setOpen = (event) => {
+    document.querySelectorAll(".lg\\:open").forEach((element) => {
+      element.open = event.matches;
+    })
+  };
+
+  const isLargeViewport = window.matchMedia('(min-width: 1024px)');
+  setOpen(isLargeViewport);
+  isLargeViewport.addEventListener('change', setOpen);
 });
