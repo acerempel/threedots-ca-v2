@@ -74,12 +74,6 @@
   p, blockquote, figcaption, aside, details, li {
     @include serif;
   }
-  aside {
-    background-color: var(--background-colour-lighter);
-    padding: calc(0.625 * var(--base-line-height));
-    border-radius: 0.1em;
-    color: var(--text-colour-lighter);
-  }
 }
 
 .big {

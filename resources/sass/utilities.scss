@@ -35,8 +35,6 @@ $responsive-utilities: (
 .p-space-1\/4 { --paragraph-spacing-factor: 0.25; }
 .p-space-1\/8 { --paragraph-spacing-factor: 0.125; }
 
-.mx-auto { margin-right: auto; margin-left: auto; }
-
 $margin-ratios: (1 1) (1 2) (1 4) (1 8) (3 8) (3 4) (2 1);
 
 $abbrev-properties: (
@@ -82,12 +80,6 @@ $abbrev-properties: (
 .colour-normal { color: var(--text-colour-normal) }
 .colour-lighter { color: var(--text-colour-lighter) }
 
-.border-top {
-  border-top: calc(var(--base-line-height)*0.0875) solid var(--text-colour-normal);
-  padding-top: calc(var(--base-line-height)*0.9125);
-  margin-top: calc(var(--base-line-height)*1.125);
-}
-
 .font-size-5 { @include font-size-5 }
 .font-size-4\.5 { @include font-size-4\.5 }
 .font-size-4 { @include font-size-4 }
@@ -99,7 +91,6 @@ $abbrev-properties: (
 .sans-serif { @include sans-serif; }
 
 .space-between { justify-content: space-between; }
-.align-right { text-align: right; }
 .wrap { flex-wrap: wrap; }
 
 .flexible-items > * {
@@ -113,8 +104,6 @@ $abbrev-properties: (
 .light { font-weight: 300; }
 .oblique, cite { font-style: oblique; }
 
-.block { display: block; }
-
 .smallcaps {
   font-variant-caps: all-small-caps;
   letter-spacing: 0.02em;
@@ -124,8 +113,6 @@ $abbrev-properties: (
   font-size: smaller;
   line-height: calc(var(--base-line-height)*0.875);
 }
-
-.inline-block { display: inline-block; margin-inline-end: 1.5ch; }
 
 .link-plain { --link-text-decoration-line: none; }
 
