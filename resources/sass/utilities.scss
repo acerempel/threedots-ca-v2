@@ -41,8 +41,12 @@ $margin-ratios: (1 1) (1 2) (1 4) (1 8) (3 4);
 $abbrev-properties: (
   mt: margin-top,
   mb: margin-bottom,
+  mr: margin-right,
+  ml: margin-left,
   pl: padding-left,
   pr: padding-right,
+  pt: padding-top,
+  pb: padding-bottom,
 );
 
 @function ratio-string($numerator, $denominator) {

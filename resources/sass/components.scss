@@ -119,9 +119,10 @@ $narrow-width: 10ch;
   justify-content: center;
   grid-template-columns: 1fr;
   grid-template-areas: "header" "footer" "main";
+  grid-row-gap: calc(0.25 * var(--base-line-height));
 
-  @include min-width(md) {
-    grid-template-columns: minmax(auto, 30em) minmax(10ch, 6em);
+  @include min-width(bg) {
+    grid-template-columns: minmax(auto, 22em) minmax(14ch, 14em);
     grid-template-areas: "header footer" "main main";
   }
 
