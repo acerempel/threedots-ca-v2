@@ -20,10 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dropdown = document.querySelector('.dropdown[open]')) {
       dropdown.open = false;
     }
-    if (event.target.closest('.dropdown-nav-control')) return;
-    if (dropdown = document.querySelector('.dropdown-nav.open')) {
-      dropdown.classList.remove('open');
-    }
   });
 
   if ('customElements' in window) {
