@@ -13,6 +13,8 @@ export default class extends HTMLElement {
     super();
     let shadowRoot = this.attachShadow({mode: 'open'});
     shadowRoot.appendChild(tocTemplate.content);
+    this.visibleHeadings = new Map();
+    this.currentHeading = null;
   }
 
   connectedCallback() {
@@ -31,5 +33,43 @@ export default class extends HTMLElement {
       link.innerHTML = heading.innerHTML;
       nav.appendChild(link);
     }
+    if ('IntersectionObserver' in window) {
+      let headingObserverCallback = function (entries, _observer) {
+        let highestIntersectingEntry = entries.reduce(
+          (acc, next) => {
+            if (next.isIntersecting && !acc.isIntersecting) {
+              return next;
+            } else if (next.isIntersecting /* && acc.isIntersecting */) {
+              return next.boundingClientRect.top > acc.boundingClientRect.top ? next : acc;
+            } else /* if (!next.isIntersecting) */ {
+              return acc;
+            };
+          });
+        if (highestIntersectingEntry.isIntersecting) {
+          this.setCurrentHeading(highestIntersectingEntry);
+        } else {
+
+        };
+        for (let entry of entries) {
+          if (entry.isIntersecting) {
+            let previousOffset = this.visibleHeadings.get(entry.target);
+            if (previousOffset) {}
+            this.visibleHeadings.set(entry.target, entry.boundingClientRect.top);
+          } else {
+            this.visibleHeadings.delete(entry.target);
+          }
+        }
+      }
+      let headingObserverOptions = {
+        threshold: 1.0,
+        rootMargin: "0px 0px 0px 32px",
+      };
+      let headingObserver = new IntersectionObserver(headingObserverCallback, headingObserverOptions);
+      for (let heading of headings) {
+        headingObserver.observe(heading);
+      }
+    }
   }
+
+  activeHeading
 }
