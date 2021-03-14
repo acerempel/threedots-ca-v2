@@ -55,8 +55,7 @@
   position: relative;
 }
 
-.dropdown-inner {
-  @include min-width(md) {
+@mixin dropdown-inner {
     position: absolute;
     background-color: var(--background-colour-lighter);
     padding: calc(var(--base-line-height)*0.25) calc(var(--base-line-height)*0.5);
@@ -68,6 +67,15 @@
     width: -webkit-max-content;
     width: max-content;
     top: calc(var(--base-line-height)*1.25);
+}
+
+.md\:dropdown-inner {
+  @include min-width(md) { @include dropdown-inner; }
+}
+
+.md-only\:dropdown-inner {
+  @media (min-width: map.get(settings.$media, md)) and (max-width: map.get(settings.$media, lg) - 0.1px) {
+    @include dropdown-inner;
   }
 }
 
