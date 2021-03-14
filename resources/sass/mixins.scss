@@ -26,23 +26,23 @@
 }
 
 @mixin font-size-5 {
-  font-size: calc(var(--base-font-size)*2);
-  line-height: calc(var(--base-line-height)*1.75);
+  font-size: calc(var(--heading-font-size)*2);
+  line-height: calc(var(--heading-line-height)*1.75);
 }
 
 @mixin font-size-4\.5 {
-  font-size: calc(var(--base-font-size)*1.75);
-  line-height: calc(var(--base-line-height)*1.5);
+  font-size: calc(var(--heading-font-size)*1.75);
+  line-height: calc(var(--heading-line-height)*1.5);
 }
 
 @mixin font-size-4 {
-  font-size: calc(var(--base-font-size)*1.5);
-  line-height: calc(var(--base-line-height)*1.25);
+  font-size: calc(var(--heading-font-size)*1.5);
+  line-height: calc(var(--heading-line-height)*1.25);
 }
 
 @mixin font-size-3 {
-  font-size: calc(var(--base-font-size)*1.25);
-  line-height: calc(var(--base-line-height)*1.125);
+  font-size: calc(var(--heading-font-size)*1.25);
+  line-height: calc(var(--heading-line-height)*1.125);
 }
 
 @mixin font-size-2 {
