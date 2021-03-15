@@ -1,13 +1,14 @@
 @use "mixins" as *;
 @use "settings";
 @use "sass:list";
+@use "sass:meta";
 
 .p-space-1 { --paragraph-spacing-factor: 1; }
 .p-space-1\/2 { --paragraph-spacing-factor: 0.5; }
 .p-space-1\/4 { --paragraph-spacing-factor: 0.25; }
 .p-space-1\/8 { --paragraph-spacing-factor: 0.125; }
 
-$margin-ratios: (1 1) (1 2) (1 4) (1 8) (3 8) (3 4) (2 1);
+$margin-ratios: (0 1) (auto 1) (1 1) (1 2) (1 4) (1 8) (3 8) (3 4) (2 1);
 
 $abbrev-properties: (
   mt: margin-top,
@@ -31,12 +32,22 @@ $abbrev-properties: (
 }
 
 @each $num, $denom in $margin-ratios {
+  $ratio: $num / $denom;
+
   .space-y-#{ratio-string($num, $denom)} > * {
     $ratio: $num / $denom;
     @include line-height-multiple(margin-top, $ratio);
     @include line-height-multiple(margin-bottom, $ratio);
-    &:first-child { @include mt(0) }
-    &:last-child { @include mb(0) }
+    &:first-child { margin-top: 0 }
+    &:last-child { margin-bottom: 0 }
+  }
+
+  .space-x-#{ratio-string($num, $denom)} > * {
+    $ratio: $num / $denom;
+    @include line-height-multiple(margin-left, $ratio);
+    @include line-height-multiple(margin-right, $ratio);
+    &:first-child { margin-left: 0 }
+    &:last-child { margin-right: 0 }
   }
 }
 
@@ -59,10 +70,18 @@ $responsive-utilities: (
   relative: (position relative),
   fixed: (position fixed),
   p-0: (padding 0),
+  smaller: (--base-font-size 0.875rem) (--base-line-height 1.25rem),
+  bigger: (--base-font-size 1.125rem) (--base-line-height 1.625rem),
 );
 
-@mixin utility-class($class-name, $property) {
-  .#{$class-name} { #{list.nth($property, 1)}: list.nth($property, 2) !important; }
+@mixin utility-class($class-name, $utility) {
+  @if meta.type-of(list.nth($utility, 1)) == list {
+    @each $property-name, $property-value in $utility {
+      .#{$class-name} { #{$property-name}: $property-value !important; }
+    }
+  } @else {
+    .#{$class-name} { #{list.nth($utility, 1)}: list.nth($utility, 2) !important; }
+  }
 }
 
 @each $class-name, $property in $responsive-utilities {
@@ -80,6 +99,10 @@ $responsive-utilities: (
 .colour-highlight { color: var(--text-colour-highlight) }
 .colour-normal { color: var(--text-colour-normal) }
 .colour-lighter { color: var(--text-colour-lighter) }
+
+.bg-normal { background-color: var(--background-colour-normal) }
+.bg-lighter { background-color: var(--background-colour-lighter) }
+.bg-transparent { background-color: transparent }
 
 .font-size-5 { @include font-size-5 }
 .font-size-4\.5 { @include font-size-4\.5 }
@@ -108,11 +131,6 @@ $responsive-utilities: (
 .smallcaps {
   font-variant-caps: all-small-caps;
   letter-spacing: 0.02em;
-}
-
-.smaller {
-  font-size: smaller;
-  line-height: calc(var(--base-line-height)*0.875);
 }
 
 .link-plain { --link-text-decoration-line: none; }

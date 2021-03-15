@@ -83,12 +83,10 @@
   h1, h2, h3, h4 {
     @include sans-serif;
     @include mb(var(--paragraph-spacing-factor, 0));
-    &::last-child { margin-bottom: 0; }
   }
   h1 {
     @include font-size-4\.5;
     font-weight: 400;
-    @include mb(0.75);
   }
   h2 {
     @include font-size-3;
