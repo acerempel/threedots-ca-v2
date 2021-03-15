@@ -112,11 +112,12 @@ $narrow-width: 10ch;
   grid-template-areas: "header" "footer" "main";
   grid-row-gap: calc(0.25 * var(--base-line-height));
 
-  $mini-column: 21ch;
+  $mini-column: 19ch;
 
   @include min-width(bg) {
-    grid-template-columns: minmax(auto, $full-width - $mini-column) minmax(14ch, $mini-column);
+    grid-template-columns: #{$full-width - $mini-column - 1ch} $mini-column;
     grid-template-areas: "header footer" "main main";
+    grid-column-gap: 1ch;
   }
 
   @include min-width(lg) {
