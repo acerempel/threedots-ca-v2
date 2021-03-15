@@ -132,7 +132,6 @@ $narrow-width: 10ch;
 
 .top-nav > a {
   margin-right: 1ch;
-  max-width: $narrow-width;
   text-transform: lowercase;
   &:last-child { margin-right: 0; }
   @include min-width(lg) {
