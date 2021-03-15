@@ -12,10 +12,10 @@
     z-index: 1;
     width: -webkit-max-content;
     width: max-content;
-    bottom: calc(100% + 0.5rem);
+    bottom: calc(100% + 0.75rem);
     @include min-width(md) {
       bottom: initial;
-      top: calc(100% + 0.125rem);
+      top: calc(100% + 0.5rem);
     }
 }
 
@@ -30,6 +30,8 @@
 }
 
 .dropdown {
+  position: relative;
+
   summary {
     display: block;
     &::-webkit-details-marker {
