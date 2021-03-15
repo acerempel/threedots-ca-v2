@@ -11,7 +11,7 @@ const replaceOptions = {
 };
 
 export default (async () => { return {
-  input: 'resources/js/main.js',
+  input: 'resources/js/main.ts',
   output: {
     file: 'public/js/main.js',
     format: 'iife'

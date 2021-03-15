@@ -12,11 +12,8 @@
     </template>
     <script>
       'use strict';
-      function loadFancyFonts() {
-        document.head.appendChild(document.getElementById('fancyFonts').content);
-        window.fancyFontsLoaded = true;
-      }
-      if(localStorage.getItem('fonts')==='fancy')loadFancyFonts();
+      var l = false;function ffl(){return l}function lff(){document.head.appendChild(document.getElementById('fancyFonts').content);l = true;}
+      if(localStorage.getItem('fonts')==='fancy')lff();
     </script>
     <link rel="canonical" href="https://www.threedots.ca{{ url }}">
     <meta name="google-site-verification" content="DhZUgJjUNSRFdHhycAzNuCiTKprn-1Csb49PU1lsABo">

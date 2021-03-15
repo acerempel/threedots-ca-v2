@@ -12,14 +12,22 @@ tocTemplate.innerHTML = `
 const hasAriaCurrent = 'ariaCurrent' in document.createElement('a');
 
 const setAriaCurrent = hasAriaCurrent
-  ? el => el.ariaCurrent = "true"
-  : el => el.setAttribute("aria-current", "true");
+  ? (el: Element) => el.ariaCurrent = "true"
+  : (el: Element) => el.setAttribute("aria-current", "true");
 
 const removeAriaCurrent = hasAriaCurrent
-  ? el => el.ariaCurrent = "false"
-  : el => el.removeAttribute("aria-current");
+  ? (el: Element) => el.ariaCurrent = "false"
+  : (el: Element) => el.removeAttribute("aria-current");
 
-export default class extends HTMLElement {
+interface HeadingInfo {
+  preceding: HeadingInfo | null;
+  link: HTMLAnchorElement;
+  target: Element;
+}
+
+export class TOC extends HTMLElement {
+  private knownHeadings: Map<Element,HeadingInfo>;
+  private currentHeading: HeadingInfo | null;
   constructor() {
     super();
     let shadowRoot = this.attachShadow({mode: 'open'});
@@ -29,13 +37,13 @@ export default class extends HTMLElement {
   }
 
   connectedCallback() {
-    let headings = document.getElementById(this.getAttribute('for')).querySelectorAll('h2');
-    let nav = this.shadowRoot.lastElementChild;
+    let headings: NodeListOf<Element> = document.getElementById(this.getAttribute('for')!)!.querySelectorAll('h2');
+    let nav = this.shadowRoot!.lastElementChild!;
     let preceding = null;
     for (let heading of headings) {
-      let id;
+      let id: string;
       if (!heading.id) {
-        id = slugify(heading.textContent);
+        id = slugify(heading.textContent!);
         heading.id = id;
       } else {
         id = heading.id;
@@ -45,36 +53,36 @@ export default class extends HTMLElement {
       link.className = 'mt-1/8 light';
       link.innerHTML = heading.innerHTML;
       nav.appendChild(link);
-      let knownHeading = { target: heading, link, preceding };
+      let knownHeading: HeadingInfo = { target: heading, link, preceding };
       this.knownHeadings.set(heading, knownHeading);
       preceding = knownHeading;
     }
     if ('IntersectionObserver' in window) {
-      let headingObserverCallback = (entries, _observer) => {
-        let incumbentEntry = null;
+      let headingObserverCallback = (entries: Array<IntersectionObserverEntry>, _observer: IntersectionObserver) => {
+        let incumbentEntry: IntersectionObserverEntry | null = null;
         /* relevantEntry is, if at least one entry is intersecting, the
            intersecting entry closest to the top of the viewport, otherwise the
            entry closest to the top of the viewport. */
         let lookingForIncumbent = true;
-        let relevantEntry = entries.reduce(
-          (acc, next) => {
-            if (lookingForIncumbent && next === this.currentHeading?.target) {
-              incumbentEntry = next;
-              lookingForIncumbent = false;
-            }
-            if (next.isIntersecting && !acc?.isIntersecting) {
-              return next;
-            } else if (next.isIntersecting /* && acc && acc.isIntersecting */) {
-              return next.boundingClientRect.top < acc.boundingClientRect.top ? next : acc;
-            } else /* if (!next.isIntersecting) */ {
-              return acc;
-            };
-          }, null);
+        const reducer = (acc : IntersectionObserverEntry | null, next: IntersectionObserverEntry, _index: number, _array: Array<IntersectionObserverEntry>) => {
+          if (lookingForIncumbent && next.target === this.currentHeading?.target) {
+            incumbentEntry = next;
+            lookingForIncumbent = false;
+          }
+          if (next.isIntersecting && !acc?.isIntersecting) {
+            return next;
+          } else if (next.isIntersecting /* && acc && acc.isIntersecting */) {
+            return next.boundingClientRect.top < acc!.boundingClientRect.top ? next : acc;
+          } else /* if (!next.isIntersecting) */ {
+            return acc;
+          };
+        }
+        let relevantEntry = entries.reduce(reducer, null);
         if (relevantEntry?.isIntersecting) {
           this.setCurrentHeading(relevantEntry);
-        } else if (incumbentEntry && incumbentEntry.boundingClientRect.top > 0) {
+        } else if (incumbentEntry && (incumbentEntry as IntersectionObserverEntry).boundingClientRect.top > 0) {
           // not intersecting, but positive: below the viewport
-          this.setCurrentHeading(this.currentHeading.preceding);
+          this.setCurrentHeading(this.currentHeading?.preceding ?? null);
         }; // otherwise, current heading does not change.
       }
       let headingObserverOptions = {
@@ -88,12 +96,11 @@ export default class extends HTMLElement {
     }
   }
 
-  setCurrentHeading(newHeadingEntry) {
+  setCurrentHeading(newHeadingEntry: { target: Element } | null) {
     if (this.currentHeading) removeAriaCurrent(this.currentHeading.link);
-    let newCurrentHeading = newHeadingEntry && this.knownHeadings.get(newHeadingEntry.target);
+    let newCurrentHeading = newHeadingEntry && (this.knownHeadings.get(newHeadingEntry.target) ?? null);
     if (newCurrentHeading) { setAriaCurrent(newCurrentHeading.link) };
     this.currentHeading = newCurrentHeading;
-
   }
 
 }

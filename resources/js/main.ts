@@ -1,11 +1,14 @@
-import { setUpControl, setColourScheme } from './colour-scheme.js';
-import TOC from './toc.js';
+import { setUpControl, setColourScheme } from './colour-scheme';
+import { TOC } from './toc';
+
+declare function lff(): void;
+declare function ffl(): boolean;
 
 document.addEventListener('DOMContentLoaded', () => {
-  let setValue = (control, val) => { control.value = val };
-  let loadFancyFonts = (val) => {
+  let setValue = (control: HTMLInputElement, val: string) => { control.value = val };
+  let loadFancyFonts = (val: string) => {
     if (val === 'fancy') {
-      if (!window.fancyFontsLoaded) window.loadFancyFonts();
+      if (!ffl()) lff();
       document.body.classList.remove('fonts-default');
     } else {
       document.body.classList.add('fonts-default');
@@ -13,11 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   setUpControl("colour-scheme", setColourScheme, setValue);
-  setUpControl("fonts", loadFancyFonts, (control, value) => { value === 'fancy' && (control.checked = true) });
+  setUpControl("fonts", loadFancyFonts, (control: HTMLInputElement, value: string) => { value === 'fancy' && (control.checked = true) });
 
-  const setOpen = (event) => {
+  const setOpen = (event: MediaQueryList | MediaQueryListEvent) => {
     document.querySelectorAll(".lg\\:open").forEach((element) => {
-      element.open = event.matches;
+      (element as HTMLDetailsElement).open = event.matches;
     })
   };
 
@@ -25,12 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
   setOpen(isLargeViewport);
   isLargeViewport.addEventListener('change', setOpen);
 
-  document.addEventListener("click", function(event) {
-    let closestDropdown = event.target.closest(".dropdown");
+  document.addEventListener("click", function(event: MouseEvent) {
+    let closestDropdown = (event?.target as Element).closest(".dropdown");
     if (closestDropdown) return;
     let selector = isLargeViewport.matches ? ".dropdown[open]:not(.lg\\:open)" : ".dropdown[open]";
     for (let dropdown of document.querySelectorAll(selector)) {
-      dropdown.open = false;
+      (dropdown as HTMLDetailsElement).open = false;
     }
   });
 
