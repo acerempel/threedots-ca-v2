@@ -46,8 +46,6 @@ $abbrev-properties: (
   pr: padding-right,
   pt: padding-top,
   pb: padding-bottom,
-  left: left,
-  right: right,
 );
 
 @function ratio-string($numerator, $denominator) {
