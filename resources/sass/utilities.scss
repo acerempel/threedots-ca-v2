@@ -43,7 +43,7 @@ $abbrev-properties: (
 @each $abbrev, $property in $abbrev-properties {
   @each $numerator, $denominator in $margin-ratios {
     .#{$abbrev}-#{ratio-string($numerator, $denominator)} {
-      @include line-height-multiple($property, $numerator / $denominator)
+      @include line-height-multiple($property, $numerator / $denominator, !important)
     }
   }
 }
@@ -61,18 +61,18 @@ $responsive-utilities: (
   p-0: (padding 0),
 );
 
-@mixin class($class-name, $property) {
-  .#{$class-name} { #{list.nth($property, 1)}: list.nth($property, 2); }
+@mixin utility-class($class-name, $property) {
+  .#{$class-name} { #{list.nth($property, 1)}: list.nth($property, 2) !important; }
 }
 
 @each $class-name, $property in $responsive-utilities {
-  @include class($class-name, $property);
+  @include utility-class($class-name, $property);
 }
 
 @each $name, $width in settings.$media {
   @each $class-name, $property in $responsive-utilities {
     @media (min-width: $width) {
-      @include class($name + \: + $class-name, $property);
+      @include utility-class($name + \: + $class-name, $property);
     }
   }
 }

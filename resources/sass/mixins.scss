@@ -7,13 +7,13 @@
   }
 }
 
-@mixin line-height-multiple($property, $factor) {
+@mixin line-height-multiple($property, $factor, $important: null) {
   @if $factor == 0 {
-    #{$property}: 0;
+    #{$property}: 0 $important;
   } @else if $factor == 1 {
-    #{$property}: var(--base-line-height);
+    #{$property}: var(--base-line-height) $important;
   } @else {
-    #{$property}: calc(#{$factor} * var(--base-line-height));
+    #{$property}: calc(#{$factor} * var(--base-line-height)) $important;
   }
 }
 
