@@ -29,22 +29,24 @@
   @include min-width(md) { right: 0; }
 }
 
-.dropdown summary {
-  display: block;
-  &::-webkit-details-marker {
-    display: none;
+.dropdown {
+  summary {
+    display: block;
+    &::-webkit-details-marker {
+      display: none;
+    }
   }
-}
 
-.dropdown .caret {
-  transition: transform 0.2s ease;
-  vertical-align: -0.125em;
-  margin-left: -4px;
-}
+  .caret {
+    transition: transform 0.2s ease;
+    vertical-align: -0.125em;
+    margin-left: -4px;
+  }
 
-.dropdown[open] .caret {
-  transform: rotate(-90deg);
-  @include min-width(md) { transform: rotate(90deg); }
+  &[open] .caret {
+    transform: rotate(-90deg);
+    @include min-width(md) { transform: rotate(90deg); }
+  }
 }
 
 .dropdown-inner { @include dropdown-inner; }
