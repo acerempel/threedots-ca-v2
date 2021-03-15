@@ -128,7 +128,6 @@
 }
 
 $full-width: settings.$max-width-content;
-$narrow-width: 10ch;
 
 .main-grid {
   display: grid;
@@ -137,23 +136,24 @@ $narrow-width: 10ch;
   grid-template-areas: "header" "footer" "main";
   grid-row-gap: calc(0.25 * var(--base-line-height));
 
-  $mini-column: 19ch;
-
   @include min-width(bg) {
-    grid-template-columns: #{$full-width - $mini-column - 1ch} $mini-column;
-    grid-template-areas: "header footer" "main main";
-    grid-column-gap: 1ch;
+    grid-template-columns: minmax(28ch, 35ch) 1fr minmax(14ch, 21ch);
+    grid-template-areas: "header rien footer" "main main main";
+    grid-column-gap: 2ch;
   }
 
   @include min-width(lg) {
     grid-template-columns: 14ch $full-width 14ch;
     grid-template-areas: "header main footer";
-    grid-column-gap: 2ch;
   }
 
   & > header { grid-area: header; }
   & > footer { grid-area: footer; }
-  & > main { grid-area: main; }
+  & > main {
+    grid-area: main;
+    max-width: $full-width;
+    justify-self: center;
+  }
 }
 
 .top-nav > a {
