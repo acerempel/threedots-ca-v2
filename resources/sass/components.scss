@@ -171,7 +171,6 @@ $full-width: settings.$max-width-content;
   right: 0;
   background-color: var(--background-colour-lighter);
   @include min-width(md) {
-    padding: 0 !important; // oh my
     background-color: transparent;
   }
 }
