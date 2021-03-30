@@ -5,8 +5,8 @@ declare function lff(): void;
 declare function ffl(): boolean;
 
 document.addEventListener('DOMContentLoaded', () => {
-  let setValue = (control: HTMLInputElement, val: string) => { control.value = val };
-  let loadFancyFonts = (val: string) => {
+  const setValue = (control: HTMLInputElement, val: string) => { control.value = val };
+  const loadFancyFonts = (val: string) => {
     if (val === 'fancy') {
       if (!ffl()) lff();
       document.body.classList.remove('fonts-default');
@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
   isLargeViewport.addEventListener('change', setOpen);
 
   document.addEventListener("click", function(event: MouseEvent) {
-    let closestDropdown = (event?.target as Element).closest(".dropdown");
+    const closestDropdown = (event?.target as Element).closest(".dropdown");
     if (closestDropdown) return;
-    let selector = isLargeViewport.matches ? ".dropdown[open]:not(.lg\\:open)" : ".dropdown[open]";
-    for (let dropdown of document.querySelectorAll(selector)) {
+    const selector = isLargeViewport.matches ? ".dropdown[open]:not(.lg\\:open)" : ".dropdown[open]";
+    for (const dropdown of document.querySelectorAll(selector)) {
       (dropdown as HTMLDetailsElement).open = false;
     }
   });
