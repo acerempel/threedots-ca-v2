@@ -44,15 +44,7 @@
         </nav>
       </header>
       <footer class="main-footer sans-serif hidden md:shown">
-        <div class="lg:fixed flex row-reverse space-between lg:column">
-          <details class="dropdown mb-1/4">
-            <summary>{{ partial:caret_right }} Settings</summary>
-            <div class="dropdown-inner right bg-lighter pb-1/4 pt-1/4 pr-1/2 pl-1/2">
-              {{ partial:settings }}
-            </div>
-          </details>
           {{ yield:footer }}
-        </div>
       </footer>
       <main>
           {{ template_content }}
