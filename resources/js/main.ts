@@ -24,13 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
   setUpControl("fonts", loadFancyFonts, (control: HTMLInputElement, value: string) => { value === 'fancy' && (control.checked = true) });
 
   document.addEventListener("click", function(event: MouseEvent) {
-    const closestDropdown = (event?.target as Element).closest(".dropdown");
+    const closestDropdown = (event?.target as Element).closest(".drawer");
     if (closestDropdown) return;
-    const selector = ".dropdown[open]";
-    for (const dropdown of document.querySelectorAll(selector)) {
-      (dropdown as HTMLDetailsElement).open = false;
+    for (const toggle of document.querySelectorAll('.drawer-toggle[aria-expanded = "true"]')) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      document.getElementById(toggle.getAttribute('aria-controls')!)!.classList.add('hidden')
+      toggle.setAttribute('aria-expanded', 'false')
     }
   });
+
+  for (const toggle of document.querySelectorAll('.drawer-toggle')) {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const drawer = document.getElementById(toggle.getAttribute('aria-controls')!)!;
+    toggle.addEventListener('click', (event) => {
+      event.stopPropagation();
+      drawer.classList.remove('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+    })
+  }
 
   if ('customElements' in window) {
     customElements.define('table-of-contents', TOC);
