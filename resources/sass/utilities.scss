@@ -1,4 +1,5 @@
 @use "mixins" as *;
+@use "font" as *;
 @use "settings";
 @use "sass:list";
 @use "sass:meta";
@@ -7,8 +8,6 @@
 .p-space-1\/2 { --paragraph-spacing-factor: 0.5; }
 .p-space-1\/4 { --paragraph-spacing-factor: 0.25; }
 .p-space-1\/8 { --paragraph-spacing-factor: 0.125; }
-
-$margin-ratios: (0 1) (auto 1) (1 1) (1 2) (1 4) (1 8) (3 8) (3 4) (2 1);
 
 $abbrev-properties: (
   mt: margin-top,
@@ -21,42 +20,19 @@ $abbrev-properties: (
   pb: padding-bottom,
 );
 
-@function ratio-string($numerator, $denominator) {
-  @if $numerator == 0 {
-    @return "0";
-  } @else if $denominator == 1 {
-    @return $numerator;
-  } @else {
-    @return "#{$numerator}\\/#{$denominator}";
+@include ratios ((space-y: (top bottom), space-x: (left right))) using ($sides, $ratio) {
+  $side-one: list.nth($sides, 1);
+  $side-two: list.nth($sides, 2);
+  & > * {
+    @include line-height-multiple(margin-#{$side-one}, $ratio);
+    @include line-height-multiple(margin-#{$side-two}, $ratio);
+    &:first-child { margin-#{$side-one}: 0 }
+    &:last-child { margin-#{$side-two}: 0 }
   }
 }
 
-@each $num, $denom in $margin-ratios {
-  $ratio: $num / $denom;
-
-  .space-y-#{ratio-string($num, $denom)} > * {
-    $ratio: $num / $denom;
-    @include line-height-multiple(margin-top, $ratio);
-    @include line-height-multiple(margin-bottom, $ratio);
-    &:first-child { margin-top: 0 }
-    &:last-child { margin-bottom: 0 }
-  }
-
-  .space-x-#{ratio-string($num, $denom)} > * {
-    $ratio: $num / $denom;
-    @include line-height-multiple(margin-left, $ratio);
-    @include line-height-multiple(margin-right, $ratio);
-    &:first-child { margin-left: 0 }
-    &:last-child { margin-right: 0 }
-  }
-}
-
-@each $abbrev, $property in $abbrev-properties {
-  @each $numerator, $denominator in $margin-ratios {
-    .#{$abbrev}-#{ratio-string($numerator, $denominator)} {
-      @include line-height-multiple($property, $numerator / $denominator, !important)
-    }
-  }
+@include ratios ($abbrev-properties) using ($property, $ratio) {
+  @include line-height-multiple($property, $ratio, !important);
 }
 
 $responsive-utilities: (
@@ -69,40 +45,36 @@ $responsive-utilities: (
   shown: (display initial),
   relative: (position relative),
   fixed: (position fixed),
+  static: (position static),
+  absolute: (position absolute),
+  inline: (display inline),
+  block: (display block),
   p-0: (padding 0),
   smaller: (--base-font-size 0.875rem) (--base-line-height 1.25rem),
   bigger: (--base-font-size 1.125rem) (--base-line-height 1.625rem),
+  bg-normal: (background-color var(--background-colour-normal)),
+  bg-lighter: (background-color var(--background-colour-lighter)),
+  bg-transparent: (background-color transparent),
+  light: (font-weight 300),
+  regular: (font-weight 400),
+  medium: (font-weight 500),
+  semibold: (font-weight 600),
+  bold: (font-weight 700),
 );
 
-@mixin utility-class($class-name, $utility) {
+@include responsive ($responsive-utilities) using ($utility) {
   @if meta.type-of(list.nth($utility, 1)) == list {
     @each $property-name, $property-value in $utility {
-      .#{$class-name} { #{$property-name}: $property-value !important; }
+      #{$property-name}: $property-value !important;
     }
   } @else {
-    .#{$class-name} { #{list.nth($utility, 1)}: list.nth($utility, 2) !important; }
-  }
-}
-
-@each $class-name, $property in $responsive-utilities {
-  @include utility-class($class-name, $property);
-}
-
-@each $name, $width in settings.$media {
-  @each $class-name, $property in $responsive-utilities {
-    @media (min-width: $width) {
-      @include utility-class($name + \: + $class-name, $property);
-    }
+    #{list.nth($utility, 1)}: list.nth($utility, 2) !important;
   }
 }
 
 .colour-highlight { color: var(--text-colour-highlight) }
 .colour-normal { color: var(--text-colour-normal) }
 .colour-lighter { color: var(--text-colour-lighter) }
-
-.bg-normal { background-color: var(--background-colour-normal) }
-.bg-lighter { background-color: var(--background-colour-lighter) }
-.bg-transparent { background-color: transparent }
 
 .font-size-5 { @include font-size-5 }
 .font-size-4\.5 { @include font-size-4\.5 }
@@ -121,11 +93,8 @@ $responsive-utilities: (
   flex: 1 0 auto;
 }
 
-.regular { font-weight: 400; }
-.medium { font-weight: 500; }
 .semibold, b { font-weight: 600; }
 .bold, strong { font-weight: 700; }
-.light { font-weight: 300; }
 .oblique, cite { font-style: oblique; }
 
 .smallcaps {

@@ -1,22 +1,39 @@
 @use "mixins" as *;
+@use "font" as *;
 @use "settings";
-@use "sass:map";
+@use "sass:list";
 
-@mixin dropdown-inner {
-    position: absolute;
-    background-color: var(--background-colour-lighter);
-    padding: calc(var(--base-line-height)*0.25) calc(var(--base-line-height)*0.5);
-    box-sizing: content-box;
-    border-radius: 0.25em;
-    box-shadow: 0px 2px 8px 1px rgba(16 16 16 / 0.5);
-    z-index: 1;
-    width: -webkit-max-content;
-    width: max-content;
-    bottom: calc(100% + 0.75rem);
-    @include min-width(md) {
-      bottom: initial;
-      top: calc(100% + 0.5rem);
+$has-toggle: ();
+
+@mixin toggle ($class, $properties) {
+  .#{$class} {
+    @each $name, $value in $properties {
+      #{$name}: var(--#{$class}, $value);
     }
+  }
+  @if list.index($has-toggle, $class) == null {
+    @include responsive (($class + -on, unset) ($class + -off, null)) using ($value) {
+      --#{$class}: #{$value};
+    }
+    $has-toggle: list.append($has-toggle, $class) !global;
+  }
+}
+
+@include toggle (dropdown-inner, (
+  box-sizing: content-box,
+  border-radius: 0.25em,
+  box-shadow: 0px 2px 8px 1px rgba(16 16 16 / 0.5),
+  z-index: 1,
+  width: max-content,
+  bottom: calc(100% + 0.75rem),
+));
+
+
+@include min-width(md) {
+  @include toggle (dropdown-inner, (
+    bottom: initial,
+    top: calc(100% + 0.5rem),
+  ))
 }
 
 .left {
@@ -48,14 +65,6 @@
   &[open] .caret {
     transform: rotate(-90deg);
     @include min-width(md) { transform: rotate(90deg); }
-  }
-}
-
-.dropdown-inner { @include dropdown-inner; }
-
-.md-max\:dropdown-inner {
-  @media (max-width: map.get(settings.$media, lg) - 0.1px) {
-    @include dropdown-inner;
   }
 }
 

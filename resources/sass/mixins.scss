@@ -2,7 +2,7 @@
 @use "sass:map";
 
 @mixin min-width($media-name) {
-  @media (min-width: map.get(settings.$media, $media-name)) {
+  @media (min-width: map.get(settings.$breakpoints, $media-name)) {
     @content;
   }
 }
@@ -17,6 +17,41 @@
   }
 }
 
+@function ratio-string($numerator, $denominator) {
+  @if $numerator == 0 {
+    @return "0";
+  } @else if $denominator == 1 {
+    @return $numerator;
+  } @else {
+    @return "#{$numerator}\\/#{$denominator}";
+  }
+}
+
+@mixin ratios ($classes) {
+  @each $class, $info in $classes {
+    @each $num, $denom in settings.$ratios {
+      $ratio: $num / $denom;
+      .#{$class}-#{ratio-string($num, $denom)} {
+        @content($info, $ratio);
+      }
+    }
+  }
+}
+
+@mixin responsive ($classes) {
+  @each $class, $info in $classes {
+    .#{$class} { @content($info); }
+  }
+  @each $name, $width in settings.$breakpoints {
+    @media (min-width: $width) {
+      @each $class, $info in $classes {
+        .#{$name}\:#{$class} { @content($info); }
+      }
+    }
+  }
+}
+
+
 @mixin mt($factor) {
   @include line-height-multiple("margin-top", $factor)
 }
@@ -24,36 +59,3 @@
 @mixin mb($factor) {
   @include line-height-multiple("margin-bottom", $factor)
 }
-
-@mixin font-size-5 {
-  font-size: calc(var(--base-font-size)*3);
-  line-height: calc(var(--base-line-height)*2.5);
-}
-
-@mixin font-size-4\.5 {
-  font-size: calc(var(--base-font-size)*2);
-  line-height: calc(var(--base-line-height)*1.75);
-}
-
-@mixin font-size-4 {
-  font-size: calc(var(--base-font-size)*1.5);
-  line-height: calc(var(--base-line-height)*1.25);
-}
-
-@mixin font-size-3 {
-  font-size: calc(var(--base-font-size)*1.25);
-  line-height: calc(var(--base-line-height)*1.125);
-}
-
-@mixin font-size-2 {
-  font-size: calc(var(--base-font-size)*1.125);
-  line-height: var(--base-line-height);
-}
-
-@mixin font-size-1 {
-  font-size: var(--base-font-size);
-  line-height: var(--base-line-height);
-}
-
-@mixin serif { font-family: var(--font-serif), var(--default-font-stack) }
-@mixin sans-serif { font-family: var(--font-sans-serif), var(--default-font-stack) }
