@@ -15,7 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const setLineHeight = (lh: string) => {
+    document.documentElement.style.setProperty('--base-line-height', lh + 'rem');
+  }
+
   setUpControl("colour-scheme", setColourScheme, setValue);
+  setUpControl("line-height", setLineHeight, setValue);
   setUpControl("fonts", loadFancyFonts, (control: HTMLInputElement, value: string) => { value === 'fancy' && (control.checked = true) });
 
   document.addEventListener("click", function(event: MouseEvent) {
