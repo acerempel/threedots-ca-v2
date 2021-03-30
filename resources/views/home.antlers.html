@@ -5,8 +5,10 @@
 <nav class="prose p-space-1/2">
   <h2>Table of contents</h2>
   <dl class="dl-grid" style="--width-narrow: 8ch">
-    {{ nav }}
+    {{ nav scope="item" }}
+    {{ unless item:hide_from_toc }}
     {{ partial:dl-link }}
+    {{ /unless }}
     {{ /nav }}
   </dl>
 </nav>

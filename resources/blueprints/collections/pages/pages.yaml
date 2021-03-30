@@ -11,6 +11,16 @@ sections:
           validate:
             - required
       -
+        handle: description
+        field:
+          character_limit: '280'
+          antlers: false
+          display: Description
+          type: textarea
+          icon: textarea
+          instructions: 'Meta description and suchlike'
+          listable: true
+      -
         handle: content
         field:
           always_show_set_button: false
@@ -70,16 +80,6 @@ sections:
           listable: false
           localizable: true
       -
-        handle: description
-        field:
-          character_limit: '280'
-          antlers: false
-          display: Description
-          type: textarea
-          icon: textarea
-          instructions: 'Meta description and suchlike'
-          listable: true
-      -
         handle: link_text
         field:
           input_type: text
@@ -88,4 +88,11 @@ sections:
           type: text
           icon: text
           instructions: 'Show this in links to this page instead of the title'
+          listable: hidden
+      -
+        handle: hide_from_toc
+        field:
+          display: 'Hide from homepage TOC'
+          type: toggle
+          icon: toggle
           listable: hidden
