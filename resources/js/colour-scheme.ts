@@ -19,11 +19,11 @@ function setLineHeight(size: string): void {
 
 function setUpControl(elementId: string, applyValue: (val: string) => void, setValue: (control: HTMLInputElement, val: string) => void): void {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const control = document.getElementById(elementId)! as HTMLInputElement;
+  const control = document.getElementById(elementId) as HTMLInputElement | null;
   const stored = window.localStorage.getItem(elementId);
   if (stored) {
     applyValue(stored);
-    setValue(control, stored);
+    if (control) setValue(control, stored);
   }
   const callback = function(event: Event) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -32,5 +32,5 @@ function setUpControl(elementId: string, applyValue: (val: string) => void, setV
     applyValue(val);
     window.localStorage.setItem(elementId, val);
   };
-  control.addEventListener("change", callback);
+  if (control) control.addEventListener("change", callback);
 }
