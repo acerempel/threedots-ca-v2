@@ -1,10 +1,10 @@
 @mixin font-size-5 {
   font-size: calc(var(--base-font-size)*3);
-  line-height: calc(var(--base-line-height)*2.5);
+  line-height: calc(var(--base-line-height)*2);
 }
 
 @mixin font-size-4\.5 {
-  font-size: calc(var(--base-font-size)*2);
+  font-size: calc(var(--base-font-size)*2.25);
   line-height: calc(var(--base-line-height)*1.75);
 }
 

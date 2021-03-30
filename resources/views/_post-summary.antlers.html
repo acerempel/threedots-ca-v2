@@ -2,8 +2,7 @@
      <div class="sans-serif mb-1/8 colour-lighter light">{{ partial:date :date="date" }}</div>
      <div>
        {{ unless (display_options | raw | in_array:hide_title) }}
-       <h3 class="sans-serif font-size-2 semibold"
-           style="margin-bottom:calc(var(--paragraph-spacing-factor)*var(--base-line-height))"
+       <h3 class="sans-serif font-size-2 semibold mb-1/8"
           ><a href="{{ url }}">{{ title }}</a></h3>
        {{ /unless }}
        {{ if description }}
