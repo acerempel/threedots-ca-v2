@@ -26,6 +26,8 @@ $has-toggle: ();
   z-index: 1,
   width: max-content,
   bottom: calc(100% + 0.75rem),
+  background-color: var(--background-colour-lighter),
+  position: absolute,
 ));
 
 
