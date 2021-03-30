@@ -63,8 +63,9 @@ build options = do
     if "ssg" `elem` targets options then Production else mode options
 
   jsBundle %> \_ -> do
-    jsFiles <- getDirectoryFiles "" [assetSourceDirectory </> jsSubdirectory </> "*.js" ]
-    need $ rollupConfig : yarnLockfile : jsFiles
+    let jsDirectory = assetSourceDirectory </> jsSubdirectory
+    jsFiles <- getDirectoryFiles jsDirectory ["*.js", "*.ts"]
+    need $ rollupConfig : yarnLockfile : map (jsDirectory </>) jsFiles
     env <- needEnv EnvQ
     let envString = case env of
                       Development -> "development"
