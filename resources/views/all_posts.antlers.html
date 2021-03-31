@@ -1,8 +1,8 @@
-  <section itemscope itemtype="https://schema.org/Blog" id="all-posts">
+  <div itemscope itemtype="https://schema.org/Blog" id="all-posts">
         <header>
           <h1 class="font-size-5 regular sans-serif">{{ title }}</h1>
+          <div class="mt-1/2 prose">{{ content }}</div>
         </header>
-        <section class="mt-1/2 prose">{{ content }}</section>
         {{ taxonomy:year sort="title:desc" collection="posts" }}
         <section id="y{{ title }}" class="mt-3/4">
           <h2 class="font-size-4 medium sans-serif swing">{{ title }}</h2>
@@ -13,7 +13,7 @@
           </div>
         </section>
         {{ /taxonomy:year }}
-       </section>
+       </div>
 
 {{ section:footer }}
 <button
