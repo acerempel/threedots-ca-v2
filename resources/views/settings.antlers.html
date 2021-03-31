@@ -1,8 +1,6 @@
 <div class="prose p-space-1/2">
   <h1>{{ title }}</h1>
-  <form class="p-space-1/8 mb-1/2">
-    {{ partial:settings }}
-  </form>
+  {{ partial:settings }}
   <p id=ex>Some example prose, so that you can see the effect of your changes:</p>
   <article aria-describedby=ex>
     {{ markdown:indent }}

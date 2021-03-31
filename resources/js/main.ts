@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setUpControl("colour-scheme", setColourScheme, setValue);
   setUpControl("line-height", setLineHeight, setValue);
-  setUpControl("fonts", loadFancyFonts, (control: HTMLInputElement, value: string) => { value === 'fancy' && (control.checked = true) });
+  setUpControl("fonts", loadFancyFonts, setValue);
 
   document.addEventListener("click", function(event: MouseEvent) {
     const closestDropdown = (event?.target as Element).closest(".drawer");
