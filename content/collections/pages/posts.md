@@ -1,10 +1,11 @@
 ---
 title: Ellipses
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1615565752
+updated_at: 1617213655
 template: all_posts
-description: 'Sundry elisions and trailings-off, magnified so that what was elided is visible. Ordered chronologically.'
+description: 'Sundry elisions and trailings-off, magnified so that what was elided is visible.'
 blueprint: pages
+hide_from_toc: false
 id: cb50e28a-6dbd-4565-a73d-349bb5478a7b
 content:
   -
