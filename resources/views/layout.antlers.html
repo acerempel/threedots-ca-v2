@@ -36,7 +36,7 @@
                {{ if type }}type="{{ type }}"{{ /if }}
                {{ if is_current }}aria-current="page"{{ /if }}
                class="
-                {{ if is_current or is_parent }}semibold thicker{{ /if }}
+                {{ if is_current or is_parent }}medium thicker{{ /if }}
                 {{ if url == "/" }}bold title{{ /if }}
                "
             >{{ item:link_text ?? item:title }}</a>
