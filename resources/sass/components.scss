@@ -55,29 +55,6 @@ $has-toggle: ();
   .mobile-toc & { display: block }
 }
 
-
-.dropdown {
-  position: relative;
-
-  summary {
-    display: block;
-    &::-webkit-details-marker {
-      display: none;
-    }
-  }
-
-  .caret {
-    transition: transform 0.2s ease;
-    vertical-align: -0.125em;
-    margin-left: -4px;
-  }
-
-  &[open] .caret {
-    transform: rotate(-90deg);
-    @include min-width(md) { transform: rotate(90deg); }
-  }
-}
-
 .prose {
   h1, h2, h3, h4 {
     @include sans-serif;
