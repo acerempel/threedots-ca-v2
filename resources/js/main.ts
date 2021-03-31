@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
   setUpControl("colour-scheme", setColourScheme, setValue);
   setUpControl("line-height", setLineHeight, setValue);
   setUpControl("fonts", loadFancyFonts, setValue);
+  setUpControl("mobile-toc",
+    (val) => { if (val === 'default') { document.body.classList.remove("mobile-toc") } else { document.body.classList.add('mobile-toc') } },
+    (control, val) => control.checked = val !== "default");
 
   document.addEventListener("click", function(event: MouseEvent) {
     const closestDropdown = (event?.target as Element).closest(".drawer");

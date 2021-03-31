@@ -51,7 +51,10 @@ $has-toggle: ();
   @include sans-serif;
   font-size: 1rem;
   line-height: 1;
+  display: none;
+  .mobile-toc & { display: block }
 }
+
 
 .dropdown {
   position: relative;
