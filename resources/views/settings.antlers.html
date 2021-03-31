@@ -1,6 +1,8 @@
-<div class="prose p-space-1/2">
+<div class="prose p-space-1/2 full-width">
   <h1>{{ title }}</h1>
   {{ partial:settings }}
+  <details>
+    <summary class=medium>Example prose</summary>
   <p id=ex>Some example prose, so that you can see the effect of your changes:</p>
   <article aria-describedby=ex>
     {{ markdown:indent }}
@@ -40,4 +42,5 @@
     what was your father saying?—Nothing.
     {{ /markdown:indent }}
   </article>
+  </details>
 </div>

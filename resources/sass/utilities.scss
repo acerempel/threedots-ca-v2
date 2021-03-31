@@ -60,6 +60,7 @@ $responsive-utilities: (
   medium: (font-weight 500),
   semibold: (font-weight 600),
   bold: (font-weight 700),
+  full-width: (width settings.$max-width-content),
 );
 
 @include responsive ($responsive-utilities) using ($utility) {
