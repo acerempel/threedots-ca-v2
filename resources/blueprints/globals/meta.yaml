@@ -1,0 +1,30 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: author
+        field:
+          placeholder: 'Melchior Vulpius'
+          input_type: text
+          antlers: false
+          display: Author
+          type: text
+          icon: text
+          instructions: 'This will appear in HTML and Atom metadata.'
+          listable: true
+          validate:
+            - required
+      -
+        handle: base_url
+        field:
+          placeholder: 'https://example.website'
+          input_type: text
+          antlers: false
+          display: 'Base URL'
+          type: text
+          icon: text
+          listable: true
+          validate:
+            - required
+            - url

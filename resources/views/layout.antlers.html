@@ -15,11 +15,11 @@
       var l = false;function ffl(){return l}function lff(){document.head.appendChild(document.getElementById('fancyFonts').content);l = true;}
       if(localStorage.getItem('fonts')==='fancy')lff();
     </script>
-    <link rel="canonical" href="https://www.threedots.ca{{ url }}">
+    <link rel="canonical" href="{{ meta:base_url }}{{ url }}">
     <meta name="google-site-verification" content="DhZUgJjUNSRFdHhycAzNuCiTKprn-1Csb49PU1lsABo">
     <meta name="color-scheme" content="light dark">
     {{ if description }}<meta name="description" content="{{ description }}">{{ /if }}
-    <meta name="author" content="Alan Rempel">
+    <meta name="author" content="{{ meta:author }}">
     <link rel="alternate" type="application/atom+xml" href="/posts/feed.xml">
   </head>
   <body class="colour-scheme-auto pr-1/2 pl-1/2 pt-3/4 pb-2 font-size-1 main-grid">
