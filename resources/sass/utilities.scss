@@ -50,8 +50,6 @@ $responsive-utilities: (
   inline: (display inline),
   block: (display block),
   p-0: (padding 0),
-  smaller: (--base-font-size 0.875rem) (--base-line-height 1.25rem),
-  bigger: (--base-font-size 1.125rem) (--base-line-height 1.625rem),
   bg-normal: (background-color var(--background-colour-normal)),
   bg-lighter: (background-color var(--background-colour-lighter)),
   bg-transparent: (background-color transparent),
@@ -60,7 +58,6 @@ $responsive-utilities: (
   medium: (font-weight 500),
   semibold: (font-weight 600),
   bold: (font-weight 700),
-  full-width: (width settings.$max-width-content),
 );
 
 @include responsive ($responsive-utilities) using ($utility) {
