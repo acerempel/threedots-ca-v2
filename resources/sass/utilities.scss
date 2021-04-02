@@ -104,6 +104,7 @@ $responsive-utilities: (
 }
 
 .link-plain { --link-text-decoration-line: none; }
+.link-uline { --link-text-decoration-line: underline; }
 
 .thicker {
   --link-initial-text-decoration-thickness: 0.1em;
