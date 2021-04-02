@@ -1,9 +1,9 @@
-<div class="prose big p-space-1/2">
+<div class="prose p-space-1/2">
   {{ content }}
   <footer><p><small class="medium colour-lighter">Last published on {{ partial:date :date="today" format="F jS, Y" }}</small></p></footer>
 </div>
-<nav id=table-of-contents class="prose p-space-1/2">
-  <h2>Table of contents</h2>
+<nav id=table-of-contents class="prose mt-1 p-space-1/2">
+  <h2 class="mb-3/4">Table of contents</h2>
   <dl class="dl-grid" style="--width-narrow: 8ch">
     {{ nav scope="item" }}
     {{ unless item:hide_from_toc }}
@@ -12,9 +12,9 @@
     {{ /nav }}
   </dl>
 </nav>
-<section id=quoi-de-neuf class="mt-1/2">
-  <div class="prose mb-1/2"><h2 lang="fr">Quoi de neuf?</h2></div>
-  <div class="space-y-1/2 p-space-1/8">
+<section id=quoi-de-neuf class="mt-1">
+  <div class="prose mb-3/4"><h2 lang="fr">Quoi de neuf?</h2></div>
+  <div class="space-y-3/4 p-space-1/8">
     {{ collection:posts limit="3" sort="date:desc" }}
     {{ partial:post-summary mode="grid" format="j. M Y" }}
     {{ /collection:posts }}

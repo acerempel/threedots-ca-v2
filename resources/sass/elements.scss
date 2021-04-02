@@ -12,19 +12,19 @@ a:hover {
   text-decoration-thickness: var(--link-hover-text-decoration-thickness, 0.1em);
 }
 
-p, ol, ul, nav, blockquote, aside, details, figcaption, dl, dd {
+p, ol, ul, nav, blockquote, aside, details, figcaption {
   --link-colour: var(--text-colour-highlight);
   --link-initial-text-decoration-thickness: 0.05em;
   --link-hover-text-decoration-thickness: 0.1em;
   --link-text-decoration-line: underline;
   font-size: var(--base-font-size);
   line-height: var(--base-line-height);
-  margin-bottom: calc(var(--paragraph-spacing-factor, 0) * var(--base-line-height));
   .prose & { @include serif };
 }
 
-p, ol, ul, nav, blockquote, aside {
-    &:last-child { margin-bottom: 0; }
+p, ol, ul, details, figure, blockquote, aside, dt, dd {
+  margin-bottom: calc(var(--paragraph-spacing-factor, 0) * var(--base-line-height));
+  &:last-child { margin-bottom: 0; }
 }
 
 li { margin-inline-start: 1.5em; }

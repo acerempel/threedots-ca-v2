@@ -1,11 +1,12 @@
-  <div itemscope itemtype="https://schema.org/Blog" id="all-posts">
-        <header aria-owns=toc>
-          <h1 class="font-size-5 regular sans-serif">{{ title }}</h1>
-          <div class="mt-1/2 prose">{{ content }}</div>
+  <section itemscope itemtype="https://schema.org/Blog" id="all-posts">
+        <header aria-owns=toc class=prose>
+          <h1>{{ title }}</h1>
+          {{ content }}
         </header>
+        <div class="space-y-1 mt-1">
         {{ taxonomy:year sort="title:desc" collection="posts" }}
-        <section id="y{{ title }}" class="mt-3/4">
-          <h2 class="font-size-4 medium sans-serif swing">{{ title }}</h2>
+        <section id="y{{ title }}" style="padding-top:calc(var(--base-line-height) - 1px);border-top:1px solid var(--text-colour-lighter)">
+          <h2 class="font-size-4 medium sans-serif swing mt-0">{{ title }}</h2>
           <div class="space-y-1 p-space-1/4">
             {{ entries sort="date:desc" status:is="published" }}
             {{ partial:post-summary }}
@@ -13,7 +14,8 @@
           </div>
         </section>
         {{ /taxonomy:year }}
-       </div>
+        </div>
+       </section>
 
 {{ section:footer }}
 <button
