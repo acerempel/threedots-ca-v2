@@ -15,7 +15,7 @@ a:hover {
 p, ol, ul, nav, blockquote, aside, details, figcaption {
   --link-colour: var(--text-colour-highlight);
   --link-initial-text-decoration-thickness: 0.05em;
-  --link-hover-text-decoration-thickness: 0.1em;
+  --link-hover-text-decoration-thickness: 0.15em;
   --link-text-decoration-line: underline;
   font-size: var(--base-font-size);
   line-height: var(--base-line-height);
@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
   --link-text-decoration-line: none;
   --link-colour: inherit;
   --link-initial-text-decoration-thickness: 0.07em;
-  --link-hover-text-decoration-thickness: 0.1em;
+  --link-hover-text-decoration-thickness: 0.15em;
 }
 
 blockquote {
