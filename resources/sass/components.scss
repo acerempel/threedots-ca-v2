@@ -125,7 +125,6 @@ $full-width: settings.$max-width-content;
   & > main {
     grid-area: main;
     max-width: $full-width;
-    justify-self: center;
   }
 }
 
