@@ -22,7 +22,7 @@ p, ol, ul, nav, blockquote, aside, details, figcaption {
   .prose & { @include serif };
 }
 
-p, ol, ul, details, figure, blockquote, aside, dt, dd {
+p, ol, ul, details, figure, blockquote, aside, dd {
   margin-bottom: calc(var(--paragraph-spacing-factor, 0) * var(--base-line-height));
   &:last-child { margin-bottom: 0; }
 }
