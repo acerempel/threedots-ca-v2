@@ -62,7 +62,7 @@ abbr[title] {
 figcaption {
   margin-left: 4%;
   margin-right: 4%;
-  margin-top: calc(var(--base-line-height)*0.25);
+  margin-top: lh(0.25);
   font-size: calc(var(--base-font-size)*0.9375);
 }
 

@@ -7,14 +7,18 @@
   }
 }
 
-@mixin line-height-multiple($property, $factor, $important: null) {
+@function lh($factor) {
   @if $factor == 0 {
-    #{$property}: 0 $important;
+    @return 0;
   } @else if $factor == 1 {
-    #{$property}: var(--base-line-height) $important;
+    @return var(--base-line-height);
   } @else {
-    #{$property}: calc(#{$factor} * var(--base-line-height)) $important;
+    @return calc(#{$factor} * var(--base-line-height));
   }
+}
+
+@mixin line-height-multiple($property, $factor, $important: null) {
+  #{$property}: lh($factor) $important;
 }
 
 @function ratio-string($numerator, $denominator) {
