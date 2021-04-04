@@ -12,8 +12,13 @@
     </template>
     <script>
       'use strict';
-      var l = false;function ffl(){return l}function lff(){document.head.appendChild(document.getElementById('fancyFonts').content);l = true;}
-      if(localStorage.getItem('fonts')==='fancy')lff();
+      var l = false;
+      function ffl() { return l }
+      function lff() {
+        document.head.appendChild(document.getElementById('fancyFonts').content);
+        l = true;
+      }
+      if(localStorage.getItem('fonts')==='fancy') lff();
     </script>
     <link rel="canonical" href="{{ meta:base_url }}{{ url }}">
     <meta name="google-site-verification" content="DhZUgJjUNSRFdHhycAzNuCiTKprn-1Csb49PU1lsABo">
@@ -30,7 +35,8 @@
       </defs>
     </svg>
       <header class="sans-serif">
-        <nav class="top-nav regular link-plain colour-highlight flex space-between row lg:column wrap">
+        <nav
+          class="top-nav regular link-plain colour-highlight flex space-between row lg:column wrap">
           {{ nav include_home="true" scope="item" }}
             <a href="{{ url }}"
                {{ if item:description }}title="{{ description }}"{{ /if }}

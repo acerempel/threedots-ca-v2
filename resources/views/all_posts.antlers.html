@@ -5,7 +5,9 @@
         </header>
         <div class="space-y-1 mt-1">
         {{ taxonomy:year sort="title:desc" collection="posts" }}
-        <section id="y{{ title }}" style="padding-top:calc(var(--base-line-height) - 1px);border-top:1px solid var(--text-colour-lighter)">
+        <section
+          id="y{{ title }}"
+          style="padding-top:calc(var(--base-line-height) - 1px);border-top:1px solid var(--text-colour-lighter)">
           <h2 class="font-size-4 medium sans-serif swing mt-0">{{ title }}</h2>
           <div class="space-y-1 p-space-1/4">
             {{ entries sort="date:desc" status:is="published" }}
@@ -23,11 +25,14 @@
   aria-controls="toc"
   aria-expanded="false"
   class="drawer-toggle unstyled lg:hidden pl-1/4 pr-1/4 pt-1/4 pb-1/4"
-  >{{ partial:svg id="three-lines" size="28" }} <span class="visually-hidden">Contents</span></button>
-<div id="toc" class="drawer lg:drawer-off fixed pl-1/2 pr-1/2 pt-3/4 pb-1/2 lg:p-0 flex column hidden lg:shown">
+>{{ partial:svg id="three-lines" size="28" }}
+  <span class="visually-hidden">Contents</span></button>
+<div
+  id="toc"
+  class="drawer lg:drawer-off fixed pl-1/2 pr-1/2 pt-3/4 pb-1/2 lg:p-0 flex column hidden lg:shown">
   <table-of-contents
     for="all-posts"
-    ><h2 class="font-size-2 mb-1/8 medium" slot=title>Jump to year</h2>
+  ><h2 class="font-size-2 mb-1/8 medium" slot=title>Jump to year</h2>
   </table-of-contents>
   <button
     type="button"
@@ -35,6 +40,6 @@
     aria-controls="toc"
     style="margin-top: auto"
     onclick="this.parentElement.classList.add('hidden');document.querySelector('.drawer-toggle').setAttribute('aria-expanded', 'false')"
-    >Close</button>
+  >Close</button>
 </div>
 {{ /section:footer }}

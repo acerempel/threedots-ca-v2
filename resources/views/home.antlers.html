@@ -1,6 +1,10 @@
 <div class="prose p-space-1/2">
   {{ content }}
-  <footer><p><small class="medium colour-lighter">Last published on {{ partial:date :date="today" format="F jS, Y" }}</small></p></footer>
+  <footer><p>
+    <small class="medium colour-lighter">
+      Last published on {{ partial:date :date="today" format="F jS, Y" }}
+    </small>
+  </p></footer>
 </div>
 <nav id=table-of-contents class="prose mt-1 p-space-1/2">
   <h2 class="mb-3/4">Table of contents</h2>

@@ -1,4 +1,6 @@
-  <form class="mb-1/2 grid sans-serif" style="grid-template-columns: fit-content(18ch) max-content; grid-column-gap: 1ch; grid-row-gap: calc(0.125 * var(--base-line-height)); align-items: center">
+<form
+  class="mb-1/2 grid sans-serif"
+  style="grid-template-columns:fit-content(18ch) max-content;grid-column-gap:1ch;grid-row-gap:calc(0.125*var(--base-line-height));align-items:center">
                 <label for="colour-scheme">Colour scheme:</label>
                 <select required id="colour-scheme">
                   <option value="auto" selected>System setting</option>
@@ -6,7 +8,11 @@
                   <option value="dark">Dark</option>
                 </select>
                 <label for=line-height>Line spacing:</label>
-                <input id=line-height type=range list=lh-values min=1 max=2 step=0.125>
+                <input
+                  id=line-height
+                  type=range list=lh-values
+                  min=1 max=2 step=0.125
+                >
                 <datalist id=lh-values>
                   <option value=1 label=1></option>
                   <option value=1.25></option>
@@ -19,6 +25,7 @@
                   <option value="fancy">Fancy</option>
                   <option value="default" selected>Regular</option>
                 </select>
-                <label for=mobile-toc>Show table of contents popup on small screens</label>
+                <label for=mobile-toc
+                  >Show table of contents popup on small screens</label>
                 <input type=checkbox id=mobile-toc>
   </form>
