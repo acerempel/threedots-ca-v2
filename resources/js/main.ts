@@ -15,12 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const setLineHeight = (lh: string) => {
-    document.documentElement.style.setProperty('--base-line-height', lh + 'rem');
-  }
-
   setUpControl("colour-scheme", setColourScheme, setValue);
-  setUpControl("line-height", setLineHeight, setValue);
   setUpControl("fonts", loadFancyFonts, setValue);
   setUpControl("mobile-toc",
     (val) => { if (val === 'default') { document.body.classList.remove("mobile-toc") } else { document.body.classList.add('mobile-toc') } },
