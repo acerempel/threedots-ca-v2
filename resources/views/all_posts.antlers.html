@@ -9,7 +9,7 @@
           id="y{{ title }}"
           style="padding-top:calc(var(--base-line-height) - 1px);border-top:1px solid var(--text-colour-lighter)">
           <h2 class="font-size-4 medium sans-serif swing mt-0">{{ title }}</h2>
-          <div class="space-y-1 p-space-1/4">
+          <div class="space-y-1 prose p-space-1/8">
             {{ entries sort="date:desc" status:is="published" }}
             {{ partial:post-summary }}
             {{ /entries }}

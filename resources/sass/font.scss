@@ -1,3 +1,23 @@
+@use "sass:map";
+@use "sass:list";
+
+$font-ratios: (
+  6: (3, 2),
+  5: (2.25, 1.75),
+  4: (1.5, 1.25),
+  3: (1.25, 1.125),
+  2: (1.125, 1),
+  1: (1, 1),
+);
+
+@mixin font-size($n, $important: null) {
+  $ratios: map.get($font-ratios, $n);
+  $fs: list.nth($ratios, 1);
+  $lh: list.nth($ratios, 2);
+  font-size: calc(#{$fs} * var(--base-font-size)) $important;
+  line-height: calc(#{$lh} * var(--base-line-height)) $important;
+}
+
 @mixin font-size-5 {
   font-size: calc(var(--base-font-size)*3);
   line-height: calc(var(--base-line-height)*2);
@@ -28,5 +48,10 @@
   line-height: var(--base-line-height);
 }
 
-@mixin serif { font-family: var(--font-serif), var(--default-font-stack) }
-@mixin sans-serif { font-family: var(--font-sans-serif), var(--default-font-stack) }
+@mixin serif($important: null) {
+  font-family: var(--font-serif), var(--default-font-stack) $important;
+}
+
+@mixin sans-serif($important: null) {
+  font-family: var(--font-sans-serif), var(--default-font-stack) $important;
+}

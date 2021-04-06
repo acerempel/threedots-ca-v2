@@ -1,12 +1,12 @@
 :root {
-  --base-font-size: 1rem;
-  --base-line-height: 1.5rem;
+  --base-font-size: 1.125rem;
+  --base-line-height: 1.625rem;
   --default-font-stack: system-ui, -apple-system, BlinkMacSystemFont,
                Inter, 'Segoe UI', Lato, 'Open Sans',
-               Ubuntu, Roboto, Noto,
+               Roboto, Noto,
                sans-serif;
   --font-serif: Vollkorn;
-  --font-sans-serif: Palanquin;
+  --font-sans-serif: 'Fira Sans';
 }
 
 body {
