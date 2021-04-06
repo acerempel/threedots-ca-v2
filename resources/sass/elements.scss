@@ -19,6 +19,8 @@ p, ol, ul, nav, blockquote, aside, details, figcaption {
   --link-text-decoration-line: underline;
   font-size: var(--base-font-size);
   line-height: var(--base-line-height);
+  -webkit-hyphens: auto;
+  hyphens: auto;
   .prose & { @include serif };
 }
 
