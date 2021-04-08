@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>three dots …</title>
+  <subtitle>The blog of an elliptical human</subtitle>
+  <link href="{{ meta:base_url }}{{ url }}" rel="self"/>
+  <link href="{{ meta:base_url }}"/>
+  <updated>{{ now format="c" }}</updated>
+  <id>http://threedots.ca</id>
+  <author>
+    <name>{{ meta:author }}</name>
+  </author>
+  {{ template_content }}
+</feed>
