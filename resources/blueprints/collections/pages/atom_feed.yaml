@@ -49,3 +49,6 @@ sections:
           max_items: 1
           listable: false
           localizable: true
+      -
+        handle: hide_from_toc
+        field: whatever.hide_from_toc

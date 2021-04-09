@@ -1,0 +1,9 @@
+title: Whatever
+fields:
+  -
+    handle: hide_from_toc
+    field:
+      display: 'Hide from homepage TOC'
+      type: toggle
+      icon: toggle
+      listable: hidden
