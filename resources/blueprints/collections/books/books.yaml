@@ -1,0 +1,46 @@
+title: Book
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        import: book
+        config:
+          title:
+            required: true
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: book_category
+        field:
+          type: terms
+          taxonomies:
+            - book_category
+          display: 'Book Category'
+          mode: select
+          listable: hidden
+          max_items: 1
+          validate:
+            - required
+      -
+        handle: related_posts
+        field:
+          mode: default
+          collections:
+            - posts
+          display: 'Related posts'
+          type: entries
+          icon: entries
+          listable: hidden
+      -
+        handle: description
+        field: prose.description

@@ -1,0 +1,8 @@
+{{ if publisher or year }}
+<p
+  ><small class="medium"
+    >{{ if publisher and year }}{{ publisher }}, {{ year }}
+      {{ elseif publisher }}{{ publisher }}
+      {{ else }}{{ year }}{{ /if }}</small
+  ></p>
+{{ /if }}

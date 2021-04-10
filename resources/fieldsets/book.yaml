@@ -1,0 +1,88 @@
+title: Book
+fields:
+  -
+    handle: title
+    field:
+      input_type: text
+      antlers: false
+      display: Title
+      type: text
+      icon: text
+      width: 50
+      listable: true
+      validate:
+        - required
+  -
+    handle: author
+    field:
+      input_type: text
+      antlers: false
+      display: Author
+      type: text
+      icon: text
+      width: 50
+      listable: true
+      validate:
+        - required
+  -
+    handle: publisher
+    field:
+      input_type: text
+      antlers: false
+      display: Publisher
+      type: text
+      icon: text
+      width: 33
+      listable: hidden
+  -
+    handle: year
+    field:
+      display: Year
+      type: integer
+      icon: integer
+      width: 33
+      listable: hidden
+  -
+    handle: external_url
+    field:
+      placeholder: 'https://book.example'
+      input_type: text
+      antlers: false
+      display: URL
+      type: text
+      icon: text
+      listable: hidden
+      validate:
+        - url
+      width: 33
+  -
+    handle: content
+    field:
+      always_show_set_button: false
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - anchor
+        - image
+        - table
+        - strikethrough
+      save_html: false
+      toolbar_mode: fixed
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      reading_time: false
+      fullscreen: true
+      allow_source: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      display: Comments
+      type: bard
+      icon: bard
+      listable: false

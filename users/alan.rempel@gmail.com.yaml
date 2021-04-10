@@ -9,3 +9,9 @@ preferences:
         - title
         - date
         - description
+    books:
+      columns:
+        - title
+        - author
+        - year
+        - book_category

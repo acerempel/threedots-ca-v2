@@ -1,0 +1,46 @@
+<article class="prose p-space-1/2">
+  <header class="mb-3/4">
+    <h1 class="mb-1/8 font-size-3 link-uline"
+      ><cite class="medium"
+        >{{ if external_url }}<a
+          href="{{ external_url }}">{{ title }}</a
+        >{{ else }}{{ title }}{{ /if }}</cite
+      > by {{ author }}</h1>
+      {{ partial:book-meta }}
+  </header>
+  {{ content }}
+  <footer class="mt-1">
+    <dl
+      style="
+        --base-font-size: 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(16ch, max-content));
+        grid-column-gap: 2ch;
+        grid-row-gap: calc(0.25 * var(--base-line-height));
+      "
+    >
+      <div>
+        <dt class="semibold">Categories</dt>
+        <dd>
+        <ul>
+          {{ book_category }}
+          <li><a href="/{{ collection }}#{{ slug }}">{{ title }}</a></li>
+          {{ /book_category }}
+        </ul>
+        </dd>
+      </div>
+      {{ if (related_posts | length) != 0 }}
+      <div>
+        <dt class="semibold">Related</dt>
+        <dd>
+        <ul>
+          {{ related_posts }}
+          <li><a href="{{ url }}">{{ title }}</a></li>
+          {{ /related_posts }}
+        </ul>
+        </dd>
+      </div>
+      {{ /if }}
+    </dl>
+  </footer>
+</article>

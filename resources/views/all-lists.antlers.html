@@ -1,0 +1,11 @@
+<section class="prose">
+  <header>
+    <h1>{{ title }}</h1>
+    {{ content }}
+  </header>
+  <ul class="space-y-1/2 mt-1">
+    {{ collection:lists }}
+    <li><a href="{{ url }}">{{ title }}</a></li>
+    {{ /collection:lists }}
+  </ul>
+</section>

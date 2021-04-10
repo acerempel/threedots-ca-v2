@@ -1,10 +1,10 @@
 ---
 title: Preface
 parent: home
-description: 'Who am I? What is this website; why does it exist; why the punctuation? Find here a word of explanation.'
+description: 'Who am I? What is this website; why does it exist; why is it called by the name of a punctuation mark?'
 link_text: About
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1617233253
+updated_at: 1617896455
 blueprint: pages
 hide_from_toc: false
 id: e7849b47-140b-4e7a-828b-cad6d1af069d
@@ -42,7 +42,16 @@ content:
         text: highly
       -
         type: text
-        text: " irregularly, it is nonetheless the place on the internet where you are mostly likely to find anything at all that I have written. That said, you may also find\_"
+        text: ' irregularly, it is nonetheless the only place on the internet whose content I control that I update '
+      -
+        type: text
+        marks:
+          -
+            type: italic
+        text: 'at all'
+      -
+        type: text
+        text: ". That said, you may also find\_"
       -
         type: text
         marks:
@@ -76,7 +85,7 @@ content:
     content:
       -
         type: text
-        text: 'Some words of explanation concerning this website'
+        text: 'Concerning this website'
   -
     type: paragraph
     content:

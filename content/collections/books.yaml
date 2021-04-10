@@ -1,0 +1,12 @@
+title: Books
+template: book
+layout: layout
+mount: dadafeeb-e7db-4504-9b9d-55a8441eb6d4
+taxonomies:
+  - book_category
+revisions: false
+route: '{mount}/{slug}'
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private
