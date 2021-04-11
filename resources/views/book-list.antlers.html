@@ -3,7 +3,7 @@
   {{ content }}
   <section class="space-y-1 mb-1 mt-1">
     {{ taxonomy:book_category collection="books" }}
-    <section class="{{ if ! first }}border-top {{ /if }}space-y-3/4" id="{{ slug }}">
+    <section class="border-top space-y-3/4" id="{{ slug }}">
       <h2 class="font-size-2 bold">{{ title }}</h2>
       {{ entries scope="book" status:is="published" }}
       <article class="p-space-1/4">
