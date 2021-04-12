@@ -1,0 +1,41 @@
+title: Quotation
+fields:
+  -
+    handle: content
+    field: prose.content
+    config:
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - anchor
+        - image
+        - table
+        - strikethrough
+        - horizontalrule
+  -
+    handle: source
+    field:
+      max_items: 1
+      mode: select
+      collections:
+        - books
+        - citations
+      display: Source
+      type: entries
+      icon: entries
+      listable: hidden
+  -
+    handle: location
+    field:
+      input_type: text
+      antlers: false
+      display: Location
+      type: text
+      icon: text
+      listable: hidden

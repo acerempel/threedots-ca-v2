@@ -1,0 +1,90 @@
+title: 'Complex page'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: blocks
+        field:
+          collapse: false
+          sets:
+            prose:
+              display: Prose
+              fields:
+                -
+                  handle: content
+                  field: prose.content
+                  config:
+                    buttons:
+                      - h2
+                      - h3
+                      - bold
+                      - italic
+                      - unorderedlist
+                      - orderedlist
+                      - removeformat
+                      - quote
+                      - anchor
+                      - image
+                      - table
+                      - strikethrough
+                      - horizontalrule
+            navigation:
+              display: Navigation
+              fields:
+                -
+                  import: navigation
+                  prefix: nav_
+            quotation:
+              display: Quotation
+              fields:
+                -
+                  import: quotation
+                  prefix: quote_
+            items:
+              display: Items
+              fields:
+                -
+                  import: collection_items
+                  prefix: items_
+          display: Blocks
+          type: replicator
+          icon: replicator
+          listable: hidden
+      -
+        handle: template
+        field:
+          display: Template
+          type: hidden
+          icon: hidden
+          listable: hidden
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: description
+        field: prose.description
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true

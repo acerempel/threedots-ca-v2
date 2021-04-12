@@ -1,0 +1,41 @@
+title: Citation
+fields:
+  -
+    handle: title
+    field:
+      input_type: text
+      antlers: false
+      display: Title
+      type: text
+      icon: text
+      width: 50
+      listable: hidden
+      validate:
+        - required
+  -
+    handle: author
+    field:
+      input_type: text
+      antlers: false
+      display: Author
+      type: text
+      icon: text
+      width: 50
+      listable: hidden
+      validate:
+        - required
+  -
+    handle: year
+    field:
+      display: Year
+      type: integer
+      icon: integer
+      width: 50
+      listable: hidden
+  -
+    handle: link
+    field:
+      display: Link
+      type: link
+      icon: link
+      listable: hidden

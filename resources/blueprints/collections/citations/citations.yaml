@@ -1,0 +1,21 @@
+title: Citation
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        import: citation
+        config:
+          title:
+            required: true
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required

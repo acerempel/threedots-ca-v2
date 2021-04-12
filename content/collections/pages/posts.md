@@ -1,7 +1,7 @@
 ---
 title: Ellipses
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1617547759
+updated_at: 1618252563
 template: all_posts
 description: 'Extracts from notes that I had written to myself on scraps of paper.'
 blueprint: pages
@@ -13,7 +13,7 @@ content:
     content:
       -
         type: text
-        text: 'These extracts from my spontaneous and infrequent jottings-down are '
+        text: 'These extracts from my spontaneous and infrequent jottings-down – scraps of paper fluttering by in the wind – are '
       -
         type: text
         marks:

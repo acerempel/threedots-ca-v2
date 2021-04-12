@@ -1,6 +1,7 @@
     <dt>
-      <a href="{{ url }}"
-         {{ if type }}type="{{ type }}"{{ /if }}
-      >{{ link_text ?? title }}</a>
+      {{ partial:link }}
     </dt>
-    <dd>{{ description }}</dd>
+    <dd>
+      <p class="mb-1/4">{{ description }}</p>
+      {{ slot }}
+    </dd>

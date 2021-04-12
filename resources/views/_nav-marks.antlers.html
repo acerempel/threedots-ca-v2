@@ -1,0 +1,10 @@
+<nav id=table-of-contents class="prose mt-1 p-space-1/2">
+  <h2 class="mb-3/4">Table of marks</h2>
+  <dl class="dl-grid" style="--width-narrow: 8ch">
+    {{ nav scope="item" from="marks" }}
+    {{ unless item:hide_from_toc }}
+    {{ partial:dl-link }}
+    {{ /unless }}
+    {{ /nav }}
+  </dl>
+</nav>

@@ -1,0 +1,40 @@
+title: 'Collection items'
+fields:
+  -
+    handle: title
+    field:
+      input_type: text
+      antlers: false
+      display: Title
+      type: text
+      icon: text
+      listable: hidden
+  -
+    handle: collections
+    field:
+      mode: default
+      display: Collections
+      type: collections
+      icon: collections
+      listable: hidden
+  -
+    handle: max_items
+    field:
+      display: 'Maximum number of items'
+      type: integer
+      icon: integer
+      width: 50
+      listable: hidden
+  -
+    handle: style
+    field:
+      options:
+        list: List
+        grid: Grid
+      inline: true
+      cast_booleans: false
+      display: Style
+      type: radio
+      icon: radio
+      width: 50
+      listable: hidden

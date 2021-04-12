@@ -1,0 +1,18 @@
+<nav class="prose mt-1 p-space-1/2">
+  <h2 class="mb-3/4">{{ nav_title }}</h2>
+  <dl class="dl-grid" style="--width-narrow: 8ch">
+    {{ nav scope="item" from="{nav_start|get:slug}" }}
+    {{ unless id == page:id || hide_from_toc }}
+    {{ partial:dl-link :link_text="item:link_text" }}
+      {{ if children and nav_show_children }}
+      <p style="--base-font-size:1rem">
+      {{ children scope="child" }}
+      {{ partial:link :link_text="child:link_text" }}{{ if ! last }}·{{ /if }}
+      {{ /children }}
+      </p>
+      {{ /if }}
+    {{ /partial:dl-link }}
+    {{ /unless }}
+    {{ /nav }}
+  </dl>
+</nav>

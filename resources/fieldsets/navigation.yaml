@@ -1,0 +1,40 @@
+title: Navigation
+fields:
+  -
+    handle: title
+    field:
+      input_type: text
+      antlers: false
+      display: Title
+      type: text
+      icon: text
+      listable: hidden
+      width: 50
+  -
+    handle: struct
+    field:
+      max_items: 1
+      mode: select
+      display: Collection
+      type: collections
+      icon: collections
+      listable: hidden
+      width: 50
+  -
+    handle: start
+    field:
+      max_items: 1
+      mode: default
+      display: 'Starting entry'
+      type: entries
+      icon: entries
+      listable: hidden
+      width: 50
+  -
+    handle: show_children
+    field:
+      display: 'Show children'
+      type: toggle
+      icon: toggle
+      width: 50
+      listable: hidden

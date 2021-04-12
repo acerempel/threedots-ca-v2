@@ -1,0 +1,14 @@
+<figure class="quotation">
+  <blockquote>
+    {{ quote_content }}
+  </blockquote>
+  <figcaption>
+    {{ quote_source }}
+    {{ author }},
+    <a
+      href="{{ link ?? url }}"
+    ><cite>{{ title }}</cite
+    ></a>{{ if quote_location }}, {{ quote_location }}{{ /if }}
+    {{ /quote_source }}
+  </figcaption>
+</figure>

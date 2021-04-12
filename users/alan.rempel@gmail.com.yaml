@@ -15,3 +15,8 @@ preferences:
         - author
         - year
         - book_category
+    citations:
+      columns:
+        - title
+        - author
+        - slug
