@@ -1,11 +1,11 @@
-{{ collection from="*" not_from="pages" sort="date:desc" }}
+{{ collection from="{collections|raw|piped}" sort="date:desc" }}
 <entry>
-  <title type="text">{{ title }}</title>
+  <title type="text">{{ title | cdata }}</title>
   <link href="{{ permalink }}"/>
   <updated>{{ updated_at format="c" }}</updated>
   <published>{{ date format="c" }}</published>
   <id>http://threedots.ca{{ url }}</id>
-  {{ if description }}<summary>{{ description }}</summary>{{ /if }}
+  {{ if description }}<summary>{{ description | cdata }}</summary>{{ /if }}
   <content type="html">{{ content | cdata }}</content>
 </entry>
 {{ /collection }}

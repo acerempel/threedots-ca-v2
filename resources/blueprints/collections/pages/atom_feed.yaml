@@ -14,6 +14,14 @@ sections:
         handle: description
         field: prose.description
       -
+        handle: collections
+        field:
+          mode: default
+          display: Collections
+          type: collections
+          icon: collections
+          listable: hidden
+      -
         handle: template
         field:
           hide_partials: true
@@ -49,6 +57,3 @@ sections:
           max_items: 1
           listable: false
           localizable: true
-      -
-        handle: hide_from_toc
-        field: whatever.hide_from_toc
