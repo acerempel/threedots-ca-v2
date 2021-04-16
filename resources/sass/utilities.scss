@@ -18,6 +18,8 @@ $abbrev-properties: (
   pr: padding-right,
   pt: padding-top,
   pb: padding-bottom,
+  col-gap: grid-column-gap,
+  row-gap: grid-row-gap,
 );
 
 @include ratios ((space-y: (top bottom), space-x: (left right))) using ($sides, $ratio) {
@@ -40,7 +42,9 @@ $responsive-utilities: (
   column: (flex-direction column),
   row: (flex-direction row),
   row-reverse: (flex-direction row-reverse),
+  align-center: (align-items center),
   grid: (display grid),
+  max-width-content: (max-width settings.$max-width-content),
   hidden: (display none),
   shown: (display initial),
   relative: (position relative),
@@ -94,9 +98,16 @@ $responsive-utilities: (
 .bold, strong { font-weight: 700; }
 .oblique, cite { font-style: oblique; }
 
-.smallcaps {
+$sc-letter-spacing: 0.05em;
+
+.small-caps {
+  font-variant-caps: small-caps;
+  letter-spacing: $sc-letter-spacing;
+}
+
+.all-small-caps {
   font-variant-caps: all-small-caps;
-  letter-spacing: 0.02em;
+  letter-spacing: $sc-letter-spacing;
 }
 
 .link-plain { --link-text-decoration-line: none; }
@@ -107,9 +118,32 @@ $responsive-utilities: (
   --link-hover-text-decoration-thickness: 0.2em;
 }
 
+.list-none {
+  list-style: none;
+  & > li {
+    margin-inline-start: 0;
+  }
+}
+
+.invisible {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 200ms ease 100ms;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms ease;
+}
+
 .border-top {
   padding-top: calc(var(--base-line-height) - 1px);
   border-top: 1px solid var(--text-colour-lighter);
+}
+
+.lowercase {
+  text-transform: lowercase
 }
 
 .visually-hidden {

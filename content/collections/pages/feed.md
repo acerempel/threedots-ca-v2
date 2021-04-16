@@ -6,7 +6,7 @@ layout: atom-layout
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
 updated_at: 1618323851
 blueprint: atom_feed
-hide_from_toc: false
+hide_from_toc: true
 collections:
   - books
   - posts

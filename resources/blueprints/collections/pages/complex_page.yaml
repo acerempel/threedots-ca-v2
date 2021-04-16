@@ -11,6 +11,9 @@ sections:
           validate:
             - required
       -
+        handle: description
+        field: prose.description
+      -
         handle: blocks
         field:
           collapse: false
@@ -42,6 +45,14 @@ sections:
                 -
                   import: navigation
                   prefix: nav_
+                -
+                  handle: anchor
+                  field:
+                    generate: true
+                    display: Anchor
+                    type: slug
+                    icon: slug
+                    listable: hidden
             quotation:
               display: Quotation
               fields:
@@ -54,6 +65,14 @@ sections:
                 -
                   import: collection_items
                   prefix: items_
+                -
+                  handle: anchor
+                  field:
+                    generate: true
+                    display: Anchor
+                    type: slug
+                    icon: slug
+                    listable: hidden
           display: Blocks
           type: replicator
           icon: replicator
@@ -77,9 +96,6 @@ sections:
           validate:
             - required
       -
-        handle: description
-        field: prose.description
-      -
         handle: parent
         field:
           type: entries
@@ -88,3 +104,6 @@ sections:
           max_items: 1
           listable: false
           localizable: true
+      -
+        handle: link_text
+        field: whatever.link_text

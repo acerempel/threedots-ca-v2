@@ -27,35 +27,71 @@
     <meta name="author" content="{{ meta:author }}">
     <link rel="alternate" type="application/atom+xml" href="/feed">
   </head>
-  <body class="colour-scheme-auto pr-1/2 pl-1/2 pt-3/4 pb-2 font-size-1 main-grid">
-    <svg class="hidden" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <path id="three-lines" fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-        <path id="three-dots-vertical" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-      </defs>
-    </svg>
-      <header class="sans-serif">
-        <nav
-          class="top-nav regular link-plain colour-highlight flex space-between row lg:column wrap">
-          {{ nav include_home="true" scope="item" }}
-            <a href="{{ url }}"
-               {{ if item:description }}title="{{ description }}"{{ /if }}
-               {{ if type }}type="{{ type }}"{{ /if }}
-               {{ if is_current }}aria-current="page"{{ /if }}
-               class="
-                {{ if is_current or is_parent }}medium thicker link-uline{{ /if }}
-                {{ if url == "/" }}bold title{{ /if }}
-               "
-            >{{ item:link_text ?? item:title }}</a>
-          {{ /nav }}
+  <body class="
+    colour-scheme-auto
+    pr-1/2 pl-1/2 pb-1
+    font-size-1
+    flex column align-center
+  ">
+    <div style="min-height: 100vh">
+      {{ if url != "/" }}
+      <header id="header-nav" class="sans-serif main-grid mt-1/2">
+        <nav class="main-middle">
+          <ol class="link-uline list-none lowercase flex row wrap" style="--base-font-size: 1rem">
+            {{ nav:breadcrumbs scope="item" include_home="true" }}
+            <li class="mb-0"
+              >{{ partial:nav-item current-class="bold" }}{{ if ! last }}<span
+                class="mr-1/4 ml-1/4 colour-highlight">／</span
+              >{{ /if }}</li
+            >
+            {{ /nav:breadcrumbs }}
+          </ol>
         </nav>
       </header>
-      <footer class="main-footer sans-serif">
-          {{ yield:footer }}
-      </footer>
-      <main>
+      {{ /if }}
+      <main class="main-grid mt-1/2 mb-1">
+        <div class="main-middle max-width-content">
           {{ template_content }}
+        </div>
+        <aside class="sans-serif main-right">
+          {{ yield:footer }}
+        </aside>
       </main>
+    </div>
+      <footer id="footer-nav" class="main-grid font-size-1" style="--base-font-size:1rem">
+        <div class="
+          main-middle border-top
+          regular sans-serif
+          flex space-between row wrap
+        ">
+          <nav style="flex-grow:1">
+            <h2 class="visually-hidden">Links</h2>
+            <ul class="list-none grid col-gap-1/2" style="grid-template-columns: repeat(auto-fit, calc(4 * var(--base-line-height)))">
+              {{ nav:footer scope="item" }}
+              <li>{{ partial:nav-item }}</li>
+              {{ /nav:footer }}
+            </ul>
+          </nav>
+          <section>
+            <h2 class="visually-hidden">Settings</h2>
+            {{ partial:settings }}
+          </section>
+        </div>
+      </footer>
+      <script>
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            for (entry of entries) {
+              entry.target.classList.toggle('visible', entry.isIntersecting);
+              entry.target.classList.toggle('invisible', !entry.isIntersecting);
+            }
+          }, { rootMargin: "-16px 0px -16px 0px" });
+          const footer = document.getElementById('footer-nav');
+          const header = document.getElementById('header-nav');
+          observer.observe(footer);
+          observer.observe(header);
+        }
+      </script>
     <script data-goatcounter="https://threedots_ca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   </body>
 </html>

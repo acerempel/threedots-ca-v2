@@ -1,0 +1,25 @@
+@use "settings";
+@use "mixins" as *;
+
+$full-width: settings.$max-width-content;
+$side-width: settings.$max-width-content / 4;
+
+.main-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: minmax(auto, $full-width);
+  grid-row-gap: lh(0.25);
+  grid-column-gap: lh(1.5);
+
+  & > .main-right,
+  & > .main-middle {
+    grid-column: 1/2;
+  }
+
+  @include min-width(lg) {
+    grid-template-columns: $side-width $full-width $side-width;
+    & > .main-middle { grid-column: 2/3; }
+    & > .main-right { grid-column: 3/4; }
+  }
+}
+

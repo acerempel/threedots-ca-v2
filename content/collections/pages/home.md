@@ -3,9 +3,9 @@ title: 'Good evening!'
 template: complex
 description: 'The website of Alan Rempel, an elliptical human man.'
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1618254743
+updated_at: 1618601156
 blueprint: complex_page
-link_text: 'three dots …'
+link_text: 'Three dots'
 hide_from_toc: false
 blocks:
   -
@@ -55,6 +55,7 @@ blocks:
     nav_struct: pages
     nav_start: home
     nav_show_children: true
+    anchor: contents
   -
     items_title: 'Quoi de neuf?'
     items_collections:
@@ -64,5 +65,6 @@ blocks:
     items_style: grid
     type: items
     enabled: true
+    anchor: nouvelles
 id: home
 ---

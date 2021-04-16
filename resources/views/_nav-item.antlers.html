@@ -1,0 +1,11 @@
+<a
+  href="{{ url }}"
+  {{ if item:description }}title="{{ description }}"{{ /if }}
+  {{ if item:type }}type="{{ type }}"{{ /if }}
+  {{ if is_current }}
+  aria-current="page"
+  class="{{ class }} {{ current-class }} thicker link-uline"
+  {{ else }}
+  class="{{ class }} {{ regular-class }}"
+  {{ /if }}
+>{{ item:link_text ?? item:title }}</a>

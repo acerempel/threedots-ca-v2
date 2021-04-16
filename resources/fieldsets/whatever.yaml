@@ -7,3 +7,13 @@ fields:
       type: toggle
       icon: toggle
       listable: hidden
+  -
+    handle: link_text
+    field:
+      input_type: text
+      antlers: false
+      display: 'Link text'
+      type: text
+      icon: text
+      instructions: 'Show this text instead of the title in links to this page'
+      listable: hidden

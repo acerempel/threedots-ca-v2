@@ -100,40 +100,8 @@ $has-toggle: ();
 .dl-grid {
   @include min-width(sm) {
     display: grid;
-    grid-template-columns: var(--width-narrow, 6ch) 1fr;
-    grid-column-gap: var(--column-gap, 2ch);
-  }
-}
-
-$full-width: settings.$max-width-content;
-
-.main-grid {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: minmax(auto, $full-width);
-  grid-template-areas: "header" "footer" "main";
-  grid-row-gap: lh(0.25);
-  grid-column-gap: 4ch;
-
-  @include min-width(lg) {
-    grid-template-columns: 12ch $full-width 12ch;
-    grid-template-areas: "header main footer";
-  }
-
-  & > header { grid-area: header; }
-  & > footer { grid-area: footer; }
-  & > main {
-    grid-area: main;
-    max-width: $full-width;
-  }
-}
-
-.top-nav > a {
-  margin-right: 1ch;
-  text-transform: lowercase;
-  &:last-child { margin-right: 0; }
-  @include min-width(lg) {
-    @include mb(0.25);
+    grid-template-columns: var(--width-narrow, #{lh(3)}) 1fr;
+    grid-column-gap: var(--column-gap, #{lh(1)});
   }
 }
 

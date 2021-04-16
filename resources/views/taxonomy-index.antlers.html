@@ -2,7 +2,7 @@
   <h1>{{ title }}</h1>
   {{ content }}
 
-  <dl class="dl-grid" style="--width-narrow:8ch">
+  <dl class="dl-grid">
     {{ taxonomy :from="taxonomies" scope="item" }}
     {{ partial:dl-link :link_text="item:link_text" }}
     {{ /taxonomy }}

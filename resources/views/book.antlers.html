@@ -11,16 +11,14 @@
   {{ content }}
   <footer class="mt-1">
     <dl
+      class="grid col-gap-1 row-gap-1/4"
       style="
         --base-font-size: 1rem;
-        display: grid;
         grid-template-columns: repeat(auto-fit, minmax(16ch, max-content));
-        grid-column-gap: 2ch;
-        grid-row-gap: calc(0.25 * var(--base-line-height));
       "
     >
       <div>
-        <dt class="semibold">Categories</dt>
+        <dt class="semibold all-small-caps">Categories</dt>
         <dd>
         <ul>
           {{ book_category }}
@@ -31,7 +29,7 @@
       </div>
       {{ if (related_posts | length) != 0 }}
       <div>
-        <dt class="semibold">Related</dt>
+        <dt class="semibold all-small-caps">Related</dt>
         <dd>
         <ul>
           {{ related_posts }}

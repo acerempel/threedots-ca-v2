@@ -1,6 +1,9 @@
 <form
-  class="mb-1/2 grid sans-serif"
-  style="grid-template-columns:fit-content(18ch) max-content;grid-column-gap:1ch;grid-row-gap:calc(0.25*var(--base-line-height));align-items:center">
+  class="mb-1/2 grid row-gap-1/4 col-gap-1/2 align-center sans-serif"
+  style="
+    grid-template-columns: fit-content(14rem) max-content;
+    justify-items: start;
+  ">
                 <label for="colour-scheme">Colour scheme:</label>
                 <select required id="colour-scheme">
                   <option value="auto" selected>System setting</option>
@@ -12,7 +15,4 @@
                   <option value="fancy">Fancy</option>
                   <option value="default" selected>Regular</option>
                 </select>
-                <label for=mobile-toc
-                  >Show table of contents popup on small screens</label>
-                <input type=checkbox id=mobile-toc>
   </form>
