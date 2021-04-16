@@ -89,7 +89,7 @@
           const footer = document.getElementById('footer-nav');
           const header = document.getElementById('header-nav');
           observer.observe(footer);
-          observer.observe(header);
+          if (header) observer.observe(header);
         }
       </script>
     <script data-goatcounter="https://threedots_ca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
