@@ -8,6 +8,7 @@ YARN_VERSION = "1.22.10"
 NODE_VERSION = "14.16.0"
 NODE_ENV = "production"
 APP_URL = "https://www.threedots.ca"
+PUBLIC_DIR = "storage/app/static"
 
 [[headers]]
 for = "/feed"
