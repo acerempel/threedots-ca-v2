@@ -3,7 +3,7 @@ title: 'Good evening!'
 template: complex
 description: 'The website of Alan Rempel, an elliptical human man.'
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1618601156
+updated_at: 1618691359
 blueprint: complex_page
 link_text: 'Three dots'
 hide_from_toc: false
@@ -20,34 +20,6 @@ blocks:
     type: quotation
     enabled: true
     quote_location: 'Chapter 1.XXIII'
-  -
-    type: prose
-    enabled: true
-    content:
-      -
-        type: paragraph
-        content:
-          -
-            type: text
-            text: 'Because what I love about creating a website is the expanse of '
-          -
-            type: text
-            marks:
-              -
-                type: italic
-            text: 'possibility '
-          -
-            type: text
-            text: 'inherent in it, and not so much the '
-          -
-            type: text
-            marks:
-              -
-                type: italic
-            text: reality
-          -
-            type: text
-            text: ' that may accumulate underneath it, this particular website is constantly changing, and yet contains very little of any substance. Nonetheless, you are welcome to explore at your leisure, and see what you can find.'
   -
     nav_title: 'Table of contents'
     type: navigation
