@@ -2,7 +2,7 @@
      <p class="sans-serif colour-lighter light">{{ partial:date :date="date" }}</p>
        <div>
        {{ unless (display_options | raw | in_array:hide_title) }}
-       <h3 class="font-size-1 semibold mt-0"
+       <h3 class="semibold mt-0 font-size-1"
           ><a href="{{ url }}"
             >{{ if author }}<cite
               >{{ title }}</cite

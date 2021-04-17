@@ -55,3 +55,51 @@ $font-ratios: (
 @mixin sans-serif($important: null) {
   font-family: var(--font-sans-serif), var(--default-font-stack) $important;
 }
+
+$fonts: (
+  Vollkorn-Black: (
+    normal 900
+  ),
+  Vollkorn-BlackItalic: (
+    italic 900
+  ),
+  Vollkorn-Bold: (
+    normal 700
+  ),
+  Vollkorn-BoldItalic: (
+    italic 700
+  ),
+  Vollkorn-ExtraBold: (
+    normal 800
+  ),
+  Vollkorn-ExtraBoldItalic: (
+    italic 800
+  ),
+  Vollkorn-Italic: (
+    italic 400
+  ),
+  Vollkorn-Medium: (
+    normal 500
+  ),
+  Vollkorn-MediumItalic: (
+    italic 500
+  ),
+  Vollkorn-Regular: (
+    normal 400
+  ),
+  Vollkorn-SemiBold: (
+    normal 600
+  ),
+  Vollkorn-SemiBoldItalic: (
+    italic 600
+  ),
+);
+
+@each $filename, $style in $fonts {
+  @font-face {
+    font-family: Vollkorn;
+    font-style: list.nth($style, 1);
+    font-weight: list.nth($style, 2);
+    src: url("/fonts/#{$filename}.woff2") format("woff2");
+  }
+}

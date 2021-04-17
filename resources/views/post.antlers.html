@@ -1,4 +1,4 @@
-    <article class="h-entry" itemscope itemtype="https://schema.org/BlogPosting">
+    <article class="prose h-entry" itemscope itemtype="https://schema.org/BlogPosting">
       <header class="sans-serif mb-1/2">
         <p class="colour-lighter light">
           {{ partial:date :date="date" }}
@@ -8,12 +8,12 @@
         </p>
         {{ unless (display_options | raw | in_array:hide_title) }}
           <h1
-            class="title p-name font-size-4 mt-1/8 mb-3/4 semibold"
+            class="title p-name font-size-4 mt-1/4"
             itemprop="headline"
           >{{ title }}</h1>
         {{ /unless }}
       </header>
-      <div class="e-content prose p-space-1/2" itemprop="articleBody">
+      <div class="e-content p-space-1/2" itemprop="articleBody">
         {{ content }}
       </div>
     </article>

@@ -94,8 +94,8 @@ $responsive-utilities: (
   flex: 1 0 auto;
 }
 
-.semibold, b { font-weight: 600; }
-.bold, strong { font-weight: 700; }
+b { font-weight: 500; }
+strong { font-weight: 600; }
 .oblique, cite { font-style: oblique; }
 
 $sc-letter-spacing: 0.05em;

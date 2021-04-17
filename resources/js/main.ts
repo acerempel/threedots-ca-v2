@@ -1,14 +1,10 @@
 import { setUpControl, setColourScheme } from './colour-scheme';
 import { TOC } from './toc';
 
-declare function lff(): void;
-declare function ffl(): boolean;
-
 document.addEventListener('DOMContentLoaded', () => {
   const setValue = (control: HTMLInputElement, val: string) => { control.value = val };
   const loadFancyFonts = (val: string) => {
     if (val === 'fancy') {
-      if (!ffl()) lff();
       document.body.classList.remove('fonts-default');
     } else {
       document.body.classList.add('fonts-default');
