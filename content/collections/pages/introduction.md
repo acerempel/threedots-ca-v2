@@ -4,7 +4,7 @@ parent: home
 description: 'Who am I? What is this website; why does it exist; why is it called by the name of a punctuation mark?'
 link_text: About
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1617896455
+updated_at: 1618691552
 blueprint: pages
 hide_from_toc: false
 id: e7849b47-140b-4e7a-828b-cad6d1af069d
@@ -14,7 +14,7 @@ content:
     content:
       -
         type: text
-        text: 'Good afternoon! I am Alan. I drink a lot of tea. I am on the verge of completing a bachelor''s degree in Classics at the '
+        text: 'Good afternoon! I am Alan. I drink a lot of tea. I am a graduand in Classics of the '
       -
         type: text
         marks:
@@ -51,33 +51,7 @@ content:
         text: 'at all'
       -
         type: text
-        text: ". That said, you may also find\_"
-      -
-        type: text
-        marks:
-          -
-            type: link
-            attrs:
-              href: 'https://instagram.com/alan_rempel_mdash/'
-              target: null
-              rel: null
-        text: 'me on Instagram'
-      -
-        type: text
-        text: ', '
-      -
-        type: text
-        marks:
-          -
-            type: link
-            attrs:
-              href: 'https://github.com/acerempel'
-              target: null
-              rel: null
-        text: 'on GitHub'
-      -
-        type: text
-        text: ', and possibly elsewhere.'
+        text: ". That said, you may also find\_me on Instagram, on Twitter, on GitHub, and possibly elsewhere."
   -
     type: heading
     attrs:
@@ -109,7 +83,7 @@ content:
         text: 'Why does it exist?'
       -
         type: text
-        text: "\_I don't know. I like having my own corner of the internet where I can experiment with prose and fiddle with stylesheets and JavaScript. In truth, I spend more time tweaking the design of the site than adding content. This is part of why I have historically declined to advertise this website's existence."
+        text: "\_I don't know. I like having my own corner of the internet where I can experiment with prose and fiddle with stylesheets and JavaScript. In truth, I spend more time tweaking the design of the site than adding content. "
   -
     type: paragraph
     content:
