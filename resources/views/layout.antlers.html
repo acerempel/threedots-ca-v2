@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title ?? "Good evening" }} … ‹three dots›</title>
-    <link rel="stylesheet" href="/css/main.css">
-    <script defer src="/js/main.js"></script>
+    <link rel="stylesheet" href="{{ mix src="/css/main.css" }}">
+    <script defer src="{{ mix src="/js/main.js" }}"></script>
     <template id="fancyFonts">
       <link rel="preload" as="font" type="font/woff2" href="/fonts/Vollkorn-Regular.woff2">
     </template>

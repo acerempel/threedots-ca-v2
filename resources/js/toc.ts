@@ -9,6 +9,14 @@ tocTemplate.innerHTML = `
 </nav>
 `;
 
+// TypeScript doesn't know about the ariaCurrent property yet.
+declare global {
+  interface Element {
+    ariaCurrent: string | null;
+  }
+}
+
+
 const hasAriaCurrent = 'ariaCurrent' in document.createElement('a');
 
 const setAriaCurrent = hasAriaCurrent
