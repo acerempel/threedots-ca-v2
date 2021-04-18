@@ -14,3 +14,11 @@ PUBLIC_DIR = "storage/app/static"
 for = "/feed"
 [headers.value]
 Content-Type = "application/atom+xml"
+
+[[headers]]
+for = "/fonts/*"
+[header.value]
+Cache-Control = '''
+public,
+immutable,
+max-age=2592000'''
