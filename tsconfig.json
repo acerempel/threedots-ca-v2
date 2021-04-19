@@ -10,6 +10,8 @@
     "module": "ES2020",
     "moduleResolution": "node",
     "declarationDir": "types",
-    "outDir": "public/js"
+    "outDir": "public/js",
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
   }
 }

@@ -25,9 +25,11 @@ const mixOptions = {
   postCss: production ? [ purgeCSS ] : [],
 };
 
-const mixed = mix
+mix
   .ts('resources/js/main.ts', 'assets/main.js')
   .sass('resources/sass/main.scss', 'assets/main.css')
   .options(mixOptions);
 
-if (production) mixed.versionHash();
+if (production) mix.versionHash();
+
+if (process.env.DEBUG) mix.dump();
