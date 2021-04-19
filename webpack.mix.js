@@ -7,7 +7,7 @@ const additionalCSSclasses = [
   // Classes applied via JS
   'colour-scheme-auto', 'colour-scheme-light', 'colour-scheme-dark',
   'visible', 'invisible',
-  'fonts-default', 'mt-1/8',
+  'fonts-default', 'aria-current', 'mt-1/8',
   // Markup from Bard
   'strong', 'em',
 ];
