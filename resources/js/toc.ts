@@ -1,13 +1,10 @@
-import slugify from 'slug';
+// TypeScript doesn't know about the ariaCurrent property yet.
+declare global {
+  interface Element {
+    ariaCurrent: string | null;
+  }
+}
 
-const tocTemplate = document.createElement('template');
-tocTemplate.innerHTML = `
-<link rel="stylesheet" href="/css/main.css">
-<style>:host { display: block } a[aria-current = "true"] { font-weight: 500; }</style>
-<nav class="flex column link-plain">
-  <slot name="title"></slot>
-</nav>
-`;
 
 const hasAriaCurrent = 'ariaCurrent' in document.createElement('a');
 
@@ -30,29 +27,25 @@ export class TOC extends HTMLElement {
   private currentHeading: HeadingInfo | null;
   constructor() {
     super();
-    let shadowRoot = this.attachShadow({mode: 'open'});
-    shadowRoot.appendChild(tocTemplate.content);
     this.knownHeadings = new Map();
     this.currentHeading = null;
   }
 
   connectedCallback() {
     let headings: NodeListOf<Element> = document.getElementById(this.getAttribute('for')!)!.querySelectorAll('h2');
-    let nav = this.shadowRoot!.lastElementChild!;
     let preceding = null;
     for (let heading of headings) {
       let id: string;
       if (!heading.id) {
-        id = slugify(heading.textContent!);
-        heading.id = id;
+        continue;
       } else {
         id = heading.id;
       }
       let link = document.createElement('a');
       link.href = '#' + id;
-      link.className = 'mt-1/8 light';
+      link.className = 'mt-1/8';
       link.innerHTML = heading.innerHTML;
-      nav.appendChild(link);
+      this.appendChild(link);
       let knownHeading: HeadingInfo = { target: heading, link, preceding };
       this.knownHeadings.set(heading, knownHeading);
       preceding = knownHeading;
@@ -87,7 +80,7 @@ export class TOC extends HTMLElement {
       }
       let headingObserverOptions = {
         threshold: 1.0,
-        rootMargin: "0px 0px 0px 25%",
+        rootMargin: "0px 0px -25% 0px",
       };
       let headingObserver = new IntersectionObserver(headingObserverCallback, headingObserverOptions);
       for (let heading of headings) {

@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title ?? "Good evening" }} … ‹three dots›</title>
-    <link rel="stylesheet" href="/css/main.css">
-    <script defer src="/js/main.js"></script>
+    <link rel="stylesheet" href="{{ mix src="/assets/main.css" }}">
+    <script defer src="{{ mix src="/assets/main.js" }}"></script>
     <template id="fancyFonts">
-      <link rel="preload" as="font" type="font/woff2" href="/fonts/Vollkorn-Regular.woff2">
+      <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Vollkorn-Regular.woff2">
     </template>
     <script>
       'use strict';
@@ -20,12 +20,7 @@
     <meta name="author" content="{{ meta:author }}">
     <link rel="alternate" type="application/atom+xml" href="/feed">
   </head>
-  <body class="
-    colour-scheme-auto
-    pr-1/2 pl-1/2 pb-1
-    font-size-1
-    flex column align-center
-  ">
+  <body class=" colour-scheme-auto pr-1/2 pl-1/2 pb-1/2 font-size-1 flex column align-center ">
     <div style="min-height: 100vh">
       {{ if url != "/" }}
       <header id="header-nav" class="sans-serif main-grid mt-1/2">
@@ -52,11 +47,7 @@
       </main>
     </div>
       <footer id="footer-nav" class="main-grid font-size-1" style="--base-font-size:1rem">
-        <div class="
-          main-middle border-top
-          regular sans-serif
-          flex space-between row wrap
-        ">
+        <div class=" main-middle border-top regular sans-serif flex space-between row wrap ">
           <nav style="flex-grow:1">
             <h2 class="visually-hidden">Links</h2>
             <ul class="list-none grid col-gap-1/2" style="grid-template-columns: repeat(auto-fit, calc(4 * var(--base-line-height)))">

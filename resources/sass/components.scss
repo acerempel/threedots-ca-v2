@@ -119,3 +119,7 @@ $has-toggle: ();
     }
   }
 }
+
+.toc a[aria-current = "true"] {
+  font-weight: 600;
+}

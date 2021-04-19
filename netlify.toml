@@ -4,7 +4,7 @@ command = "./build.sh"
 
 [build.environment]
 PHP_VERSION = "7.4"
-YARN_VERSION = "1.22.10"
+NPM_VERSION = "7.6.3"
 NODE_VERSION = "14.16.0"
 NODE_ENV = "production"
 APP_URL = "https://www.threedots.ca"
@@ -12,13 +12,13 @@ PUBLIC_DIR = "storage/app/static"
 
 [[headers]]
 for = "/feed"
-[headers.value]
+[headers.values]
 Content-Type = "application/atom+xml"
 
 [[headers]]
-for = "/fonts/*"
-[header.value]
+for = "/assets/*"
+[headers.values]
 Cache-Control = '''
-public,
-immutable,
+public
+immutable
 max-age=2592000'''
