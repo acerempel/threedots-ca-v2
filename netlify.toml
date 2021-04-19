@@ -19,6 +19,6 @@ Content-Type = "application/atom+xml"
 for = "/assets/*"
 [headers.values]
 Cache-Control = '''
-public,
-immutable,
+public
+immutable
 max-age=2592000'''
