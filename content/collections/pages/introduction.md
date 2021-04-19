@@ -1,13 +1,13 @@
 ---
+id: e7849b47-140b-4e7a-828b-cad6d1af069d
+blueprint: pages
 title: Preface
 parent: home
 description: 'Who am I? What is this website; why does it exist; why is it called by the name of a punctuation mark?'
 link_text: About
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1618691552
-blueprint: pages
+updated_at: 1618854584
 hide_from_toc: false
-id: e7849b47-140b-4e7a-828b-cad6d1af069d
 content:
   -
     type: paragraph
@@ -28,30 +28,6 @@ content:
       -
         type: text
         text: '. In my spare time I enjoy walking, computing, and punctuation.'
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: 'Although I update this website '
-      -
-        type: text
-        marks:
-          -
-            type: italic
-        text: highly
-      -
-        type: text
-        text: ' irregularly, it is nonetheless the only place on the internet whose content I control that I update '
-      -
-        type: text
-        marks:
-          -
-            type: italic
-        text: 'at all'
-      -
-        type: text
-        text: ". That said, you may also find\_me on Instagram, on Twitter, on GitHub, and possibly elsewhere."
   -
     type: heading
     attrs:
@@ -134,13 +110,13 @@ content:
         text: 'Why did such and such an entry disappear?'
       -
         type: text
-        text: ' Because I decided I didn''t like it. But you never know, it might reappear again, perhaps with revisions.'
+        text: ' I decided its time had not yet come. But you never know, it might reappear again, perhaps with revisions.'
   -
     type: paragraph
     content:
       -
         type: text
-        text: 'I hope your find this website an amusing stop on your internet travels.'
+        text: 'I hope you find this website an amusing stop on your internet travels.'
   -
     type: paragraph
     content:
