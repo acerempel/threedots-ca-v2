@@ -13,29 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setUpControl("colour-scheme", setColourScheme, setValue);
   setUpControl("fonts", loadFancyFonts, setValue);
-  setUpControl("mobile-toc",
-    (val) => { if (val === 'default') { document.body.classList.remove("mobile-toc") } else { document.body.classList.add('mobile-toc') } },
-    (control, val) => control.checked = val !== "default");
-
-  document.addEventListener("click", function(event: MouseEvent) {
-    const closestDropdown = (event?.target as Element).closest(".drawer");
-    if (closestDropdown) return;
-    for (const toggle of document.querySelectorAll('.drawer-toggle[aria-expanded = "true"]')) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      document.getElementById(toggle.getAttribute('aria-controls')!)!.classList.add('hidden')
-      toggle.setAttribute('aria-expanded', 'false')
-    }
-  });
-
-  for (const toggle of document.querySelectorAll('.drawer-toggle')) {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const drawer = document.getElementById(toggle.getAttribute('aria-controls')!)!;
-    toggle.addEventListener('click', (event) => {
-      event.stopPropagation();
-      drawer.classList.remove('hidden');
-      toggle.setAttribute('aria-expanded', 'true');
-    })
-  }
 
   if ('customElements' in window) {
     customElements.define('table-of-contents', TOC);
