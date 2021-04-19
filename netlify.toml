@@ -12,12 +12,12 @@ PUBLIC_DIR = "storage/app/static"
 
 [[headers]]
 for = "/feed"
-[headers.value]
+[headers.values]
 Content-Type = "application/atom+xml"
 
 [[headers]]
-for = "/fonts/*"
-[header.value]
+for = "/assets/*"
+[headers.values]
 Cache-Control = '''
 public,
 immutable,
