@@ -20,6 +20,8 @@ $abbrev-properties: (
   pb: padding-bottom,
   col-gap: grid-column-gap,
   row-gap: grid-row-gap,
+  bp: --border-padding,
+  bw: --border-width,
 );
 
 @include ratios ((space-y: (top bottom), space-x: (left right))) using ($sides, $ratio) {
@@ -138,8 +140,9 @@ $sc-letter-spacing: 0.05em;
 }
 
 .border-top {
-  padding-top: calc(var(--base-line-height) - 1px);
-  border-top: 1px solid var(--text-colour-lighter);
+  --border-width: 1px;
+  padding-top: calc(var(--border-padding, var(--base-line-height)) - var(--border-width));
+  border-top: var(--border-width) solid var(--text-colour-lighter);
 }
 
 .lowercase {

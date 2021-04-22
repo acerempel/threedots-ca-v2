@@ -3,14 +3,14 @@
           <h1>{{ title }}</h1>
           {{ content }}
         </header>
-        <div class="space-y-1 mt-1">
+        <div class="space-y-1">
         {{ taxonomy:year sort="title:desc" collection="posts" }}
         <section
-          class="border-top"
+          class="border-top bp-3/2 mt-3/2"
         ><h2 class="font-size-4 medium sans-serif swing mt-0"
           id="y{{ title }}"
           >{{ title }}</h2>
-          <div class="space-y-1 prose p-space-1/8">
+          <div class="space-y-1 prose p-space-1/4">
             {{ entries sort="date:desc" status:is="published" }}
             {{ partial:post-summary }}
             {{ /entries }}
@@ -24,6 +24,6 @@
 <nav
   id="toc"
   class="fixed hidden lg:shown toc">
-  <h2 class="font-size-2 mb-1/8 medium">Jump to year</h2>
+  <h2 class="font-size-2 mb-1/2 medium">Jump to year</h2>
 </nav>
 {{ /section:footer }}
