@@ -1,9 +1,10 @@
 <div class="prose p-space-1/2">
   <h1>{{ title }}</h1>
   {{ blocks }}
-  {{ if type == "prose" }}{{ content }}{{ /if }}
-  {{ if type == "navigation" }}{{ partial:nav }}{{ /if }}
-  {{ if type == "quotation" }}{{ partial:blockquote }}{{ /if }}
-  {{ if type == "items" }}{{ partial:items }}{{ /if }}
+  {{ if type == "prose" }}
+    {{ content }}
+  {{ else }}
+    {{ partial src="blocks/{type}" }}
+  {{ /if }}
   {{ /blocks }}
 </div>
