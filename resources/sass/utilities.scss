@@ -3,6 +3,7 @@
 @use "settings";
 @use "sass:list";
 @use "sass:meta";
+@use "sass:string";
 
 .p-space-1 { --paragraph-spacing-factor: 1; }
 .p-space-1\/2 { --paragraph-spacing-factor: 0.5; }
@@ -64,6 +65,7 @@ $responsive-utilities: (
   medium: (font-weight 500),
   semibold: (font-weight 600),
   bold: (font-weight 700),
+  grid-auto-fit: (grid-template-columns string.unquote("repeat(auto-fit, minmax(24rem, 1fr))")),
 );
 
 @include responsive ($responsive-utilities) using ($utility) {
