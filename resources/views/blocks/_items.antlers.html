@@ -1,4 +1,4 @@
-<section class="mt-3/2 prose" {{ partial:anchor }}>
+<section class="prose" {{ partial:anchor }}>
   {{ if items_title }}<div class="mb-3/4"><h2 lang="fr">{{ items_title }}</h2></div>{{ /if }}
   <div class="space-y-3/4 p-space-1/4">
     {{ collection from="{items_collections|raw|piped}" limit="{items_max_items}" sort="date:desc" }}
