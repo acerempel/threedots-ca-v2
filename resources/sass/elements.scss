@@ -17,8 +17,6 @@ p, ol, ul, nav, blockquote, aside, details, figcaption, dl {
   --link-initial-text-decoration-thickness: 0.05em;
   --link-hover-text-decoration-thickness: 0.15em;
   --link-text-decoration-line: underline;
-  font-size: var(--base-font-size);
-  line-height: var(--base-line-height);
   -webkit-hyphens: auto;
   hyphens: auto;
   .prose & { @include serif };

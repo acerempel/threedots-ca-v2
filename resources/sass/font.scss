@@ -2,50 +2,21 @@
 @use "sass:list";
 
 $font-ratios: (
-  6: (3, 2),
-  5: (2.25, 1.75),
-  4: (1.5, 1.25),
-  3: (1.25, 1.125),
-  2: (1.125, 1),
-  1: (1, 1),
+  6: (3, 25/24),
+  5: (2.25, 75/72),
+  4: (1.5, 75/48),
+  3: (1.25, 5/4),
+  2: (1.125, 25/18),
+  1: (1, 25/16),
+  0: (0.875, 10/7),
 );
 
 @mixin font-size($n, $important: null) {
   $ratios: map.get($font-ratios, $n);
   $fs: list.nth($ratios, 1);
   $lh: list.nth($ratios, 2);
-  font-size: calc(#{$fs} * var(--base-font-size)) $important;
-  line-height: calc(#{$lh} * var(--base-line-height)) $important;
-}
-
-@mixin font-size-5 {
-  font-size: calc(var(--base-font-size)*3);
-  line-height: calc(var(--base-line-height)*2);
-}
-
-@mixin font-size-4\.5 {
-  font-size: calc(var(--base-font-size)*2.25);
-  line-height: calc(var(--base-line-height)*1.75);
-}
-
-@mixin font-size-4 {
-  font-size: calc(var(--base-font-size)*1.5);
-  line-height: calc(var(--base-line-height)*1.25);
-}
-
-@mixin font-size-3 {
-  font-size: calc(var(--base-font-size)*1.25);
-  line-height: calc(var(--base-line-height)*1.125);
-}
-
-@mixin font-size-2 {
-  font-size: calc(var(--base-font-size)*1.125);
-  line-height: var(--base-line-height);
-}
-
-@mixin font-size-1 {
-  font-size: var(--base-font-size);
-  line-height: var(--base-line-height);
+  font-size: $fs * 1rem $important;
+  line-height: $lh $important;
 }
 
 @mixin serif($important: null) {

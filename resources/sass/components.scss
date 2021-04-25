@@ -30,22 +30,23 @@ $has-toggle: ();
 }
 
 .prose {
+  @include font-size(2);
   h1, h2, h3, h4 {
     @include sans-serif;
   }
   h1 {
-    @include font-size-4\.5;
+    @include font-size(5);
     font-weight: 300;
     @include mb(0.75);
   }
   h2 {
-    @include font-size-3;
+    @include font-size(4);
     font-weight: 400;
     @include mt(1);
-    @include mb(0.75);
+    @include mb(0.5);
   }
   h3 {
-    @include font-size-2;
+    @include font-size(3);
     font-weight: 400;
     @include mt(0.75);
     @include mb(var(--paragraph-spacing-factor, 0));
@@ -84,7 +85,7 @@ $has-toggle: ();
   }
   figcaption {
     position: relative;
-    --base-font-size: 1rem;
+    @include font-size(1);
     padding-left: 2ch;
     &::before {
       content: '—';

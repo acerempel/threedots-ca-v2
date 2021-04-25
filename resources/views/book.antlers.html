@@ -1,6 +1,6 @@
-<article class="prose p-space-1/2">
-  <header class="mb-3/4">
-    <h1 class="mb-1/8 font-size-3 link-uline"
+<article class="prose p-space-3/4">
+  <header class="mb-1">
+    <h1 class="font-size-4 mb-0 link-uline"
       ><cite class="medium"
         >{{ if external_url }}<a
           href="{{ external_url }}">{{ title }}</a
@@ -11,11 +11,8 @@
   {{ content }}
   <footer class="mt-1">
     <dl
-      class="grid col-gap-1 row-gap-1/4"
-      style="
-        --base-font-size: 1rem;
-        grid-template-columns: repeat(auto-fit, minmax(16ch, max-content));
-      "
+      class="grid col-gap-1 row-gap-1/4 font-size-1"
+      style=" grid-template-columns: repeat(auto-fit, minmax(16ch, max-content)); "
     >
       <div>
         <dt class="semibold all-small-caps">Categories</dt>

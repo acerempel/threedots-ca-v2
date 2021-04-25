@@ -6,6 +6,7 @@
 @use "sass:string";
 
 .p-space-1 { --paragraph-spacing-factor: 1; }
+.p-space-3\/4 { --paragraph-spacing-factor: 0.75; }
 .p-space-1\/2 { --paragraph-spacing-factor: 0.5; }
 .p-space-1\/4 { --paragraph-spacing-factor: 0.25; }
 .p-space-1\/8 { --paragraph-spacing-factor: 0.125; }

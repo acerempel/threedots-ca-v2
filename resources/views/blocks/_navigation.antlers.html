@@ -4,7 +4,7 @@
     {{ nav scope="item" handle="{nav_struct|raw}" }}
     {{ partial:dl-link :link_text="item:link_text" }}
       {{ if children and nav_show_children }}
-      <p style="--base-font-size:1rem">
+      <p class="font-size-1">
       {{ children scope="child" }}
       {{ partial:link :link_text="child:link_text" }}{{ if ! last }}·{{ /if }}
       {{ /children }}

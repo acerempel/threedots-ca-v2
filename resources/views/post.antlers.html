@@ -8,12 +8,12 @@
         </p>
         {{ unless (display_options | raw | in_array:hide_title) }}
           <h1
-            class="title p-name font-size-4 mt-1/4"
+            class="title p-name font-size-4 mb-0 medium"
             itemprop="headline"
           >{{ title }}</h1>
         {{ /unless }}
       </header>
-      <div class="e-content p-space-1/2" itemprop="articleBody">
+      <div class="e-content p-space-3/4" itemprop="articleBody">
         {{ content }}
       </div>
     </article>

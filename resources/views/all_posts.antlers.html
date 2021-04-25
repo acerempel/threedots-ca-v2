@@ -3,11 +3,11 @@
           <h1>{{ title }}</h1>
           {{ content }}
         </header>
-        <div class="space-y-1">
+        <div class="space-y-3/2 mt-3/2">
         {{ taxonomy:year sort="title:desc" collection="posts" }}
         <section
-          class="border-top bp-3/2 mt-3/2"
-        ><h2 class="font-size-4 medium sans-serif swing mt-0"
+          class="border-top bp-3/2"
+        ><h2 class="font-size-4 all-small-caps medium sans-serif swing mt-0"
           id="y{{ title }}"
           >{{ title }}</h2>
           <div class="space-y-1 prose p-space-1/4">
