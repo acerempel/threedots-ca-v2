@@ -14,22 +14,12 @@ fields:
     handle: struct
     field:
       max_items: 1
-      mode: select
-      display: Collection
-      type: collections
-      icon: collections
-      listable: hidden
-      width: 50
-  -
-    handle: start
-    field:
-      max_items: 1
       mode: default
-      display: 'Starting entry'
-      type: entries
-      icon: entries
-      listable: hidden
+      display: 'Navigation tree'
+      type: structures
+      icon: structures
       width: 50
+      listable: hidden
   -
     handle: show_children
     field:

@@ -1,8 +1,7 @@
 <nav class="prose p-space-1/2" {{ partial:anchor }}>
   <h2>{{ nav_title }}</h2>
   <dl class="dl-grid">
-    {{ nav scope="item" from="{nav_start|get:slug}" }}
-    {{ unless id == page:id || hide_from_toc }}
+    {{ nav scope="item" handle="{nav_struct|raw}" }}
     {{ partial:dl-link :link_text="item:link_text" }}
       {{ if children and nav_show_children }}
       <p style="--base-font-size:1rem">
@@ -12,7 +11,6 @@
       </p>
       {{ /if }}
     {{ /partial:dl-link }}
-    {{ /unless }}
     {{ /nav }}
   </dl>
 </nav>

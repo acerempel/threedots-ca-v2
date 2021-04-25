@@ -20,3 +20,5 @@ preferences:
         - title
         - author
         - slug
+    pages:
+      after_save: continue_editing
