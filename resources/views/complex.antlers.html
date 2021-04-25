@@ -1,5 +1,6 @@
 <div class="prose p-space-1/2">
   <h1>{{ title }}</h1>
+  <div class="grid {{ if full_width }} grid-repeat col-gap-2 row-gap-1 {{ /if }}">
   {{ blocks }}
   {{ if type == "prose" }}
     {{ content }}
@@ -7,4 +8,5 @@
     {{ partial src="blocks/{type}" }}
   {{ /if }}
   {{ /blocks }}
+  </div>
 </div>

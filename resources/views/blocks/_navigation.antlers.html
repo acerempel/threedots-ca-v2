@@ -1,5 +1,5 @@
 <nav class="prose p-space-1/2" {{ partial:anchor }}>
-  <h2>{{ nav_title }}</h2>
+  <h2 class="mt-0">{{ nav_title }}</h2>
   <dl class="dl-grid">
     {{ nav scope="item" handle="{nav_struct|raw}" }}
     {{ partial:dl-link :link_text="item:link_text" }}

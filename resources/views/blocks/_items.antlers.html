@@ -1,6 +1,6 @@
 <section class="prose" {{ partial:anchor }}>
-  {{ if items_title }}<h2 lang="fr">{{ items_title }}</h2>{{ /if }}
-  <div class="space-y-3/4 p-space-1/4">
+  {{ if items_title }}<h2 lang="fr" class="mt-0">{{ items_title }}</h2>{{ /if }}
+  <div class="space-y-1 p-space-1/4">
     {{ collection from="{items_collections|raw|piped}" limit="{items_max_items}" sort="date:desc" }}
     {{ partial:post-summary :mode="items_style" format="j. M Y" }}
     {{ /collection }}

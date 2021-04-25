@@ -38,16 +38,22 @@
       </header>
       {{ /if }}
       <main class="main-grid mt-1/2 mb-1">
+        {{ if full_width }}
+        <div class="main-full">
+          {{ template_content }}
+        </div>
+        {{ else }}
         <div class="main-middle max-width-content">
           {{ template_content }}
         </div>
         <aside class="sans-serif main-right">
           {{ yield:footer }}
         </aside>
+        {{ /if }}
       </main>
     </div>
       <footer id="footer-nav" class="main-grid font-size-1" style="--base-font-size:1rem">
-        <div class=" main-middle border-top bp-3/2 mt-1/2 regular sans-serif flex space-between row wrap ">
+        <div class="{{ if full_width }} main-full {{ else }} main-middle {{ /if }} border-top bp-3/2 mt-1/2 regular sans-serif flex space-between row wrap ">
           <nav style="flex-grow:1">
             <h2 class="visually-hidden">Links</h2>
             <ul class="list-none grid col-gap-1/2" style="grid-template-columns: repeat(auto-fit, calc(4 * var(--base-line-height)))">

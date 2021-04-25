@@ -16,6 +16,10 @@ $side-width: settings.$max-width-content / 4;
     grid-column: 1/2;
   }
 
+  & > .main-full {
+    grid-column: 1/-1;
+  }
+
   @include min-width(lg) {
     grid-template-columns: $side-width $full-width $side-width;
     & > .main-middle { grid-column: 2/3; }

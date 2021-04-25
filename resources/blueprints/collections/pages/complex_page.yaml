@@ -107,3 +107,5 @@ sections:
       -
         handle: link_text
         field: whatever.link_text
+      -
+        import: layout_options
