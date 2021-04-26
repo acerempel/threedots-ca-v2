@@ -144,7 +144,7 @@ $sc-letter-spacing: 0.05em;
 
 .border-top {
   --border-width: 1px;
-  padding-top: calc(var(--border-padding, var(--base-line-height)) - var(--border-width));
+  padding-top: calc(var(--border-padding, lh(1)) - var(--border-width));
   border-top: var(--border-width) solid var(--text-colour-lighter);
 }
 

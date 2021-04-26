@@ -51,7 +51,7 @@ $has-toggle: ();
     height: 0;
     overflow: visible;
     transform-origin: top right;
-    transform: translate(-100%, 0) rotate(-90deg) translate(calc(-0.25 * var(--base-line-height)), calc(-2 * var(--base-line-height)));
+    transform: translate(-100%, 0) rotate(-90deg) translate(lh(-0.25), lh(-2));
     text-align: right;
     transform-box: border-box;
     margin: 0;

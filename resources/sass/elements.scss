@@ -1,4 +1,5 @@
 @use "font" as *;
+@use "mixins" as *;
 
 a {
   color: var(--link-colour, inherit);
@@ -55,7 +56,7 @@ sup {
   font-size: 0.625em;
   vertical-align: baseline;
   position: relative;
-  top: calc(var(--base-line-height)*-0.25);
+  top: lh(-0.25);
 }
 
 mark {
@@ -66,7 +67,7 @@ mark {
   border-radius: 0.2em;
 }
 
-li { margin-bottom: calc(var(--base-line-height)*0.25); }
+li { margin-bottom: lh(0.25); }
 li::last-child { margin-bottom: 0; }
 
 details > summary { cursor: pointer }
