@@ -1,0 +1,22 @@
+@use "font" as *;
+@use "mixins" as *;
+
+@mixin h1 {
+  @include font-size(5);
+  font-weight: 300;
+  @include mb(0.75);
+}
+
+@mixin h2 {
+  @include font-size(4);
+  font-weight: 400;
+  @include mt(1);
+  @include mb(0.5);
+}
+
+@mixin h3 {
+  @include font-size(3);
+  font-weight: 500;
+  @include mt(0.75);
+  @include mb(0.5);
+}

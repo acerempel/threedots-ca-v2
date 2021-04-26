@@ -12,36 +12,21 @@ a:hover {
   text-decoration-thickness: var(--link-hover-text-decoration-thickness, 0.1em);
 }
 
-p, ol, ul, nav, blockquote, aside, details, figcaption, dl {
-  --link-colour: var(--text-colour-highlight);
-  --link-initial-text-decoration-thickness: 0.05em;
-  --link-hover-text-decoration-thickness: 0.15em;
-  --link-text-decoration-line: underline;
-  -webkit-hyphens: auto;
+p, li, figcaption, dd {
   hyphens: auto;
-  .prose & { @include serif };
-}
-
-p, ol, ul, details, figure, blockquote, aside, dd, h1, h2, h3, h4 {
-  margin-bottom: calc(var(--paragraph-spacing-factor, 0) * var(--base-line-height));
-  &:last-child { margin-bottom: 0; }
 }
 
 li { margin-inline-start: 1.5em; }
 
 code {
-  font-family: Monaco, Hack, Menlo, 'Fira Code', 'Courier Next', monospace;
+  font-family: Hack, Menlo, 'Fira Code', 'Courier Next', monospace;
   font-size: 0.9em;
-}
-
-label {
-  margin-inline-end: 0.5em;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   --link-text-decoration-line: none;
-  --link-colour: inherit;
+  --link-colour: currentColor;
   --link-initial-text-decoration-thickness: 0.07em;
   --link-hover-text-decoration-thickness: 0.15em;
 }

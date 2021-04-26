@@ -1,13 +1,13 @@
-<article class="prose p-space-1/2">
-  <h1>{{ title }}</h1>
+<article>
+  <h1 class="heading-1">{{ title }}</h1>
   {{ content }}
   <section class="space-y-3/2 mt-3/2">
     {{ taxonomy:book_category collection="books" }}
-    <section class="border-top bp-3/2 space-y-3/4" id="{{ slug }}">
+    <section class="border-top bp-3/2 space-y-1" id="{{ slug }}">
       <h2 class="font-size-3 bold all-small-caps">{{ title }}</h2>
       {{ entries scope="book" status:is="published" }}
-      <article class="p-space-1/4">
-        <header class="mb-1/4">
+      <article class="space-y-1/4">
+        <header>
           <h3 class="font-size-3 serif medium mt-0 mb-0"
           ><a href={{ book:url }}
             ><cite>{{ book:title }}</cite
