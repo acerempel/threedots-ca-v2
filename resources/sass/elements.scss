@@ -85,3 +85,5 @@ li { margin-bottom: calc(var(--base-line-height)*0.25); }
 li::last-child { margin-bottom: 0; }
 
 details > summary { cursor: pointer }
+
+small { @include font-size(0) }
