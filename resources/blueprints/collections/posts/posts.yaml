@@ -112,11 +112,3 @@ sections:
           max_items: 1
           validate:
             - required
-      -
-        handle: marks
-        field:
-          type: terms
-          taxonomies:
-            - marks
-          display: Marks
-          mode: select
