@@ -9,6 +9,7 @@ preferences:
         - title
         - date
         - description
+      after_save: continue_editing
     books:
       columns:
         - title
