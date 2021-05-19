@@ -4,19 +4,19 @@
           {{ content }}
         </header>
         <div class="space-y-3/2 mt-3/2">
-        {{ taxonomy:year sort="title:desc" collection="posts" }}
+        {{ grouped_by_date:year collection="posts" }}
         <section
           class="border-top bp-3/2"
         ><h2 class="font-size-4 all-small-caps medium sans-serif swing mt-0"
-          id="y{{ title }}"
-          >{{ title }}</h2>
+          id="y{{ year }}"
+          >{{ year }}</h2>
           <div class="space-y-1">
-            {{ entries sort="date:desc" status:is="published" }}
+            {{ entries }}
             {{ partial:post-summary }}
             {{ /entries }}
           </div>
         </section>
-        {{ /taxonomy:year }}
+        {{ /grouped_by_date:year }}
         </div>
        </section>
 

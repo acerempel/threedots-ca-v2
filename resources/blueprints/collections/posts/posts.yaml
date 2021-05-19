@@ -100,15 +100,3 @@ sections:
           icon: textarea
           instructions: 'This will appear in the posts listing instead of the content, and in the description meta tag and the title attribute of links.'
           listable: true
-      -
-        handle: year
-        field:
-          type: terms
-          taxonomies:
-            - year
-          display: Year
-          mode: typeahead
-          listable: hidden
-          max_items: 1
-          validate:
-            - required
