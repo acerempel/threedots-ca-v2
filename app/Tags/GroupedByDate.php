@@ -2,6 +2,7 @@
 
 namespace App\Tags;
 
+use Exception;
 use Statamic\Tags\Tags;
 use Statamic\Facades\Entry;
 
@@ -16,7 +17,7 @@ class GroupedByDate extends Tags
      * @return array
      */
     public function index() {
-      return $this->wildcard($this->params->get('property'));
+      return $this->wildcard($this->params->explode('property'));
     }
 
     /**
@@ -35,9 +36,13 @@ class GroupedByDate extends Tags
      * descending (`desc`). The default is whatever the sort direction is for
      * the entries, which itself defaults to `desc`.
      *
-     * @return array
+     * @param string[] $property
+     *
+     * @return array[]
      */
     public function wildcard($property) {
+      if (! is_array($property)) $property = explode('|', $property);
+
       $collection = $this->params->get(['collection', 'from'], 'pages');
 
       $entries_order = $this->params->get(['sort_entries', 'sort'], 'date:desc');
@@ -46,25 +51,32 @@ class GroupedByDate extends Tags
       $groups_order_dir = $this->params->get(['sort_groups_dir'], $entries_order_dir);
 
       $date_properties = ['year', 'month', 'day', 'hour', 'minute', 'second', 'dayOfWeek'];
-      if (in_array($property, $date_properties)) {
-        $group_by_property = function ($item) use ($property) {
-          return $item->date()->{$property};
-        };
-      } else {
-        $group_by_property = $property;
+      foreach ($property as $prop) {
+        if (! in_array($prop, $date_properties)) throw new Exception("Date property unknown!");
       }
+
+      $group_by_property = function ($item) use ($property) {
+        $values = array_map(function ($prop) use ($item) {
+          return $item->date()->{$prop};
+        }, $property);
+        return implode('-', $values);
+      };
+
+      $reorganize_group = function ($item, $key) use ($property) {
+        $group = [ 'entries' => $item, 'group' => $key, ];
+        $date = $item[0]->date();
+        foreach ($property as $prop) {
+          $group[$prop] = $date->{$prop};
+        }
+        return $group;
+      };
 
       return Entry::query()
         ->where('collection', $collection)
         ->orderBy($entries_order_prop, $entries_order_dir)
         ->get()
         ->groupBy($group_by_property)
-        ->map(function ($item, $key) use ($property) {
-          $group = [];
-          $group['entries'] = $item;
-          $group['group'] = $key; $group[$property] = $key;
-          return $group;
-        })
+        ->map($reorganize_group)
         ->sortBy([['group', $groups_order_dir]])
         ->all();
     }
