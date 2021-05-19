@@ -8,9 +8,12 @@ use Statamic\Facades\Entry;
 class GroupedByDate extends Tags
 {
     /**
-     * The {{ grouped_by_date }} tag.
+     * The {{ grouped_by_date }} tag. This works exactly like the {{
+     * grouped_by_date:* }} tag, except that the date property by which to group
+     * the entries is given in the `property` parameter rather in the handle
+     * (the part after the colon).
      *
-     * @return string|array
+     * @return array
      */
     public function index() {
       return $this->wildcard($this->params->get('property'));
@@ -20,11 +23,19 @@ class GroupedByDate extends Tags
      * The {{ grouped_by_date:* }} tag. The part after the colon is the property you
      * want to key the groups by.
      *
-     * The `collection` or `from` parameter specifies
-     * the collection from which come the items to be grouped. It defaults to
-     * 'pages' if not specified.
+     * The `collection` or `from` parameter specifies the collection from which
+     * come the items to be grouped. It defaults to 'pages' if not specified.
      *
-     * @return string|array
+     * The `sort_entries` or `sort` parameter specifies by what property the
+     * entries shall be ordered and in what direction, in the format
+     * `$property:$dir`, eg `sort='title:asc'`. It defaults to `'date:desc'`.
+     *
+     * The groups are sorted by the grouping property. Use the `sort_groups_dir`
+     * parameter` to specify whether they should be sorted ascending (`asc`) or
+     * descending (`desc`). The default is whatever the sort direction is for
+     * the entries, which itself defaults to `desc`.
+     *
+     * @return array
      */
     public function wildcard($property) {
       $collection = $this->params->get(['collection', 'from'], 'pages');
