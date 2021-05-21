@@ -10,7 +10,10 @@ export const TOC = (forElem: Element) => {
 
   const setPrecedingHeading = () => {
     const curHead = headings.find(heading => heading.id === currentHeading());
-    const prevHead = curHead && curHead.index > 0 ? headings[curHead.index - 1].id : null;
+    const prevHead =
+      curHead && curHead.index > 0
+      ? headings[curHead.index - 1].id
+      : null;
     setCurrentHeading(prevHead);
   }
 
@@ -25,12 +28,12 @@ export const TOC = (forElem: Element) => {
     }
   });
 
-  const ariaCurrent = (heading: Heading) => heading.id === currentHeading() ? "true" : "false";
+  const isAriaCurrent = (heading: Heading) => heading.id === currentHeading() ? "true" : "false";
 
   return <ol class="list-none space-y-1/4">
     <For each={headings}>
       {(heading) => <li>
-        <a href={'#' + heading.id} aria-current={ariaCurrent(heading)}>{heading.text}</a>
+        <a href={'#' + heading.id} aria-current={isAriaCurrent(heading)}>{heading.text}</a>
       </li>}
     </For>
   </ol>;
