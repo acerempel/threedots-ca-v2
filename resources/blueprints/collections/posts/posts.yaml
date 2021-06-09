@@ -63,6 +63,7 @@ sections:
           localizable: true
           validate:
             - required
+            - 'unique_entry_value:{collection},{id},{site}'
       -
         handle: date
         field:
@@ -100,3 +101,11 @@ sections:
           icon: textarea
           instructions: 'This will appear in the posts listing instead of the content, and in the description meta tag and the title attribute of links.'
           listable: true
+      -
+        handle: marks
+        field:
+          type: terms
+          taxonomies:
+            - marks
+          display: Marks
+          mode: select
