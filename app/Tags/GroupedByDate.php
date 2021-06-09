@@ -32,7 +32,7 @@ class GroupedByDate extends Tags
      * `$property:$dir`, eg `sort='title:asc'`. It defaults to `'date:desc'`.
      *
      * The groups are sorted by the grouping property. Use the `sort_groups_dir`
-     * parameter` to specify whether they should be sorted ascending (`asc`) or
+     * parameter to specify whether they should be sorted ascending (`asc`) or
      * descending (`desc`). The default is whatever the sort direction is for
      * the entries, which itself defaults to `desc`.
      *
