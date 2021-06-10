@@ -3,10 +3,9 @@ id: e7849b47-140b-4e7a-828b-cad6d1af069d
 blueprint: pages
 title: Preface
 parent: home
-description: 'Who am I? What is this website; why does it exist; why is it called by the name of a punctuation mark?'
-link_text: About
+description: 'I offer the reader some brief explanatory remarks as a preface to this website.'
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1618854584
+updated_at: 1623351929
 hide_from_toc: false
 content:
   -
@@ -14,28 +13,7 @@ content:
     content:
       -
         type: text
-        text: 'Good afternoon! I am Alan. I drink a lot of tea. I am a graduand in Classics of the '
-      -
-        type: text
-        marks:
-          -
-            type: link
-            attrs:
-              href: 'https://ukings.ca'
-              target: null
-              rel: null
-        text: 'University of King''s College, Halifax'
-      -
-        type: text
-        text: '. In my spare time I enjoy walking, computing, and punctuation.'
-  -
-    type: heading
-    attrs:
-      level: 2
-    content:
-      -
-        type: text
-        text: 'Concerning this website'
+        text: 'Good evening—welcome! I hope you are seated comfortably—or, better yet, reclining. Allow me to preface the contents of this website with brief explanatory remarks.'
   -
     type: paragraph
     content:
@@ -44,7 +22,7 @@ content:
         marks:
           -
             type: bold
-        text: 'Why is it called “three dots”?'
+        text: 'Why is this website called “three dots”?'
       -
         type: text
         text: "\_Because three dots is the visual form of the ellipsis (‘…’), and I am an elliptical man."
@@ -76,8 +54,9 @@ content:
             type: link
             attrs:
               href: /posts
-              target: null
               rel: null
+              target: null
+              title: null
           -
             type: bold
         text: ellipses

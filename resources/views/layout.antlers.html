@@ -20,10 +20,10 @@
     <meta name="author" content="{{ meta:author }}">
     <link rel="alternate" type="application/atom+xml" href="/feed">
   </head>
-  <body class=" colour-scheme-auto pr-1/2 pl-1/2 pb-1/2 font-size-2 flex column align-center ">
+  <body class=" colour-scheme-auto pr-1/2 pl-1/2 pb-1/2 pt-1/2 font-size-2 flex column align-center ">
     <div style="min-height: 100vh">
       {{ if url != "/" }}
-      <header id="header-nav" class="sans-serif main-grid mt-1">
+      <header id="header-nav" class="sans-serif main-grid mt-1/2">
         <nav class="main-middle">
           <ol class="link-uline list-none lowercase flex row wrap">
             {{ nav:breadcrumbs scope="item" include_home="true" }}
@@ -54,13 +54,21 @@
     </div>
       <footer id="footer-nav" class="main-grid font-size-1" style="--base-font-size:1rem">
         <div class="{{ if full_width }} main-full {{ else }} main-middle {{ /if }} border-top bp-3/2 mt-1/2 regular sans-serif flex space-between row wrap ">
-          <nav style="flex-grow:1">
-            <h2 class="visually-hidden">Links</h2>
-            <ul class="list-none grid col-gap-1/2" style="grid-template-columns: repeat(auto-fit, calc(4 * var(--base-line-height)))">
-              {{ nav:footer scope="item" }}
-              <li>{{ partial:nav-item }}</li>
-              {{ /nav:footer }}
-            </ul>
+          <nav
+              style="flex-grow: 1; grid-template-columns: repeat(auto-fit, calc(4 * var(--base-line-height)))"
+              class="grid col-gap-1/2"
+              aria-label="Primary"
+            >
+            {{ nav:footer }}
+            <section class="mb-1/2">
+              <h2 class="mt-0 mb-1/4 semibold font-size-1">{{ title }}</h2>
+              <ul class="list-none">
+                {{ children scope="item" }}
+                <li>{{ partial:nav-item }}</li>
+                {{ /children }}
+              </ul>
+            </section>
+            {{ /nav:footer }}
           </nav>
           <section>
             <h2 class="visually-hidden">Settings</h2>

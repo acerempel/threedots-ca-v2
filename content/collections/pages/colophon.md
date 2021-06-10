@@ -5,8 +5,14 @@ title: Colophon
 description: 'Various informations about the design and typography of this website and the tools used to create it.'
 hide_from_toc: false
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1619052175
+updated_at: 1623350321
 content:
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: 'Below are some cursory notes on the design of this website and the tools I''ve used to create it.'
   -
     type: heading
     attrs:
@@ -28,8 +34,9 @@ content:
             type: link
             attrs:
               href: 'http://vollkorn-typeface.com/'
-              target: null
               rel: null
+              target: null
+              title: null
         text: Vollkorn
       -
         type: text
@@ -47,8 +54,9 @@ content:
             type: link
             attrs:
               href: 'http://www.georgduffner.at/ebgaramond/'
-              target: null
               rel: null
+              target: null
+              title: null
         text: 'EB Garamond'
       -
         type: text
@@ -74,8 +82,9 @@ content:
             type: link
             attrs:
               href: 'https://statamic.com'
-              target: null
               rel: null
+              target: null
+              title: null
         text: Statamic
       -
         type: text
@@ -87,12 +96,13 @@ content:
             type: link
             attrs:
               href: 'https://wordpress.org'
-              target: null
               rel: null
+              target: null
+              title: null
         text: WordPress
       -
         type: text
-        text: ', more or less – but it''s better in every way than WordPress, except for the fact that you need to have technical skills to set Statamic up initially. Once set up, it is quite straightforward to use – even delightful, – and unmatched in its flexibility. But WordPress''s advantage has always been that you don''t need to be a technical person to install it and create an okay-looking website with it.'
+        text: ', more or less; the main difference is that it''s easier and more fun to extend and customize.'
   -
     type: paragraph
     content:
@@ -120,8 +130,9 @@ content:
             type: link
             attrs:
               href: 'https://www.netlify.com/'
-              target: null
               rel: null
+              target: null
+              title: null
         text: Netlify
       -
         type: text
@@ -133,8 +144,9 @@ content:
             type: link
             attrs:
               href: 'https://pages.github.com/'
-              target: null
               rel: null
+              target: null
+              title: null
         text: 'GitHub Pages'
       -
         type: text
@@ -146,8 +158,9 @@ content:
             type: link
             attrs:
               href: 'https://neocities.org'
-              target: null
               rel: null
+              target: null
+              title: null
         text: Neocities
       -
         type: text
@@ -158,4 +171,46 @@ content:
       -
         type: text
         text: 'I remain fond of Neocities, and would recommend it as the easiest to use and least intimidating of all the methods of putting hypertext on the internet. They even have an in-browser HTML editor, so you don''t have to figure out how to upload stuff. Of course Netlify and services like it offer much more control over how your site is served.'
+  -
+    type: heading
+    attrs:
+      level: 2
+    content:
+      -
+        type: text
+        text: 'Traffic measurement'
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: 'I use '
+      -
+        type: text
+        marks:
+          -
+            type: link
+            attrs:
+              href: 'https://www.goatcounter.com/'
+              rel: null
+              target: null
+              title: null
+        text: GoatCounter
+      -
+        type: text
+        text: ' to show me some basic statistics about visits to the website: how many visits occur on each day for each page, which countries visitors come from, and so on. GoatCounter is not capable of tracking individual visitors across multiple visits, nor of doing any kind of data analysis – it''s just a fancy hit counter, and probably doesn''t deserve to be called ‘analytics’. Recently I''ve also been trying out '
+      -
+        type: text
+        marks:
+          -
+            type: link
+            attrs:
+              href: 'https://www.cloudflare.com/en-ca/web-analytics/'
+              rel: null
+              target: null
+              title: null
+        text: 'Cloudflare Analytics'
+      -
+        type: text
+        text: ', which is essentially the same thing.'
 ---
