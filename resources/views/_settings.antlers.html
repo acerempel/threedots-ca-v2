@@ -15,4 +15,7 @@
                   <option value="fancy">Vollkorn</option>
                   <option value="default" selected>System UI</option>
                 </select>
+                {{ if config:app:env == "local" }}
+                <a href="{{ edit_url }}">Edit this page</a>
+                {{ /if }}
   </form>
