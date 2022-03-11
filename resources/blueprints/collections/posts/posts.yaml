@@ -74,8 +74,7 @@ sections:
           mode: single
           time_enabled: false
           time_required: false
-          earliest_date: '1900-01-01'
-          format: YYYY-MM-DD
+          format: Y-m-d
           full_width: false
           inline: false
           columns: 1
