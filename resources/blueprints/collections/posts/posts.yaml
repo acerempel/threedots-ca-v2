@@ -31,7 +31,6 @@ sections:
             - anchor
             - image
             - table
-            - strikethrough
           save_html: false
           toolbar_mode: fixed
           link_noopener: false
