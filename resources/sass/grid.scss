@@ -2,7 +2,7 @@
 @use "mixins" as *;
 
 $full-width: settings.$max-width-content;
-$side-width: settings.$max-width-content / 4;
+$side-width: settings.$max-width-content * 0.25;
 
 .main-grid {
   display: grid;

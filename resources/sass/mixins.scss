@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @use "settings";
 @use "sass:map";
 
@@ -34,7 +36,7 @@
 @mixin ratios ($classes) {
   @each $class, $info in $classes {
     @each $num, $denom in settings.$ratios {
-      $ratio: $num / $denom;
+      $ratio: math.div($num, $denom);
       .#{$class}-#{ratio-string($num, $denom)} {
         @content($info, $ratio);
       }
