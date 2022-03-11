@@ -1,0 +1,9 @@
+@charset "UTF-8";
+.ingredient {
+  font-weight: 700;
+}
+.ingredient::before {
+  content: "➨ ";
+  margin-left: 0.375ch;
+  vertical-align: -0.0875em;
+}

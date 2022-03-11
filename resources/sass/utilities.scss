@@ -49,6 +49,7 @@ $responsive-utilities: (
   align-center: (align-items center),
   grid: (display grid),
   max-width-content: (max-width settings.$max-width-content),
+  max-width-bigger: (max-width 42rem),
   hidden: (display none),
   shown: (display initial),
   relative: (position relative),
@@ -154,6 +155,16 @@ $sc-letter-spacing: 0.05em;
 
 .grid-repeat {
   grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+}
+
+.grid-col-first { grid-column: 1; }
+.grid-col-last { grid-column: -1; }
+.grid-col-all { grid-column: 1 / -1; }
+
+$justifications: start, end, center, stretch;
+
+@each $justify in $justifications {
+  .justify-self-#{$justify} { justify-self: $justify; }
 }
 
 .visually-hidden {

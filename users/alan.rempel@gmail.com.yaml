@@ -1,7 +1,7 @@
 name: Alan
 super: true
 id: ef566878-06e2-4591-9b05-2130076004d2
-password_hash: $2y$10$0S.8ueETWHbTeDIXNebpUO07NLFZH9ONaKaK3fZLR6c8dJzfFpnUi
+password_hash: $2y$10$iJHbe6fdfqhTmhK3zV9LmuC/uOxJ7PkcBcFHMfZ6vALdOvxvr5eeK
 preferences:
   collections:
     posts:

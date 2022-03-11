@@ -1,0 +1,43 @@
+title: 'Grid item'
+fields:
+  -
+    handle: grid_position
+    field:
+      options:
+        grid-col-auto: Automatic
+        grid-col-first: 'First column'
+        grid-col-last: 'Last column'
+        grid-col-all: 'All columns'
+      multiple: false
+      clearable: false
+      searchable: true
+      taggable: false
+      push_tags: false
+      cast_booleans: false
+      default: grid-col-auto
+      display: 'Grid position'
+      type: select
+      icon: select
+      listable: hidden
+      instructions_position: above
+  -
+    handle: justification
+    field:
+      options:
+        none: Default
+        justify-self-start: Left
+        justify-self-end: Right
+        justify-self-center: Centre
+        justify-self-stretch: 'Full width'
+      multiple: false
+      clearable: false
+      searchable: true
+      taggable: false
+      push_tags: false
+      cast_booleans: false
+      default: none
+      display: Justification
+      type: select
+      icon: select
+      listable: hidden
+      instructions_position: above

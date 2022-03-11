@@ -7,6 +7,8 @@ description: 'Extracts from notes that I had written to myself on scraps of pape
 blueprint: pages
 hide_from_toc: false
 id: cb50e28a-6dbd-4565-a73d-349bb5478a7b
+full_width: true
+has_footer: true
 content:
   -
     type: paragraph

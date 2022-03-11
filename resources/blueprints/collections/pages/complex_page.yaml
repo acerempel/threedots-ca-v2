@@ -53,12 +53,16 @@ sections:
                     type: slug
                     icon: slug
                     listable: hidden
+                -
+                  import: grid_item
             quotation:
               display: Quotation
               fields:
                 -
                   import: quotation
                   prefix: quote_
+                -
+                  import: grid_item
             items:
               display: Items
               fields:
@@ -73,10 +77,13 @@ sections:
                     type: slug
                     icon: slug
                     listable: hidden
+                -
+                  import: grid_item
           display: Blocks
           type: replicator
           icon: replicator
           listable: hidden
+          instructions_position: above
       -
         handle: template
         field:
