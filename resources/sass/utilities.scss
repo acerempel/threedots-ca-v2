@@ -172,6 +172,12 @@ $justifications: start, end, center, stretch;
   .justify-self-#{$justify} { justify-self: $justify; }
 }
 
+$alignments: left, right, center;
+
+@each $align in $alignments {
+  .text-#{$align} { text-align: $align; }
+}
+
 .visually-hidden {
   position: absolute !important;
   width: 1px !important;
