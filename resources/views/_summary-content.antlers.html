@@ -1,4 +1,11 @@
 {{ if description }}
 <p>{{ description }}</p>
 <p class="link-plain"><a href="{{ url }}" aria-label="Continue reading “{{ title }}”">Continue reading …</a></p>
-{{ else }}{{ content }}{{ /if }}
+{{ else }}
+{{ content }}
+  {{ if type == "text" }}
+    {{ text }}
+  {{ /if }}
+{{ /content }}
+<!-- Ignore e.g. images -->
+{{ /if }}
