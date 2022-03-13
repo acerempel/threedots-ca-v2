@@ -153,6 +153,11 @@ $sc-letter-spacing: 0.05em;
   text-transform: lowercase
 }
 
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .grid-repeat {
   grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
 }
