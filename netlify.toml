@@ -3,7 +3,7 @@ publish = "storage/app/static"
 command = "./build.sh"
 
 [build.environment]
-PHP_VERSION = "8.1"
+PHP_VERSION = "7.4"
 NPM_VERSION = "8.5.2"
 NODE_VERSION = "16"
 NODE_ENV = "production"
