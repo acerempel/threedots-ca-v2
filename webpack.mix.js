@@ -26,8 +26,8 @@ const mixOptions = {
 };
 
 mix
-  .ts('resources/js/main.ts', 'assets/main.js')
-  .sass('resources/sass/main.scss', 'assets/main.css')
+  .ts('resources/js/main.ts', 'assets/web/main.js')
+  .sass('resources/sass/main.scss', 'assets/web/main.css')
   .options(mixOptions);
 
 if (production) mix.versionHash();

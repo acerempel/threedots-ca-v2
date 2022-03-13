@@ -15,6 +15,8 @@
       </header>
       <div class="e-content prose" itemprop="articleBody">
         {{ content }}
+          {{ partial src="prose/{type}" }}
+        {{ /content }}
       </div>
     </article>
     {{ section:footer }}{{ /section:footer }}
