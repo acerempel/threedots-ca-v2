@@ -10,6 +10,17 @@ sections:
           required: true
           validate:
             - required
+          width: 66
+      -
+        handle: title_centred
+        field:
+          default: false
+          display: 'Centre title'
+          type: toggle
+          icon: toggle
+          listable: false
+          instructions_position: above
+          width: 33
       -
         handle: description
         field: prose.description
@@ -99,7 +110,6 @@ sections:
         field:
           type: slug
           localizable: true
-          required: true
           validate:
             - required
             - 'unique_entry_value:{collection},{id},{site}'

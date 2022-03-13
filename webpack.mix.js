@@ -10,6 +10,15 @@ const additionalCSSclasses = [
   'fonts-default', 'aria-current', 'mt-1/8',
   // Markup from Bard
   'strong', 'em',
+  // Classes from blueprint
+  'grid-col-auto',
+  'grid-col-first',
+  'grid-col-last',
+  'grid-col-all',
+  'justify-self-start',
+  'justify-self-end',
+  'justify-self-center',
+  'justify-self-stretch',
 ];
 
 const purgeCSS = require('@fullhuman/postcss-purgecss')({

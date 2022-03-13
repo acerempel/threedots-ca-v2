@@ -1,5 +1,5 @@
 <div>
-  <h1 class="heading-1">{{ title }}</h1>
+  <h1 class="heading-1 max-width-content {{ if title_centred }} mx-auto text-center {{ /if }}">{{ title }}</h1>
   <div class="grid {{ if full_width }} md:grid-auto-fit col-gap-2 row-gap-3/2 {{ /if }}">
   {{ blocks }}
   {{ if type == "prose" }}
