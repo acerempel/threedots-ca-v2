@@ -3,9 +3,9 @@ id: e7849b47-140b-4e7a-828b-cad6d1af069d
 blueprint: pages
 title: Preface
 parent: home
-description: 'In which I offer the reader some brief explanatory remarks as a preface to this website.'
+description: 'Some brief explanatory remarks regarding this website.'
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1623431176
+updated_at: 1647207875
 hide_from_toc: false
 content:
   -

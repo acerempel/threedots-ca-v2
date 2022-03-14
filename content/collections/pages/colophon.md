@@ -2,10 +2,10 @@
 id: 426e9b13-25d6-44b6-b45c-73b86f3e8bef
 blueprint: pages
 title: Colophon
-description: 'Various informations about the design and typography of this website and the tools used to create it.'
+description: 'Notes on the design of this website and the tools used to create it.'
 hide_from_toc: false
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1623350321
+updated_at: 1647207844
 content:
   -
     type: paragraph

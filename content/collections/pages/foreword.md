@@ -2,31 +2,17 @@
 id: 7256c42a-a817-47a0-837d-f29bce92215d
 blueprint: pages
 title: Foreword
-description: 'In which I, the author of this website, introduce myself, saying “Good afternoon! I am Alan. Etc.”'
+description: 'The author of this website introduces himself.'
 hide_from_toc: false
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1623346086
+updated_at: 1647207931
 content:
   -
     type: paragraph
     content:
       -
         type: text
-        text: 'Good afternoon! I am Alan. I drink a lot of tea. I graduated with a bachelor''s degree in Classics from the '
-      -
-        type: text
-        marks:
-          -
-            type: link
-            attrs:
-              href: 'https://ukings.ca/'
-              rel: null
-              target: null
-              title: null
-        text: 'University of King''s College, Halifax'
-      -
-        type: text
-        text: ' in the spring of 2021. In my spare time I enjoy walking, computing, and, occasionally, playing around with words and punctuation. This website is one of the few publicly accessible (though not well-advertised) fruits of the latter two pastimes. See the '
+        text: 'Good afternoon! I am Alan. I drink a lot of tea. In my spare time I enjoy walking, computing, and, occasionally, playing around with words and punctuation. This website is one of the few publicly accessible (though not well-advertised) fruits of the latter two pastimes. See the '
       -
         type: text
         marks:

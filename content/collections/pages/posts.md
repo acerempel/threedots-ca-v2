@@ -1,12 +1,12 @@
 ---
+id: cb50e28a-6dbd-4565-a73d-349bb5478a7b
+blueprint: pages
 title: Ellipses
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1618252563
+updated_at: 1647222930
 template: all_posts
-description: 'Extracts from notes that I had written to myself on scraps of paper.'
-blueprint: pages
+description: 'Scraps of paper floating down in the breeze from the elliptical trees.'
 hide_from_toc: false
-id: cb50e28a-6dbd-4565-a73d-349bb5478a7b
 full_width: true
 has_footer: true
 content:
@@ -15,23 +15,5 @@ content:
     content:
       -
         type: text
-        text: 'These extracts from my spontaneous and infrequent jottings-down – scraps of paper fluttering by in the wind – are '
-      -
-        type: text
-        marks:
-          -
-            type: italic
-        text: elliptical
-      -
-        type: text
-        text: ' in the sense that their original context has been '
-      -
-        type: text
-        marks:
-          -
-            type: italic
-        text: elided
-      -
-        type: text
-        text: ', thus they are to some degree nonsensical. (Unfortunately ‘ellipsis’ and ‘elide’ turn out to be etymologically unrelated.)'
+        text: 'Extracts from my spontaneous and infrequent jottings-down, heavily edited. Since the original context that motivated their composition has elided, one may imagine them bracketed by ellipses.'
 ---
