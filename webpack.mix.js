@@ -21,17 +21,20 @@ const additionalCSSclasses = [
   'justify-self-stretch',
 ];
 
-const purgeCSS = require('@fullhuman/postcss-purgecss')({
-  content: [`./resources/views/**/*.antlers.html`],
-  extractors: [ { extractor: require('purgecss-from-html'), extensions: ['html'] } ],
-  safelist: additionalCSSclasses,
-});
+function purgeCSS() {
+  return require('@fullhuman/postcss-purgecss')({
+    content: [`./resources/views/**/*.antlers.html`],
+    extractors: [{extractor: require('purgecss-from-html'), extensions: ['html']}],
+    safelist: additionalCSSclasses,
+  });
+}
+
 
 const mixOptions = {
   terser: { terserOptions: { ecma: '2017' } },
   cssNano: production && { preset: 'default' },
   autoprefixer: production && { flexbox: false },
-  postCss: production ? [ purgeCSS ] : [],
+  postCss: production ? [ purgeCSS() ] : [],
 };
 
 mix
