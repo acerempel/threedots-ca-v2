@@ -1,24 +1,31 @@
-  <section itemscope itemtype="https://schema.org/Blog" id="all-posts">
-        <header aria-owns=toc class="prose max-width-content mx-auto">
-          <h1>{{ title }}</h1>
-          {{ content }}
-        </header>
-        <div class="space-y-3/2 mt-3/2">
-        {{ grouped_by_date:year collection="posts" }}
-        <section
-          class="border-top bp-3/2"
-        ><h2 class="font-size-4 all-small-caps medium sans-serif swing mt-0"
-          id="y{{ year }}"
-          >{{ year }}</h2>
-          <div class="grid col-gap-2 row-gap-1" style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))">
-            {{ entries }}
-            {{ partial:post-summary }}
-            {{ /entries }}
-          </div>
-        </section>
-        {{ /grouped_by_date:year }}
-        </div>
-       </section>
+<section itemscope itemtype="https://schema.org/Blog" id="all-posts">
+  <header aria-owns=toc class="prose max-width-content mx-auto">
+    <h1>{{ title }}</h1>
+    {{ content }}
+  </header>
+  <div class="space-y-3/2 mt-3/2">
+    {{ collection:posts as="entries" }}
+      {{ entries group_by="date|Y" }}
+        {{ groups }}
+          <section class="border-top bp-3/2">
+            <h2
+              class="font-size-4 all-small-caps medium sans-serif swing mt-0"
+              id="y{{ group }}"
+            >{{ group }}</h2>
+            <div
+              class="grid col-gap-2 row-gap-1"
+              style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
+            >
+              {{ items }}
+                {{ partial:post-summary }}
+              {{ /items }}
+            </div>
+          </section>
+        {{ /groups }}
+      {{ /entries }}
+    {{ /collection:posts }}
+  </div>
+</section>
 
 {{ section:footer }}
 <nav
