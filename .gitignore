@@ -4,6 +4,7 @@
 /public/vendor/statamic/
 /public/assets/web/
 /public/mix-manifest.json
+/public/main.js
 /storage/*.key
 /vendor
 /types/
