@@ -1,5 +1,5 @@
 <section {{ partial:anchor }}>
-  {{ if items_title }}<h2 lang="fr" class="heading-2 mt-0">{{ items_title }}</h2>{{ /if }}
+  {{ if items_title }}<h2 class="heading-2 mt-0">{{ items_title }}</h2>{{ /if }}
   <div class="grid grid-auto-fit col-gap-2 row-gap-1">
     {{ collection from="{items_collections|raw|piped}" limit="{items_max_items}" sort="date:desc" }}
     {{ partial:post-summary :mode="items_style" format="j. M Y" }}
