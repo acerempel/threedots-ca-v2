@@ -1,0 +1,13 @@
+title: Semicolons
+template: post
+layout: layout
+taxonomies:
+  - topic
+revisions: false
+route: '/{mount}/{slug}'
+date: true
+sort_dir: asc
+default_status: draft
+date_behavior:
+  past: public
+  future: private

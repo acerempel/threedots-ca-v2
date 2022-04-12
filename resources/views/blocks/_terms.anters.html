@@ -1,0 +1,13 @@
+<section>
+  {{ if terms_title }}<h2 class="heading-2 mt-0">{{ terms_title }}</h2>{{ /if }}
+  <div class="grid grid-auto-fit col-gap-2 row-gap-1">
+    {{ taxonomy :from="terms_taxonomy" }}
+      <section>
+        <h3>{{ title }}</h3>
+        {{ entries :limit="terms_limit" scope="term" }}
+          {{ partial:post-summary :mode="terms_style" format="j. M Y" }}
+        {{ /entries }}
+      </section>
+    {{ /taxonomy }}
+  </div>
+</section>
