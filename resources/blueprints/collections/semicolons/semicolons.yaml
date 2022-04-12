@@ -1,0 +1,60 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: content
+        field: prose.content
+        config:
+          buttons:
+            - h2
+            - h3
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - image
+            - table
+          validate:
+            - required
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+      -
+        handle: date
+        field:
+          type: date
+          required: true
+          validate:
+            - required
+      -
+        handle: topic
+        field:
+          type: terms
+          taxonomies:
+            - topic
+          display: Topic
+          mode: select
+          instructions_position: above
+          listable: hidden
+          read_only: false
+          create: true
+      -
+        handle: description
+        field: prose.description
+title: Semicolon
