@@ -1,6 +1,8 @@
 <figure class="quotation max-width-bigger">
   <blockquote>
     {{ quote_content }}
+      {{ partial src="prose/{type}" }}
+    {{ /quote_content }}
   </blockquote>
   <figcaption>
     {{ quote_source }}
