@@ -40,6 +40,19 @@ const mixOptions = {
 mix
   .ts('resources/js/main.ts', 'assets/web/main.js')
   .sass('resources/sass/main.scss', 'assets/web/main.css')
+  .override((webpackConfig) => {
+    const outputConfig = {
+      module: true,
+      chunkLoading: 'import',
+      chunkFormat: 'module',
+      library: {
+        type: 'module',
+      },
+    }
+    webpackConfig.output = Object.assign(webpackConfig.output || {}, outputConfig)
+    webpackConfig.experiments = { outputModule: true, }
+  })
+  .sourceMaps()
   .options(mixOptions);
 
 if (production) mix.versionHash();
