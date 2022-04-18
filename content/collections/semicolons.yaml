@@ -1,6 +1,7 @@
 title: Semicolons
-template: post
+template: semicolons/show
 layout: layout
+mount: 36e4aa1d-dc4e-4014-806f-bca20cbf3263
 taxonomies:
   - topic
 revisions: false
