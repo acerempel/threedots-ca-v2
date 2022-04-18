@@ -1,0 +1,14 @@
+<div>
+    <h1 class="heading-1">{{ title }}</h1>
+    {{ content }}
+    <div class="space-y-3/2 mt-3/2">
+        {{ taxonomy:topic collection="semicolons" }}
+            <section class="border-top bp-3/2 space-y-1" id="{{ slug }}">
+                <h2 class="font-size-3 bold">{{ title }}</h2>
+                {{ entries scope="item" status="published" }}
+                   {{ partial:post-summary }}
+                {{ /entries }}
+            </section>
+        {{ /taxonomy:topic }}
+    </div>
+</div>
