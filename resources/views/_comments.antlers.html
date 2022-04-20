@@ -1,5 +1,5 @@
 <section hidden id="comments-section" aria-labelledby="comments-section-heading">
-    <h2 id="comments-section-heading">Comments</h2>
+    <h2 id="comments-section-heading" class="semibold font-size-3">Comments</h2>
     <template id="comment-template">
         <article>
             <header>
@@ -8,6 +8,13 @@
             </header>
             <slot></slot>
         </article>
+    </template>
+    <template id="comment-form-template">
+      <form data-netlify="true" name="comment" method="POST">
+        <input type="text" name="Name" autocomplete="name">
+        <textarea name="content"></textarea>
+        <button type="submit">Submit</button>
+      </form>
     </template>
     <div id="comments-list" class="space-y-1"></div>
     <script type="module">
@@ -23,6 +30,7 @@
                 display_comments(data)
             } catch (err) {
                 console.error(`Fetching comments failed: ${err}`)
+                comments_list.innerHTML = `<p>There was a problem fetching comments!</p>`
             }
         }
         const display_comments = (data) => {
@@ -42,6 +50,7 @@
                 }
                 comments_list.appendChild(fragment)
             }
+            comments_list.appendChild(document.getElementById('comment-form-template').content)
         }
         const observer_callback = (entries, observer) => {
             for (const entry of entries) {
