@@ -21,7 +21,7 @@
         const comments_list = document.getElementById('comments-list')
         const comments_heading = document.getElementById('comments-section-heading')
         const load_comments = async (target) => {
-            const url = `http://comments.threedots.ca/comments?page_url=${window.location.pathname}`
+            const url = `https://comments.threedots.ca/comments?page_url=${window.location.pathname}`
             try {
                 const response = await fetch(url, {
                     headers: {'Accept': 'application/json'},
