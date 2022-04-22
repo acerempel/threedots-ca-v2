@@ -1,12 +1,6 @@
 import { setUpControl, setColourScheme } from './colour-scheme';
+import { enable_comments, disable_comments } from "./comments";
 import './toc';
-
-declare global {
-    interface Window {
-        enable_comments: () => void
-        disable_comments: () => void
-    }
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   const setValue = (control: HTMLInputElement, val: string) => { control.value = val };
@@ -18,11 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-    const setCommentsEnabled = (state: string) => {
+  const setCommentsEnabled = (state: string) => {
         if (state === 'on') {
-            window.enable_comments()
+            enable_comments()
         } else {
-            window.disable_comments()
+            disable_comments()
         }
   }
 
