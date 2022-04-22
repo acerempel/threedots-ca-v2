@@ -21,22 +21,25 @@ export const handler: Handler = async (event, _context) => {
     const response = await request("https://comments.threedots.ca/comments", {
       method: "POST",
       headers: {
+        'Origin': 'https://www.threedots.ca',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     })
-    console.log(response)
+    const statusCode = response.statusCode
+    const body = await response.body.text()
+    console.log({
+      statusCode,
+      headers: response.headers,
+      body,
+    })
     const headers = {}
     for (const [name, value] of Object.entries(response.headers)) {
       if (typeof value === 'string') {
         headers[name] = value
       }
     }
-    return {
-      statusCode: response.statusCode,
-      body: await response.body.text(),
-      headers,
-    }
+    return { statusCode, body, headers, }
   } catch (err) {
     console.log(err)
     return {
