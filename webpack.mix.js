@@ -39,6 +39,7 @@ const mixOptions = {
 
 mix
   .ts('resources/js/main.ts', 'assets/web/main.js')
+  .ts('resources/js/comments.ts', 'assets/web/comments.js')
   .sass('resources/sass/main.scss', 'assets/web/main.css')
   .override((webpackConfig) => {
     const outputConfig = {
