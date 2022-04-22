@@ -7,11 +7,11 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.17.7",
+    "@babel/core": "^7.17.9",
     "@fullhuman/postcss-purgecss": "^4.1.3",
-    "babel-loader": "^8.2.4",
-    "babel-preset-solid": "^1.3.13",
-    "collect.js": "^4.31.3",
+    "babel-loader": "^8.2.5",
+    "babel-preset-solid": "^1.3.16",
+    "collect.js": "^4.32.0",
     "css-loader": "^5.2.7",
     "laravel-mix": "^6.0.43",
     "laravel-mix-versionhash": "^2.0.1",
@@ -20,15 +20,15 @@
     "postcss-loader": "^6.2.1",
     "purgecss-from-html": "^4.1.1",
     "resolve-url-loader": "^3.1.4",
-    "sass": "^1.49.9",
+    "sass": "^1.50.1",
     "sass-loader": "^11.1.1",
-    "solid-js": "^1.3.15",
+    "solid-js": "^1.3.16",
     "ts-loader": "^8.3.0",
     "webpack": "^5.72.0"
   },
   "devDependencies": {
     "@netlify/functions": "^1.0.0",
     "sirv-cli": "^1.0.14",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.3"
   }
 }
