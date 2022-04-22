@@ -33,6 +33,7 @@ const display_comments = (comments_list: HTMLElement, data: Comment[]) => {
       `
       const shadow = container.attachShadow({ mode: 'open' })
       shadow.appendChild(template.cloneNode(true))
+      fragment.appendChild(container)
     }
     comments_list.appendChild(fragment)
   }
