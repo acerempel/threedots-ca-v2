@@ -11,6 +11,7 @@ interface FormSubmission {
 }
 
 export const handler: Handler = async (event, _context) => {
+  console.log(event)
   const submission: FormSubmission = JSON.parse(event.body)
   const payload = submission.payload
   try {
@@ -22,11 +23,13 @@ export const handler: Handler = async (event, _context) => {
       },
       body: JSON.stringify(payload),
     })
+    console.log(response)
     return {
       statusCode: response.status,
       body: await response.text(),
     }
   } catch (err) {
+    console.log(err)
     return {
       statusCode: 500,
       body: err.toString(),
