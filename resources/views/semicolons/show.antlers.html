@@ -1,0 +1,22 @@
+<article class="h-entry space-y-3/4" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="sans-serif">
+        <p class="colour-lighter light">
+            {{ partial:date :date="date" }}
+            {{ if date_revised }}
+                <small> – Revised {{ partial:date :date="date_revised" }}</small>
+            {{ /if }}
+        </p>
+        <h1
+            class="title p-name font-size-5 mt-1/4 mb-1 regular"
+            itemprop="headline"
+        >{{ title }}</h1>
+    </header>
+    <div class="e-content prose" itemprop="articleBody">
+        {{ content }}
+            {{ partial src="prose/{type}" }}
+        {{ /content }}
+    </div>
+    <footer>
+        {{ partial:comments }}
+    </footer>
+</article>

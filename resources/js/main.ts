@@ -1,4 +1,5 @@
 import { setUpControl, setColourScheme } from './colour-scheme';
+import { enable_comments, disable_comments } from "./comments";
 import './toc';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,6 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const setCommentsEnabled = (state: string) => {
+        if (state === 'on') {
+            enable_comments()
+        } else {
+            disable_comments()
+        }
+  }
+
   setUpControl("colour-scheme", setColourScheme, setValue);
   setUpControl("fonts", loadFancyFonts, setValue);
+  setUpControl("comments-option", setCommentsEnabled, (control, value) => { control.checked = value === 'on' })
 });

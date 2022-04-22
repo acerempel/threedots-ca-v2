@@ -23,3 +23,9 @@ preferences:
         - slug
     pages:
       after_save: continue_editing
+    semicolons:
+      columns:
+        - title
+        - description
+        - topic
+        - date

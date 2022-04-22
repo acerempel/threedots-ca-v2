@@ -3,8 +3,8 @@ import { createSignal, For, onMount } from 'solid-js';
 import { headingObserverCallback, headingObserverOptions } from './observer';
 import { Heading, HeadingId } from './heading';
 
-export const TOC = (forElem: Element) => {
-  const headings = collectHeadings(forElem);
+export const TOC = (props: { forElem: Element }) => {
+  const headings = collectHeadings(props.forElem);
 
   const [currentHeading, setCurrentHeading] = createSignal<HeadingId>(null);
 
