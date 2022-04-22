@@ -1,76 +1,11 @@
 <section hidden id="comments-section" aria-labelledby="comments-section-heading">
     <h2 id="comments-section-heading" class="semibold font-size-3">Comments</h2>
-    <template id="comment-template">
-        <article>
-            <header>
-                <slot name="author"></slot>
-                <time><slot name="date"></slot></time>
-            </header>
-            <slot></slot>
-        </article>
-    </template>
-    <template id="comment-form-template">
-      <form data-netlify="true" name="comment" method="POST" action="{{ url }}">
-        <input type="text" name="name" autocomplete="name">
-        <input type="hidden" name="content_type" value="plain">
-        <input type="hidden" name="page_url" value="{{ url }}">
-        <textarea name="content"></textarea>
-        <button type="submit">Submit</button>
-      </form>
-    </template>
     <div id="comments-list" class="space-y-1"></div>
-    <script type="module">
-        const comments_list = document.getElementById('comments-list')
-        const comments_heading = document.getElementById('comments-section-heading')
-        const load_comments = async (target) => {
-            const url = `https://comments.threedots.ca/comments?page_url=${window.location.pathname}`
-            try {
-                const response = await fetch(url, {
-                    headers: {'Accept': 'application/json'},
-                })
-                const data = await response.json()
-                display_comments(data)
-            } catch (err) {
-                console.error(`Fetching comments failed: ${err}`)
-                comments_list.innerHTML = `<p>There was a problem fetching comments!</p>`
-            }
-        }
-        const display_comments = (data) => {
-            if (data.length === 0) {
-                comments_list.innerHTML = "<p>No comments yet!</p>"
-            } else {
-                const template = document.getElementById('comment-template')
-                const fragment = document.createDocumentFragment()
-                for (const comment of data) {
-                    const container = document.createElement('div')
-                    container.innerHTML = `
-                        <span slot="author">${comment.author}</span>
-                        <span slot="date">${comment.date}</span>
-                        ${comment.content}
-                    `
-                    container.attachShadow(template.cloneNode(true), { mode: 'open' })
-                }
-                comments_list.appendChild(fragment)
-            }
-            comments_list.appendChild(document.getElementById('comment-form-template').content)
-        }
-        const observer_callback = (entries, observer) => {
-            for (const entry of entries) {
-                if (entry.isIntersecting) {
-                    load_comments(entry.target)
-                    observer.unobserve(entry.target)
-                }
-            }
-        }
-    let observer;
-    window.enable_comments = () => {
-        document.getElementById('comments-section').hidden = false
-        observer = observer || new IntersectionObserver(observer_callback, { threshold: 1 })
-        observer.observe(comments_heading)
-    }
-    window.disable_comments = () => {
-        document.getElementById('comments-section').hidden = true
-        if (observer) { observer.unobserve(comments_heading) }
-    }
-    </script>
+    <form data-netlify="true" name="comment" method="POST" action="{{ url }}">
+      <input type="text" name="name" autocomplete="name">
+      <input type="hidden" name="content_type" value="plain">
+      <input type="hidden" name="page_url" value="{{ url }}">
+      <textarea name="content"></textarea>
+      <button type="submit">Submit</button>
+    </form>
 </section>
