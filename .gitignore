@@ -7,7 +7,6 @@
 /public/main.js
 /storage/*.key
 /vendor
-/types/
 .rollup.cache/
 .env
 .env.backup
