@@ -22,7 +22,7 @@ const display_comments = (comments_list: HTMLElement, data: Comment[]) => {
   if (data.length === 0) {
     comments_list.innerHTML = "<p>No comments yet!</p>"
   } else {
-    const template = document.getElementById('comment-template')!
+    const template = document.getElementById('comment-template')! as HTMLTemplateElement
     const fragment = document.createDocumentFragment()
     for (const comment of data) {
       const container = document.createElement('div')
@@ -32,7 +32,7 @@ const display_comments = (comments_list: HTMLElement, data: Comment[]) => {
       ${comment.content}
       `
       const shadow = container.attachShadow({ mode: 'open' })
-      shadow.appendChild(template.cloneNode(true))
+      shadow.appendChild(template.content.cloneNode(true))
       fragment.appendChild(container)
     }
     comments_list.appendChild(fragment)
