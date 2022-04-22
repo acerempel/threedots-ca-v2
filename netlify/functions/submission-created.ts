@@ -1,19 +1,22 @@
 import type {Handler} from '@netlify/functions'
+import {fetch} from 'undici'
 
 interface FormSubmission {
   payload: {
-    author: string,
-    content: string,
-    content_type: "html" | "plain",
-    page_url: string,
+    data: {
+      author: string,
+      content: string,
+      content_type: "html" | "plain",
+      page_url: string,
+    }
   }
   site: Object
 }
 
 export const handler: Handler = async (event, _context) => {
-  console.log(event)
   const submission: FormSubmission = JSON.parse(event.body)
-  const payload = submission.payload
+  console.log(submission)
+  const data = submission.payload.data
   try {
     const response = await fetch("https://comments.threedots.ca/comments", {
       method: "POST",
@@ -21,7 +24,7 @@ export const handler: Handler = async (event, _context) => {
         'Content-Type': 'application/json',
         'Origin': 'https://www.threedots.ca',
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(data),
     })
     console.log(response)
     return {
