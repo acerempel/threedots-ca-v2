@@ -1,4 +1,4 @@
 #!/bin/sh
 
-npx mix --production
+npm exec vite build
 php please ssg:generate

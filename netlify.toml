@@ -3,11 +3,13 @@ publish = "storage/app/static"
 command = "./build.sh"
 
 [build.environment]
-PHP_VERSION = "7.4"
+PHP_VERSION = "8.0"
 NPM_VERSION = "8.5.2"
 NODE_VERSION = "16"
 NODE_ENV = "production"
+APP_ENV = "production"
 APP_URL = "https://www.threedots.ca"
+APP_DEBUG = "false"
 PUBLIC_DIR = "storage/app/static"
 
 [[headers]]
@@ -17,6 +19,14 @@ Content-Type = "application/atom+xml"
 
 [[headers]]
 for = "/assets/*"
+[headers.values]
+Cache-Control = '''
+public
+immutable
+max-age=2592000'''
+
+[[headers]]
+for = "/build/*"
 [headers.values]
 Cache-Control = '''
 public

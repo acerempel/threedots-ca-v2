@@ -1,5 +1,7 @@
 {
-  "include": ["resources/js/**/*"],
+  "include": [
+    "resources/js/**/*"
+  ],
   "compilerOptions": {
     "strict": true,
     "allowJs": true,
@@ -12,6 +14,12 @@
     "declarationDir": "types",
     "outDir": "public/js",
     "jsx": "preserve",
-    "jsxImportSource": "solid-js"
+    "jsxImportSource": "solid-js",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "resources/*"
+      ]
+    }
   }
 }
