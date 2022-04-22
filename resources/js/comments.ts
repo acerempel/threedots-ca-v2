@@ -1,10 +1,8 @@
-import {display_comments} from "./comments_view"
-
 const observer_callback = (list: HTMLElement): IntersectionObserverCallback => {
-  return (entries, observer) => {
+  return async (entries, observer) => {
     for (const entry of entries) {
       if (entry.isIntersecting) {
-        display_comments(list)
+        (await import('./comments_view')).display_comments(list)
         observer.unobserve(entry.target)
       }
     }
