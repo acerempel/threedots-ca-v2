@@ -4,7 +4,8 @@ import {request} from 'undici'
 interface FormSubmission {
   payload: {
     data: {
-      author: string,
+      name: string,
+      author?: string,
       content: string,
       content_type: "html" | "plain",
       page_url: string,
@@ -15,8 +16,9 @@ interface FormSubmission {
 
 export const handler: Handler = async (event, _context) => {
   const submission: FormSubmission = JSON.parse(event.body)
-  console.log(submission)
+  console.log(submission.payload)
   const data = submission.payload.data
+  data.author = data.name
   try {
     const response = await request("https://comments.threedots.ca/comments", {
       method: "POST",
