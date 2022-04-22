@@ -1,5 +1,5 @@
 import type {Handler} from '@netlify/functions'
-import {fetch} from 'undici'
+import {request} from 'undici'
 
 interface FormSubmission {
   payload: {
@@ -18,18 +18,24 @@ export const handler: Handler = async (event, _context) => {
   console.log(submission)
   const data = submission.payload.data
   try {
-    const response = await fetch("https://comments.threedots.ca/comments", {
+    const response = await request("https://comments.threedots.ca/comments", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
-        'Origin': 'https://www.threedots.ca',
       },
       body: JSON.stringify(data),
     })
     console.log(response)
+    const headers = {}
+    for (const [name, value] of Object.entries(response.headers)) {
+      if (typeof value === 'string') {
+        headers[name] = value
+      }
+    }
     return {
-      statusCode: response.status,
-      body: await response.text(),
+      statusCode: response.statusCode,
+      body: await response.body.text(),
+      headers,
     }
   } catch (err) {
     console.log(err)
