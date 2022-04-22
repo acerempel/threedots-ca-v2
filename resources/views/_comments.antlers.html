@@ -10,8 +10,10 @@
         </article>
     </template>
     <template id="comment-form-template">
-      <form data-netlify="true" name="comment" method="POST">
-        <input type="text" name="Name" autocomplete="name">
+      <form data-netlify="true" name="comment" method="POST" action="{{ url }}">
+        <input type="text" name="name" autocomplete="name">
+        <input type="hidden" name="content_type" value="plain">
+        <input type="hidden" name="page_url" value="{{ url }}">
         <textarea name="content"></textarea>
         <button type="submit">Submit</button>
       </form>
