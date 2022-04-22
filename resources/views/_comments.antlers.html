@@ -1,22 +1,11 @@
 <section hidden id="comments-section" aria-labelledby="comments-section-heading">
     <h2 id="comments-section-heading" class="semibold font-size-3">Comments</h2>
-    <template id="comment-template">
-        <article>
-            <header>
-                <slot name="author"></slot>
-                <time><slot name="date"></slot></time>
-            </header>
-            <slot></slot>
-        </article>
-    </template>
-    <template id="comment-form-template">
-      <form data-netlify="true" name="comment" method="POST" action="{{ url }}">
-        <input type="text" name="name" autocomplete="name">
-        <input type="hidden" name="content_type" value="plain">
-        <input type="hidden" name="page_url" value="{{ url }}">
-        <textarea name="content"></textarea>
-        <button type="submit">Submit</button>
-      </form>
-    </template>
     <div id="comments-list" class="space-y-1"></div>
+    <form data-netlify="true" name="comment" method="POST" action="{{ url }}">
+      <input type="text" name="name" autocomplete="name">
+      <input type="hidden" name="content_type" value="plain">
+      <input type="hidden" name="page_url" value="{{ url }}">
+      <textarea name="content"></textarea>
+      <button type="submit">Submit</button>
+    </form>
 </section>
