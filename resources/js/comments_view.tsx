@@ -30,7 +30,7 @@ const CommentList = (props: {comments?: Comment[]}) => {
       {(comment) =>
         <article>
           <header>{comment.author} | <time datetime={comment.date}>{DateTime.fromISO(comment.date).toLocaleString()}</time></header>
-          {comment.content}
+          <div innerHTML={comment.content}></div>
         </article>
       }
     </For>
