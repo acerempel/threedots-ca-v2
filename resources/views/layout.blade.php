@@ -27,8 +27,8 @@
           <ol class="link-uline list-none lowercase flex row wrap">
             @foreach( Statamic::tag('nav:breadcrumbs')->include_home(true) as $nav_item )
             <li class="mb-0 font-size-1">
-              {!! Statamic::tag('partial:nav-item')->context(['item' => $nav_item]) !!}
-              @if(! $loop->last)<span class="mr-1/4 ml-1/4 colour-highlight">／</span>@endif
+              {!! Statamic::tag('partial:nav-item')->context($nav_item) !!}
+              @unless( $loop->last )<span class="mr-1/4 ml-1/4 colour-highlight">／</span>@endunless
             </li>
             @endforeach
           </ol>
@@ -62,7 +62,7 @@
               <h2 class="mt-0 mb-1/4 semibold font-size-1">{{ $nav_item['title'] }}</h2>
               <ul class="list-none">
                 @foreach( $nav_item['children'] as $child )
-                <li>{!! Statamic::tag('partial:nav-item')->context(['item' => $child]) !!}</li>
+                <li>{!! Statamic::tag('partial:nav-item')->context($child) !!}</li>
                 @endforeach
               </ul>
             </section>
