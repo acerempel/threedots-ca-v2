@@ -1,4 +1,3 @@
-import {DateTime} from "luxon"
 import {createEffect, createResource, For, Match, Switch} from "solid-js"
 import { render } from 'solid-js/web'
 
@@ -25,11 +24,12 @@ const Comments = () => {
 }
 
 const CommentList = (props: {comments?: Comment[]}) => {
+  const formatter = new Intl.DateTimeFormat([], { dateStyle: 'long' })
   return (
     <For each={props.comments} fallback={<p>No comments yet!</p>}>
       {(comment) =>
         <article>
-          <header>{comment.author} | <time datetime={comment.date}>{DateTime.fromISO(comment.date).toLocaleString()}</time></header>
+          <header>{comment.author} | <time datetime={comment.date}>{formatter.format(Date.parse(comment.date))}</time></header>
           <div innerHTML={comment.content}></div>
         </article>
       }

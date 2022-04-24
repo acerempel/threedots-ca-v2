@@ -5,10 +5,8 @@ specifiers:
   '@fullhuman/postcss-purgecss': ^4.1.3
   '@fullhuman/purgecss-from-tsx': ^4.1.0
   '@netlify/functions': ^1.0.0
-  '@types/luxon': ^2.3.1
   '@types/postcss-url': ^10.0.0
   babel-preset-solid: ^1.3.16
-  luxon: ^2.3.2
   postcss: ^8.4.12
   postcss-url: ^10.1.3
   purgecss-from-html: ^4.1.1
@@ -26,7 +24,6 @@ dependencies:
   '@fullhuman/postcss-purgecss': 4.1.3_postcss@8.4.12
   '@fullhuman/purgecss-from-tsx': 4.1.0
   babel-preset-solid: 1.3.16_@babel+core@7.17.9
-  luxon: 2.3.2
   postcss: 8.4.12
   postcss-url: 10.1.3_postcss@8.4.12
   purgecss-from-html: 4.1.1
@@ -39,7 +36,6 @@ dependencies:
 
 devDependencies:
   '@netlify/functions': 1.0.0
-  '@types/luxon': 2.3.1
   '@types/postcss-url': 10.0.0
   sirv-cli: 1.0.14
   typescript: 4.6.3
@@ -403,10 +399,6 @@ packages:
 
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
-    dev: true
-
-  /@types/luxon/2.3.1:
-    resolution: {integrity: sha512-nAPUltOT28fal2eDZz8yyzNhBjHw1NEymFBP7Q9iCShqpflWPybxHbD7pw/46jQmT+HXOy1QN5hNTms8MOTlOQ==}
     dev: true
 
   /@types/node/17.0.25:
@@ -1012,11 +1004,6 @@ packages:
     resolution: {integrity: sha512-XfegD5pyTAfb+GY6chk283Ox5z8WexG56OvM06RWLpAc/UHozO8X6xAxEkIitZOtsSMM1Yr3DkHgW5W+onLhCw==}
     engines: {node: '>=6'}
     dev: true
-
-  /luxon/2.3.2:
-    resolution: {integrity: sha512-MlAQQVMFhGk4WUA6gpfsy0QycnKP0+NlCBJRVRNPxxSIbjrCbQ65nrpJD3FVyJNZLuJ0uoqL57ye6BmDYgHaSw==}
-    engines: {node: '>=12'}
-    dev: false
 
   /make-dir/3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
