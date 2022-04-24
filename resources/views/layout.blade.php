@@ -53,8 +53,8 @@
       <footer id="footer-nav" class="main-grid font-size-1" style="--base-font-size:1rem">
         <div class="@if( isset($page) && $page->full_width ) main-full @else main-middle @endif border-top bp-3/2 mt-1/2 regular sans-serif flex space-between row wrap ">
           <nav
-              style="flex-grow: 1; grid-template-columns: repeat(auto-fit, calc(4 * var(--base-line-height)))"
-              class="grid col-gap-1/2"
+              style="flex-grow: 1; grid-template-columns: repeat(2, minmax(max-content, auto))"
+              class="grid col-gap-3/2 mr-3/2"
               aria-label="Primary"
             >
             @foreach( Statamic::tag('nav:footer') as $nav_item )
