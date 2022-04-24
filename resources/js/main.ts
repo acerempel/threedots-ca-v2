@@ -1,8 +1,7 @@
 import { setUpControl, setColourScheme } from './colour-scheme';
 import { enable_comments, disable_comments } from "./comments";
-import './toc';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const setValue = (control: HTMLInputElement, val: string) => { control.value = val };
   const loadFancyFonts = (val: string) => {
     const submit = document.getElementById('comment-submit')
@@ -32,4 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
   setUpControl("colour-scheme", setColourScheme, setValue);
   setUpControl("fonts", loadFancyFonts, setValue);
   setUpControl("comments-option", setCommentsEnabled, (control, value) => { control.checked = value === 'on' })
+
+  const elem = document.getElementById('all-posts');
+  const toc = document.getElementById('toc');
+  if (toc && elem) {
+    (await import('./toc')).renderTOC(elem, toc)
+  }
 });
