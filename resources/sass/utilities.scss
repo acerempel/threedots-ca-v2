@@ -23,7 +23,6 @@ $abbrev-properties: (
   col-gap: grid-column-gap,
   row-gap: grid-row-gap,
   bp: --border-padding,
-  bw: --border-width,
 );
 
 @include ratios ((space-y: (top bottom), space-x: (left right))) using ($sides, $ratio) {
@@ -143,11 +142,20 @@ $sc-letter-spacing: 0.05em;
   transition: visibility 0s linear 0s, opacity 300ms ease;
 }
 
-.border-top {
-  --border-width: 1px;
-  padding-top: calc(var(--border-padding, lh(1)) - var(--border-width));
-  border-top: var(--border-width) solid var(--text-colour-lighter);
+@each $width in 1px, 2px, 4px {
+  .bw-#{$width} { --border-width: #{$width}; }
 }
+
+@each $side in "", "-top", "-left", "-right", "-bottom" {
+  .border#{$side} {
+    padding#{$side}: calc(var(--border-padding, lh(1)) - var(--border-width, 1px));
+    border#{$side}: var(--border-width, 1px) solid var(--text-colour-lighter);
+  }
+}
+
+.rounded-sm { border-radius: 2px; }
+.rounded-md { border-radius: 4px; }
+.rounded-lg { border-radius: 8px; }
 
 .lowercase {
   text-transform: lowercase

@@ -5,10 +5,19 @@ import './toc';
 document.addEventListener('DOMContentLoaded', () => {
   const setValue = (control: HTMLInputElement, val: string) => { control.value = val };
   const loadFancyFonts = (val: string) => {
+    const submit = document.getElementById('comment-submit')
     if (val === 'fancy') {
       document.body.classList.remove('fonts-default');
+      if (submit) {
+        submit.style.setProperty('position', 'relative')
+        submit.style.setProperty('top', '1px')
+      }
     } else {
       document.body.classList.add('fonts-default');
+      if (submit) {
+        submit.style.removeProperty('position')
+        submit.style.removeProperty('top')
+      }
     }
   };
 

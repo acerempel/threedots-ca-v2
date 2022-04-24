@@ -30,6 +30,13 @@ $has-toggle: ();
   background: transparent;
 }
 
+.control-outline:focus, .control-outline:active {
+  outline-style: solid;
+  outline-color: var(--text-colour-highlight);
+  outline-offset: calc(-1 * var(--border-width, 0));
+  outline-width: 2px;
+}
+
 .prose {
   h1 { @include heading.h1; }
   h2 { @include heading.h2; }
