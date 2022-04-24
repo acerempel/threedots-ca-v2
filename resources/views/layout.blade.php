@@ -6,7 +6,7 @@
     <title>{{ $page->title ?? "Good evening" }} … ‹three dots›</title>
     @vite
     <template id="fancyFonts">
-      <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Vollkorn-Regular.woff2">
+      <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Vollkorn-Regular.woff2" crossorigin="anonymous">
     </template>
     <script>
       'use strict';
