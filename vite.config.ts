@@ -1,18 +1,6 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv, UserConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
 import { laravel } from "vite-plugin-laravel";
-import purge from '@fullhuman/postcss-purgecss'
-import purgeFromHtml from 'purgecss-from-html'
-
-export default defineConfig({
-  plugins: [
-    solidPlugin(),
-    laravel(),
-  ],
-  css: {
-    postcss: [purgeCSS],
-  },
-});
 
 const additionalCSSclasses = [
   // Classes applied via JS
@@ -32,8 +20,38 @@ const additionalCSSclasses = [
   'justify-self-stretch',
 ];
 
-const purgeCSS = purge({
+const purgeCSS = async () => (await import('@fullhuman/postcss-purgecss')).default({
   content: [`./resources/views/**/*.antlers.html`, `./resources/views/**/*.blade.php`, `./resources/js/**/*.tsx`],
-  extractors: [{extractor: purgeFromHtml, extensions: ['html']}],
+  extractors: [
+    {extractor: (await import('purgecss-from-html')).default, extensions: ['html']},
+    {extractor: (await import('@fullhuman/purgecss-from-tsx')).default({tsOptions: await import('./package.json')}), extensions: ['ts', 'tsx']},
+  ],
   safelist: additionalCSSclasses,
+});
+
+export default defineConfig(async ({command, mode}) => {
+  const config = {
+    plugins: [
+      solidPlugin(),
+      laravel(),
+    ],
+    css: {
+      postcss: { plugins: [] }
+    },
+  }
+  if (command === 'build') {
+    config.css.postcss.plugins.push(await purgeCSS())
+  } else if (command === 'serve') {
+    const postCssUrl = (await import('postcss-url')).default
+    const baseUrl = loadEnv(mode, process.cwd(), 'APP_').APP_URL
+    const rewriteUrl = ({url}) => {
+      if (url.endsWith('.woff2') && url.startsWith('/') && !url.startsWith('//')) {
+        return new URL(url, baseUrl).href
+      } else {
+        return url
+      }
+    }
+    config.css.postcss.plugins.push(postCssUrl({url: rewriteUrl}))
+  }
+  return config
 });

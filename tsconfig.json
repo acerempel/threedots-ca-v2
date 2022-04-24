@@ -5,6 +5,7 @@
   "compilerOptions": {
     "strict": true,
     "allowJs": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "isolatedModules": true,
     "composite": true,
