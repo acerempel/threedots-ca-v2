@@ -13,10 +13,7 @@ let observer: IntersectionObserver | null;
 
 export const enable_comments = () => {
   const section = document.getElementById('comments-section')
-  if (!section) {
-    console.log("No comments on this page!")
-    return
-  }
+  if (! section) { return }
   const comments_list = document.getElementById('comments-list')
   const comments_heading = document.getElementById('comments-section-heading')
   if (! comments_list || ! comments_heading) { throw new Error("no comments list or heading!") }
@@ -28,7 +25,7 @@ export const enable_comments = () => {
 export const disable_comments = () => {
   const section = document.getElementById('comments-section')
   if (!section) {
-    console.log("Disabling, comments, but none on this page!")
+    console.warn("Disabling comments, but none on this page!")
     return
   }
   section.hidden = true
