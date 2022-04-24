@@ -12,7 +12,7 @@
       'use strict';
       if(localStorage.getItem('fonts')==='fancy') document.head.appendChild(document.getElementById('fancyFonts').content);
     </script>
-    <link rel="canonical" href="{{ $meta->base_url }}{{ $page->url }}">
+    @if( $response_code == 200 )<link rel="canonical" href="{{ $meta->base_url }}{{ $page->url }}">@endif
     <meta name="google-site-verification" content="DhZUgJjUNSRFdHhycAzNuCiTKprn-1Csb49PU1lsABo">
     <meta name="color-scheme" content="light dark">
     @isset($page->description)<meta name="description" content="{{ $page->description }}">@endisset
@@ -21,7 +21,7 @@
   </head>
   <body style="min-height: 100vh" class="colour-scheme-auto pr-1/2 pl-1/2 pb-1/2 pt-1/2 font-size-2 flex column align-center ">
     <div style="margin-bottom: auto;">
-      @if ($page->url != "/")
+      @if (! $is_homepage)
       <header id="header-nav" class="sans-serif main-grid mt-1/2">
         <nav class="main-middle">
           <ol class="link-uline list-none lowercase flex row wrap">
@@ -36,7 +36,7 @@
       </header>
       @endif
       <main class="main-grid mt-3/4 mb-1">
-        @if( $page->full_width )
+        @if( isset($page) && $page->full_width )
         <div class="main-full">
           {!! $template_content !!}
         </div>
@@ -51,7 +51,7 @@
       </main>
     </div>
       <footer id="footer-nav" class="main-grid font-size-1" style="--base-font-size:1rem">
-        <div class="@if( $page->full_width ) main-full @else main-middle @endif border-top bp-3/2 mt-1/2 regular sans-serif flex space-between row wrap ">
+        <div class="@if( isset($page) && $page->full_width ) main-full @else main-middle @endif border-top bp-3/2 mt-1/2 regular sans-serif flex space-between row wrap ">
           <nav
               style="flex-grow: 1; grid-template-columns: repeat(auto-fit, calc(4 * var(--base-line-height)))"
               class="grid col-gap-1/2"
