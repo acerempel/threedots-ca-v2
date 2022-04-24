@@ -74,10 +74,9 @@
           </section>
         </div>
       </footer>
-      <script>
-        if ('IntersectionObserver' in window) {
+      <script type="module">
           const observer = new IntersectionObserver((entries) => {
-            for (entry of entries) {
+            for (const entry of entries) {
               entry.target.classList.toggle('visible', entry.isIntersecting);
               entry.target.classList.toggle('invisible', !entry.isIntersecting);
             }
@@ -86,7 +85,6 @@
           const header = document.getElementById('header-nav');
           observer.observe(footer);
           if (header) observer.observe(header);
-        }
       </script>
     <script data-goatcounter="https://threedots_ca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <!-- Cloudflare Web Analytics -->
