@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 import {batch, createEffect, createResource, createSignal, For, Match, onMount, Switch} from "solid-js"
 import { render } from 'solid-js/web'
 
@@ -128,7 +130,7 @@ const CommentForm = (props: {refetch: () => Promise<Comment[]>}) => {
   )
 }
 
-const commentsHost = "https://comments.threedots.ca"
+const commentsHost = import.meta.env.DEV ? "http://localhost:8000" : "https://comments.threedots.ca"
 
 const fetch_comments = async (): Promise<Comment[]> => {
   const url = `${commentsHost}/comments?page_url=${window.location.pathname}`
