@@ -6,13 +6,13 @@ export function display_comments(root: HTMLElement) {
 }
 
 const Comments = () => {
-  const [data, _] = createResource(fetch_comments)
+  const [data, { refetch }] = createResource(fetch_comments)
   createEffect(() => {
     let error = data.error
     if (error) { console.error(error) }
   })
   return (
-    <Switch fallback={<CommentsRegion comments={data()} />}>
+    <Switch fallback={<CommentsRegion comments={data()} refetch={refetch as () => Promise<Comment[]>} />}>
       <Match when={data.loading}>
         <p>Loading comments …</p>
       </Match>
@@ -23,10 +23,10 @@ const Comments = () => {
   )
 }
 
-const CommentsRegion = (props: {comments?: Comment[]}) => {
+const CommentsRegion = (props: {comments?: Comment[], refetch: () => Promise<Comment[]>}) => {
   return <>
     <CommentList comments={props.comments} />
-    <CommentForm />
+    <CommentForm refetch={props.refetch} />
   </>
 }
 
@@ -50,8 +50,9 @@ enum Status {
   NotSent, Waiting, Failure, Success
 }
 
-const CommentForm = () => {
+const CommentForm = (props: {refetch: () => Promise<Comment[]>}) => {
   const url = location.pathname
+  const { refetch } = props
 
   const [submission, setSubmissionStatus] = createSignal<Status>(Status.NotSent)
   const [author, setAuthor] = createSignal('')
@@ -83,6 +84,7 @@ const CommentForm = () => {
           setAuthor((data.get('name') ?? '') as string)
           setSubmissionStatus(Status.Success)
         })
+        refetch()
       } else {
         setSubmissionStatus(Status.Failure)
       }
