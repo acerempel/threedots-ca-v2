@@ -23,8 +23,8 @@ const additionalCSSclasses = [
 const purgeCSS = async () => (await import('@fullhuman/postcss-purgecss')).default({
   content: [`./resources/views/**/*.antlers.html`, `./resources/views/**/*.blade.php`, `./resources/js/**/*.tsx`],
   extractors: [
-    {extractor: (await import('purgecss-from-html')).default, extensions: ['html']},
-    {extractor: (await import('@fullhuman/purgecss-from-tsx')).default({tsOptions: await import('./package.json')}), extensions: ['ts', 'tsx']},
+    {extractor: (await import('purgecss-from-html')).default, extensions: ['html', 'php', 'tsx']},
+    {extractor: (await import('@fullhuman/purgecss-from-tsx')).default({tsOptions: await import('./package.json')}), extensions: ['tsx']},
   ],
   safelist: additionalCSSclasses,
 });
