@@ -7,10 +7,12 @@ export function display_comments(root: HTMLElement) {
 
 const Comments = () => {
   const [data, { refetch }] = createResource(fetch_comments)
+
   createEffect(() => {
     let error = data.error
     if (error) { console.error(error) }
   })
+
   return (
     <Switch fallback={<CommentsRegion comments={data()} refetch={refetch as () => Promise<Comment[]>} />}>
       <Match when={data.loading}>
@@ -84,7 +86,7 @@ const CommentForm = (props: {refetch: () => Promise<Comment[]>}) => {
           setAuthor((data.get('name') ?? '') as string)
           setSubmissionStatus(Status.Success)
         })
-        refetch()
+        setTimeout(() => refetch().then(() => setTimeout(() => setSubmissionStatus(Status.NotSent), 5000)), 100)
       } else {
         setSubmissionStatus(Status.Failure)
       }
