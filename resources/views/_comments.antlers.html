@@ -1,18 +1,15 @@
 <section hidden id="comments-section" aria-labelledby="comments-section-heading">
     <h2 id="comments-section-heading" class="semibold font-size-3">Comments</h2>
-    <div id="comments-list" class="space-y-1"></div>
-    <form data-netlify="true" name="comment" method="POST" action="{{ url }}">
-      <label for="comment_author">Name:</label>
-      <input
-        type="text" name="name" autocomplete="name"
-        id="comment_author" class="border bw-1px bp-1/4 rounded-sm control-outline"
-      >
-      <input type="hidden" name="content_type" value="plain">
-      <input type="hidden" name="page_url" value="{{ url }}">
-      <label for="comment_content" class="visually-hidden">Comment:</label>
-      <textarea class="border bw-1px bp-1/4 rounded-sm control-outline" id="comment_content" name="content"></textarea>
-      <button class="unstyled control-outline border bw-1px bp-1/4 pr-1/2 pl-1/2 rounded-md font-size-1 semibold" type="submit">
-        <span>Submit</span>
-      </button>
-    </form>
+    <div id="comments-region" class="mt-1/2"></div>
+    <template>
+      <form data-netlify="true" name="comment" method="POST" action="{{ url }}">
+        <label for="comment_author">Name:</label>
+        <input type="text" name="name" id="comment_author">
+        <input type="hidden" name="content_type" value="plain">
+        <input type="hidden" name="page_url" value="{{ url }}">
+        <label for="comment_content">Comment:</label>
+        <textarea id="comment_content" name="content"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </template>
 </section>

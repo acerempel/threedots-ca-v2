@@ -14,17 +14,17 @@ let observer: IntersectionObserver | null;
 export const enable_comments = () => {
   const section = document.getElementById('comments-section')
   if (! section) { return }
-  const comments_list = document.getElementById('comments-list')
-  const comments_heading = document.getElementById('comments-section-heading')
-  if (! comments_list || ! comments_heading) { throw new Error("no comments list or heading!") }
   section.hidden = false
-  observer = observer || new IntersectionObserver(observer_callback(comments_list), { threshold: 1 })
+  const comments_region = document.getElementById('comments-region')
+  const comments_heading = document.getElementById('comments-section-heading')
+  if (! comments_region || ! comments_heading) { throw new Error("no comments region or heading!") }
+  observer = observer || new IntersectionObserver(observer_callback(comments_region), { threshold: 1 })
   observer.observe(comments_heading)
 }
 
 export const disable_comments = () => {
   const section = document.getElementById('comments-section')
-  if (!section) {
+  if (! section) {
     console.warn("Disabling comments, but none on this page!")
     return
   }

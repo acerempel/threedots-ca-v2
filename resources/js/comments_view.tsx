@@ -12,7 +12,7 @@ const Comments = () => {
     if (error) { console.error(error) }
   })
   return (
-    <Switch fallback={<CommentList comments={data()} />}>
+    <Switch fallback={<CommentsRegion comments={data()} />}>
       <Match when={data.loading}>
         <p>Loading comments …</p>
       </Match>
@@ -21,6 +21,30 @@ const Comments = () => {
       </Match>
     </Switch>
   )
+}
+
+const CommentsRegion = (props: {comments?: Comment[]}) => {
+  const url = location.pathname
+  return <>
+    <h2 id="comments-section-heading" class="semibold font-size-3">Comments</h2>
+    <div class="space-y-1/2">
+      <CommentList comments={props.comments} />
+    </div>
+    <form class="flex column mt-1" name="comment" method="post" action={url}>
+      <label class="font-size-1 mt-1/2" for="comment_author">Name</label>
+      <input
+        type="text" name="name" autocomplete="name"
+        id="comment_author" class="border bw-1px bp-1/4 rounded-sm control-outline"
+       />
+      <input type="hidden" name="content_type" value="plain" />
+      <input type="hidden" name="page_url" value={url} />
+      <label class="font-size-1 mt-1/2" for="comment_content">Comment</label>
+      <textarea class="border bw-1px bp-1/4 rounded-sm control-outline" id="comment_content" name="content"></textarea>
+      <button class="unstyled w-max mt-1/2 control-outline border bw-1px bp-1/4 pr-1/2 pl-1/2 rounded-md font-size-1 semibold" type="submit">
+        <span>Submit</span>
+      </button>
+    </form>
+  </>
 }
 
 const CommentList = (props: {comments?: Comment[]}) => {
