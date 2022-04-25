@@ -1,4 +1,4 @@
-import {batch, createEffect, createResource, createSignal, For, Match, onMount, Show, Switch} from "solid-js"
+import {batch, createEffect, createResource, createSignal, For, Match, onMount, Switch} from "solid-js"
 import { render } from 'solid-js/web'
 
 export function display_comments(root: HTMLElement) {
