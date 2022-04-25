@@ -91,7 +91,7 @@ const CommentForm = (props: {refetch: () => Promise<Comment[]>}) => {
           setAuthor((data.get('name') ?? '') as string)
           setSubmissionStatus(Status.Success)
         })
-        setTimeout(() => refetch().then(() => setTimeout(() => setSubmissionStatus(Status.NotSent), 5000)), 100)
+        setTimeout(() => refetch().then(() => setTimeout(() => setSubmissionStatus(Status.NotSent), 5000)), 1000)
       } else {
         setSubmissionStatus(Status.Failure)
       }
