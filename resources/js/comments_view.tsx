@@ -41,7 +41,10 @@ const CommentList = (props: {comments?: Comment[]}) => {
       <For each={props.comments} fallback={<p>No comments yet!</p>}>
         {(comment) =>
           <article>
-            <header>{comment.author} | <time datetime={comment.date}>{formatter.format(Date.parse(comment.date))}</time></header>
+            <header class="font-size-1 flex space-between wrap">
+              <span>{comment.author}</span>
+              <time datetime={comment.date}>{formatter.format(Date.parse(comment.date))}</time>
+            </header>
             <div innerHTML={comment.content}></div>
           </article>
         }
