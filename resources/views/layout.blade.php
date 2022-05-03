@@ -70,7 +70,7 @@
           </nav>
           <section>
             <h2 class="visually-hidden">Settings</h2>
-            {!! Statamic::tag('partial:settings') !!}
+            {!! Statamic::tag('partial:settings')->context([ 'edit_url' => $edit_url ]) !!}
           </section>
         </div>
       </footer>
