@@ -7,6 +7,11 @@ export function display_comments(root: HTMLElement) {
   render(Comments, root)
 }
 
+interface Comments {
+  list: string[]
+  get(id: string): Comment
+}
+
 const Comments = () => {
   const [data, { refetch }] = createResource(fetch_comments)
 
@@ -15,8 +20,27 @@ const Comments = () => {
     if (error) { console.error(error) }
   })
 
+  const comments = {
+    map: new Map<string, Comment>(),
+    get list() {
+      const the_list = data() || []
+      for (const comment of the_list) {
+        this.map.set(comment.id, comment)
+      }
+      return [...this.map.keys()]
+    },
+    get(id: string) {
+      return this.map.get(id)!
+    }
+  }
+
   return (
-    <Switch fallback={<CommentsRegion comments={data()} refetch={refetch as () => Promise<Comment[]>} />}>
+    <Switch fallback={
+      <>
+        <CommentList comments={comments} />
+        <CommentForm refetch={refetch as () => Promise<any>} />
+      </>
+    }>
       <Match when={data.loading}>
         <p>Loading comments …</p>
       </Match>
@@ -27,27 +51,23 @@ const Comments = () => {
   )
 }
 
-const CommentsRegion = (props: {comments?: Comment[], refetch: () => Promise<Comment[]>}) => {
-  return <>
-    <CommentList comments={props.comments} />
-    <CommentForm refetch={props.refetch} />
-  </>
-}
-
-const CommentList = (props: {comments?: Comment[]}) => {
+const CommentList = (props: {comments: Comments}) => {
   const formatter = new Intl.DateTimeFormat([], { dateStyle: 'long' })
+  const { comments } = props
   return (
     <div class="space-y-1/2">
-      <For each={props.comments} fallback={<p>No comments yet!</p>}>
-        {(comment) =>
-          <article>
+      <For each={comments.list} fallback={<p>No comments yet!</p>}>
+        {(id) => {
+          const { author, date, content } = comments.get(id)
+          const human_date = formatter.format(Date.parse(date))
+          return <article>
             <header class="font-size-1 flex space-between wrap">
-              <span>{comment.author}</span>
-              <time datetime={comment.date}>{formatter.format(Date.parse(comment.date))}</time>
+              <span>{author}</span>
+              <time datetime={date}>{human_date}</time>
             </header>
-            <div innerHTML={comment.content}></div>
+            <div innerHTML={content}></div>
           </article>
-        }
+        } }
       </For>
     </div>
   )
@@ -57,7 +77,7 @@ enum Status {
   NotSent, Waiting, Failure, Success
 }
 
-const CommentForm = (props: {refetch: () => Promise<Comment[]>}) => {
+const CommentForm = (props: {refetch: () => Promise<any>}) => {
   const url = location.pathname
   const { refetch } = props
 
@@ -147,4 +167,5 @@ export interface Comment {
   author: string,
   date: string,
   content: string,
+  id: string,
 }
