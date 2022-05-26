@@ -13,6 +13,7 @@ const additionalCSSclasses = [
   'grid-col-auto',
   'grid-col-first',
   'grid-col-last',
+
   'grid-col-all',
   'justify-self-start',
   'justify-self-end',
