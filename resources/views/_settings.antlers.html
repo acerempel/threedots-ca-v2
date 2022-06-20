@@ -15,8 +15,6 @@
                   <option value="fancy">Vollkorn</option>
                   <option value="default" selected>System UI</option>
                 </select>
-                <label for="comments-option">Comments:</label>
-                <input type="checkbox" id="comments-option">
                 {{ if config:app:env == "local" }}
                 <a href="{{ edit_url }}">Edit this page</a>
                 {{ /if }}
