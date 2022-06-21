@@ -6,8 +6,9 @@ description: 'Books I have read that I have found valuable and that may be of in
 template: book-list
 hide_from_toc: false
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1647208041
+updated_at: 1655817737
 link_text: Pilcrows
+icon: cf410f3f-1c5b-4914-b7c5-4f34b11b0fad
 content:
   -
     type: paragraph

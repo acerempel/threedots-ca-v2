@@ -36,7 +36,7 @@ $abbrev-properties: (
   }
 }
 
-@include ratios ($abbrev-properties) using ($property, $ratio) {
+@include responsive-ratios ($abbrev-properties) using ($property, $ratio) {
   @include line-height-multiple($property, $ratio, !important);
 }
 
@@ -66,7 +66,11 @@ $responsive-utilities: (
   medium: (font-weight 500),
   semibold: (font-weight 600),
   bold: (font-weight 700),
-  grid-auto-fit: (grid-template-columns string.unquote("repeat(auto-fit, minmax(18rem, 1fr))")),
+  grid-auto-fit: (grid-template-columns string.unquote("repeat(auto-fit, minmax(var(--column-width, 18rem), 1fr))")),
+  col-w-lg: (--column-width 18rem),
+  col-w-md: (--column-width 15rem),
+  col-w-sm: (--column-width 12rem),
+  col-w-xs: (--column-width 9rem),
 );
 
 @include responsive ($responsive-utilities) using ($utility) {
@@ -94,6 +98,7 @@ $responsive-utilities: (
 
 .space-between { justify-content: space-between; }
 .wrap { flex-wrap: wrap; }
+.grow { flex-grow: 1; }
 
 .flexible-items > * {
   flex: 1 0 auto;
@@ -164,10 +169,6 @@ $sc-letter-spacing: 0.05em;
 .mx-auto {
   margin-left: auto !important;
   margin-right: auto !important;
-}
-
-.grid-repeat {
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 }
 
 .grid-col-first { grid-column: 1; }

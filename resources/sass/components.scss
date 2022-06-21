@@ -74,6 +74,10 @@ $has-toggle: ();
   }
 }
 
+.bi {
+  vertical-align: -0.125em;
+}
+
 .quotation {
   blockquote {
     @include mb(0.25)

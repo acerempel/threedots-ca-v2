@@ -87,8 +87,5 @@
           if (header) observer.observe(header);
       </script>
     <script data-goatcounter="https://threedots_ca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-    <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "574870fc954f44ebb9f916bc19706485"}'></script>
-    <!-- End Cloudflare Web Analytics -->
   </body>
 </html>

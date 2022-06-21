@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:string";
 
 @use "settings";
 @use "sass:map";
@@ -33,12 +34,25 @@
   }
 }
 
-@mixin ratios ($classes) {
+@mixin ratios ($classes, $prefix: "") {
   @each $class, $info in $classes {
     @each $num, $denom in settings.$ratios {
       $ratio: math.div($num, $denom);
-      .#{$class}-#{ratio-string($num, $denom)} {
+      .#{$prefix}#{$class}-#{ratio-string($num, $denom)} {
         @content($info, $ratio);
+      }
+    }
+  }
+}
+
+@mixin responsive-ratios ($classes) {
+  @include ratios ($classes) using ($info, $ratio) {
+    @content($info, $ratio);
+  };
+  @each $name, $width in settings.$breakpoints {
+    @media (min-width: $width) {
+      @include ratios ($classes, $prefix: string.unquote("#{$name}\\:")) using ($info, $ratio) {
+        @content($info, $ratio)
       }
     }
   }

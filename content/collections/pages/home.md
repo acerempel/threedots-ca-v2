@@ -27,20 +27,11 @@ blocks:
     nav_title: 'Table of marks'
     type: navigation
     enabled: true
-    nav_struct: marks
+    nav_struct: footer
     nav_show_children: true
     anchor: contents
-    grid_position: grid-col-auto
-    justification: none
-  -
-    nav_title: 'Table of words'
-    type: navigation
-    enabled: true
-    nav_struct: words
-    nav_show_children: true
-    anchor: contents
-    grid_position: grid-col-auto
-    justification: none
+    grid_position: grid-col-all
+    justification: justify-self-stretch
   -
     items_title: 'Quoi de neuf?'
     items_collections:

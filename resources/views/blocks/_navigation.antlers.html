@@ -1,16 +1,18 @@
-<nav {{ partial:anchor }}>
-  <h2 class="heading-2 mt-0">{{ nav_title }}</h2>
-  <dl class="dl-grid row-gap-1/4">
-    {{ nav scope="item" handle="{nav_struct|raw}" }}
-    {{ partial:dl-link :link_text="item:link_text" }}
-      {{ if children and nav_show_children }}
-      <p class="font-size-1">
-      {{ children scope="child" }}
-      {{ partial:link :link_text="child:link_text" }}{{ if ! last }}·{{ /if }}
-      {{ /children }}
-      </p>
-      {{ /if }}
-    {{ /partial:dl-link }}
-    {{ /nav }}
-  </dl>
+<nav {{ partial:anchor }} class="grid grid-auto-fit col-gap-2 row-gap-3/2 col-w-sm">
+  {{ nav scope="item" handle="{nav_struct|raw}" max_depth="2" }}
+    <section>
+      <h2 class="heading-2 mt-0">{{ item:title }}</h2>
+      <ul class="flex wrap col-gap-1 md:col-gap-0">
+        {{ item:children scope="child" }}
+          <li class="flex grow mb-0 ml-0 mb-1/2">
+            {{ partial:link :link_text="child:link_text" }}
+            {{ icon }}
+              <span aria-hidden="true" class="ml-1/2">{{ html }}</span>
+            {{ /icon }}
+            {{ if ! last }}<span class="hidden md:inline colour-lighter mx-auto pl-1/4 pr-1/4">／</span>{{ /if }}
+          </li>
+        {{ /item:children }}
+      </ul>
+    </section>
+  {{ /nav }}
 </nav>

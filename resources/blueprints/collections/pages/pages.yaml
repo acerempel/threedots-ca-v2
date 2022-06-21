@@ -67,7 +67,6 @@ sections:
         field:
           type: slug
           localizable: true
-          required: true
           validate:
             - required
             - 'unique_entry_value:{collection},{id},{site}'
@@ -90,6 +89,20 @@ sections:
           icon: text
           instructions: 'Show this in links to this page instead of the title'
           listable: hidden
+      -
+        handle: icon
+        field:
+          max_items: 1
+          mode: select
+          create: true
+          collections:
+            - icons
+          display: Icon
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          read_only: false
       -
         handle: hide_from_toc
         field:
