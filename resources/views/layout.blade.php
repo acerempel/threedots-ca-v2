@@ -5,13 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $page->title ?? "Good evening" }} … ‹three dots›</title>
     @vite
-    <template id="fancyFonts">
-      <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Vollkorn-Regular.woff2" crossorigin="anonymous">
-    </template>
-    <script>
-      'use strict';
-      if(localStorage.getItem('fonts')==='fancy') document.head.appendChild(document.getElementById('fancyFonts').content);
-    </script>
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Vollkorn-Regular.woff2" crossorigin="anonymous">
     @if( $response_code == 200 )<link rel="canonical" href="{{ $meta->base_url }}{{ $page->url }}">@endif
     <meta name="google-site-verification" content="DhZUgJjUNSRFdHhycAzNuCiTKprn-1Csb49PU1lsABo">
     <meta name="color-scheme" content="light dark">

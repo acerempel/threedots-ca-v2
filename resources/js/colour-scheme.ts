@@ -1,4 +1,4 @@
-export { setUpControl, setFontSize, setColourScheme, setLineHeight };
+export { setUpControl, setColourScheme };
 
 const prefix = "colour-scheme-";
 const colourSchemeClassNames = ['auto', 'light', 'dark'].map(c => prefix.concat(c));
@@ -7,14 +7,6 @@ function setColourScheme(colourScheme: string): void {
   const colourSchemeClassName = prefix.concat(colourScheme);
   document.body.classList.remove(...colourSchemeClassNames);
   document.body.classList.add(colourSchemeClassName);
-}
-
-function setFontSize(size: string): void {
-  document.documentElement.style.setProperty("--base-font-size", size + "rem");
-}
-
-function setLineHeight(size: string): void {
-  document.documentElement.style.setProperty("--base-line-height", size + "rem");
 }
 
 function setUpControl(elementId: string, applyValue: (val: string) => void, setValue: (control: HTMLInputElement, val: string) => void): void {
