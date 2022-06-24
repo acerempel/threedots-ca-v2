@@ -5,7 +5,7 @@ a {
   color: var(--link-colour, inherit);
   text-decoration-line: var(--link-text-decoration-line, none);
   text-decoration-thickness: var(--link-initial-text-decoration-thickness, 0.05em);
-  text-underline-offset: 0.18em;
+  text-underline-offset: 0.2em;
   transition: text-decoration-thickness 0.2s;
 }
 a:hover {

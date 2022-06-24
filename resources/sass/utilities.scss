@@ -124,9 +124,14 @@ $sc-letter-spacing: 0.05em;
 .link-plain { --link-text-decoration-line: none; }
 .link-uline { --link-text-decoration-line: underline; }
 
-.thicker {
+.link-uline-thicker {
   --link-initial-text-decoration-thickness: 0.1em;
   --link-hover-text-decoration-thickness: 0.2em;
+}
+
+.link-uline-normal {
+  --link-initial-text-decoration-thickness: 0.05em;
+  --link-hover-text-decoration-thickness: 0.1em;
 }
 
 .list-none {
@@ -154,10 +159,14 @@ $sc-letter-spacing: 0.05em;
 
 @each $side in "", "-top", "-left", "-right", "-bottom" {
   .border#{$side} {
-    padding#{$side}: calc(var(--border-padding, lh(1)) - var(--border-width, 1px));
-    border#{$side}: var(--border-width, 1px) solid var(--text-colour-lighter);
+    padding#{$side}: calc(var(--border-padding, #{lh(1)}) - var(--border-width, 1px));
+    border#{$side}: var(--border-width, 1px) solid var(--border-colour, var(--text-colour-lighter));
   }
 }
+
+.border-rosey-grey { --border-colour: var(--rosey-grey); }
+.border-text-lighter { --border-colour: var(--text-colour-lighter); }
+.border-bg-lighter { --border-colour: var(--background-colour-lighter); }
 
 .rounded-sm { border-radius: 2px; }
 .rounded-md { border-radius: 4px; }

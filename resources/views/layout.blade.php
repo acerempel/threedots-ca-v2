@@ -19,9 +19,9 @@
     <meta name="author" content="{{ $meta->author }}">
     <link rel="alternate" type="application/atom+xml" href="/feed">
   </head>
-  <body style="min-height: 100vh" class="colour-scheme-auto pr-1/2 pl-1/2 pb-1/2 pt-1/2 font-size-2 flex column align-center ">
+  <body style="min-height: 100vh" class="colour-scheme-auto pr-1/2 pl-1/2 pb-1/2 pt-1/2 font-size-2 flex column align-center bg-normal colour-normal link-uline link-uline-normal">
     <div style="margin-bottom: auto;">
-      <main class="main-grid mt-3/4 mb-1">
+      <main class="main-grid mt-3/4 mb-2">
         @if( isset($page) && $page->full_width )
         <div class="main-full">
           {!! $template_content !!}
@@ -36,20 +36,9 @@
         @endif
       </main>
     </div>
-    @if (! $is_homepage)
-      <header id="header-nav" class="sans-serif main-grid mt-1/2">
-        <nav class="main-middle">
-          <ol class="link-uline list-none lowercase flex row wrap">
-            @foreach( Statamic::tag('nav:breadcrumbs')->include_home(true) as $nav_item )
-              <li class="mb-0 font-size-1">
-                {!! Statamic::tag('partial:nav-item')->context($nav_item) !!}
-                @unless( $loop->last )<span class="mr-1/4 ml-1/4 colour-highlight">／</span>@endunless
-              </li>
-            @endforeach
-          </ol>
-        </nav>
-      </header>
-    @endif
+    <footer class="font-size-1 colour-lighter border-top border-rosey-grey bp-2">
+      {!! Statamic::tag('partial:settings') !!}
+    </footer>
     <script data-goatcounter="https://threedots_ca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   </body>
 </html>

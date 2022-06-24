@@ -19,12 +19,7 @@ body {
   font-kerning: normal;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  color: var(--text-colour-normal);
-  background-color: var(--background-colour-normal);
   --link-colour: var(--text-colour-highlight);
-  --link-initial-text-decoration-thickness: 0.05em;
-  --link-hover-text-decoration-thickness: 0.15em;
-  --link-text-decoration-line: underline;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }

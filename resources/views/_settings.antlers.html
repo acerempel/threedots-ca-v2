@@ -1,20 +1,21 @@
 <form
-  class="mb-1/2 grid row-gap-1/4 col-gap-1/2 align-center sans-serif"
-  style="
-    grid-template-columns: fit-content(14rem) max-content;
-    justify-items: start;
-  ">
-                <label for="colour-scheme">Colour scheme:</label>
-                <select required id="colour-scheme">
-                  <option value="auto" selected>System setting</option>
-                  <option value="light">Light</option>
-                  <option value="dark">Dark</option>
-                </select>
-                <label for="fonts">Fonts:</label>
-                <select id="fonts" required>
-                  <option value="fancy">Vollkorn</option>
-                  <option value="default" selected>System UI</option>
-                </select>
+  class="mb-1/2 flex wrap space-between row-gap-1/2 col-gap-2 align-center sans-serif"
+>
+  <div>
+    <label for="colour-scheme">Colour scheme:</label>
+    <select required id="colour-scheme">
+      <option value="auto" selected>System setting</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </div>
+  <div>
+    <label for="fonts">Fonts:</label>
+    <select id="fonts" required>
+      <option value="fancy">Vollkorn</option>
+      <option value="default" selected>System UI</option>
+    </select>
+  </div>
                 {{ if config:app:env == "local" }}
                 <a href="{{ edit_url }}">Edit this page</a>
                 {{ /if }}

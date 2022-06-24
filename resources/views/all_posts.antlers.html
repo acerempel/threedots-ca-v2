@@ -1,4 +1,4 @@
-<div itemscope itemtype="https://schema.org/Blog" id="all-posts" class="space-y-3/2">
+<div itemscope itemtype="https://schema.org/Blog" id="all-posts" class="space-y-2 border-rosey-grey bp-2">
   <div aria-owns=toc class="prose max-width-content mx-auto">
     <h1 class="text-center">{{ title }}</h1>
     {{ content }}
@@ -8,13 +8,13 @@
     {{ collection:posts as="entries" }}
       {{ entries group_by="date|Y" }}
         {{ groups }}
-          <section class="border-top bp-3/2">
+          <section class="border-top">
             <h2
               class="font-size-4 all-small-caps medium sans-serif swing mt-0"
               id="y{{ group }}"
             >{{ group }}</h2>
             <div
-              class="grid col-gap-2 row-gap-1"
+              class="grid col-gap-2 row-gap-3/2"
               style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
             >
               {{ items }}

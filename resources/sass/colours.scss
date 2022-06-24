@@ -4,11 +4,13 @@
   --light-text-lighter: #4d4d4d;
   --light-background-normal: #f2edf1;
   --light-background-lighter: #e8e3e6;
+  --light-rosey-grey: #b8aaaa;
   --dark-text-normal: #eee;
   --dark-text-highlight: #f18ccb;
   --dark-text-lighter: #d7d7d7;
   --dark-background-normal: #251b33;
   --dark-background-lighter: #40333c;
+  --dark-rosey-grey: #6c5959;
 }
 
 @mixin colour-scheme-light {
@@ -17,6 +19,7 @@
     --text-colour-lighter: var(--light-text-lighter);
     --background-colour-normal: var(--light-background-normal);
     --background-colour-lighter: var(--light-background-lighter);
+    --rosey-grey: var(--light-rosey-grey);
 }
 
 @mixin colour-scheme-dark {
@@ -25,6 +28,7 @@
     --text-colour-lighter: var(--dark-text-lighter);
     --background-colour-normal: var(--dark-background-normal);
     --background-colour-lighter: var(--dark-background-lighter);
+    --rosey-grey: var(--dark-rosey-grey);
 
 }
 
