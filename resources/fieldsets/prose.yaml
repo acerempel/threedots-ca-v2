@@ -71,6 +71,13 @@ fields:
                 icon: textarea
                 listable: hidden
                 instructions_position: above
+        quotation:
+          display: Quotation
+          fields:
+            -
+              import: quotation
+              prefix: quote_
+      read_only: false
   -
     handle: complex_content
     field:

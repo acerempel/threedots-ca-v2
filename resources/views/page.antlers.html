@@ -1,6 +1,8 @@
 <article class="prose p-space-3/4">
   <h1>{{ title }}</h1>
   {{ content }}
+    {{ partial src="blocks/{type}" }}
+  {{ /content }}
   <footer><p>
     <small class="medium colour-lighter">
       Last updated {{ partial:date :date="updated_at" format="F jS, Y" }}

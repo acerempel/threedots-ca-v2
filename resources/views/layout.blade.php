@@ -21,20 +21,6 @@
   </head>
   <body style="min-height: 100vh" class="colour-scheme-auto pr-1/2 pl-1/2 pb-1/2 pt-1/2 font-size-2 flex column align-center ">
     <div style="margin-bottom: auto;">
-      @if (! $is_homepage)
-      <header id="header-nav" class="sans-serif main-grid mt-1/2">
-        <nav class="main-middle">
-          <ol class="link-uline list-none lowercase flex row wrap">
-            @foreach( Statamic::tag('nav:breadcrumbs')->include_home(true) as $nav_item )
-            <li class="mb-0 font-size-1">
-              {!! Statamic::tag('partial:nav-item')->context($nav_item) !!}
-              @unless( $loop->last )<span class="mr-1/4 ml-1/4 colour-highlight">／</span>@endunless
-            </li>
-            @endforeach
-          </ol>
-        </nav>
-      </header>
-      @endif
       <main class="main-grid mt-3/4 mb-1">
         @if( isset($page) && $page->full_width )
         <div class="main-full">
@@ -50,42 +36,20 @@
         @endif
       </main>
     </div>
-      <footer id="footer-nav" class="main-grid font-size-1" style="--base-font-size:1rem">
-        <div class="@if( isset($page) && $page->full_width ) main-full @else main-middle @endif border-top bp-3/2 mt-1/2 regular sans-serif flex space-between row wrap ">
-          <nav
-              style="flex-grow: 1; grid-template-columns: repeat(2, minmax(max-content, auto))"
-              class="grid col-gap-3/2 mr-3/2"
-              aria-label="Primary"
-            >
-            @foreach( Statamic::tag('nav:footer') as $nav_item )
-            <section class="mb-1/2">
-              <h2 class="mt-0 mb-1/4 semibold font-size-1">{{ $nav_item['title'] }}</h2>
-              <ul class="list-none">
-                @foreach( $nav_item['children'] as $child )
-                <li>{!! Statamic::tag('partial:nav-item')->context($child) !!}</li>
-                @endforeach
-              </ul>
-            </section>
+    @if (! $is_homepage)
+      <header id="header-nav" class="sans-serif main-grid mt-1/2">
+        <nav class="main-middle">
+          <ol class="link-uline list-none lowercase flex row wrap">
+            @foreach( Statamic::tag('nav:breadcrumbs')->include_home(true) as $nav_item )
+              <li class="mb-0 font-size-1">
+                {!! Statamic::tag('partial:nav-item')->context($nav_item) !!}
+                @unless( $loop->last )<span class="mr-1/4 ml-1/4 colour-highlight">／</span>@endunless
+              </li>
             @endforeach
-          </nav>
-          <section>
-            <h2 class="visually-hidden">Settings</h2>
-            {!! Statamic::tag('partial:settings')->context([ 'edit_url' => $edit_url ]) !!}
-          </section>
-        </div>
-      </footer>
-      <script type="module">
-          const observer = new IntersectionObserver((entries) => {
-            for (const entry of entries) {
-              entry.target.classList.toggle('visible', entry.isIntersecting);
-              entry.target.classList.toggle('invisible', !entry.isIntersecting);
-            }
-          }, { rootMargin: "-16px 0px -16px 0px" });
-          const footer = document.getElementById('footer-nav');
-          const header = document.getElementById('header-nav');
-          observer.observe(footer);
-          if (header) observer.observe(header);
-      </script>
+          </ol>
+        </nav>
+      </header>
+    @endif
     <script data-goatcounter="https://threedots_ca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   </body>
 </html>

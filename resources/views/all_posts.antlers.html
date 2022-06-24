@@ -1,9 +1,10 @@
-<section itemscope itemtype="https://schema.org/Blog" id="all-posts">
-  <header aria-owns=toc class="prose max-width-content mx-auto">
-    <h1>{{ title }}</h1>
+<div itemscope itemtype="https://schema.org/Blog" id="all-posts" class="space-y-3/2">
+  <div aria-owns=toc class="prose max-width-content mx-auto">
+    <h1 class="text-center">{{ title }}</h1>
     {{ content }}
-  </header>
-  <div class="space-y-3/2 mt-3/2">
+      {{ partial src="blocks/{type}" }}
+    {{ /content }}
+  </div>
     {{ collection:posts as="entries" }}
       {{ entries group_by="date|Y" }}
         {{ groups }}
@@ -24,8 +25,7 @@
         {{ /groups }}
       {{ /entries }}
     {{ /collection:posts }}
-  </div>
-</section>
+</div>
 
 {{ section:footer }}
 <nav

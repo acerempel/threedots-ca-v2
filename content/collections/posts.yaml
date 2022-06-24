@@ -2,11 +2,8 @@ title: Blog
 template: post
 layout: layout
 mount: cb50e28a-6dbd-4565-a73d-349bb5478a7b
-taxonomies:
-  - year
-  - marks
 revisions: false
-route: '/{mount}/{slug}'
+route: '/posts/{slug}'
 date: true
 sort_dir: desc
 default_status: draft

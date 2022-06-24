@@ -1,0 +1,77 @@
+title: 'Fancy page'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: description
+        field:
+          character_limit: '280'
+          antlers: false
+          display: Description
+          type: textarea
+          icon: textarea
+          instructions: 'Meta description and suchlike'
+          listable: true
+      -
+        handle: content
+        field: prose.content
+      -
+        handle: template
+        field:
+          hide_partials: true
+          display: Template
+          type: template
+          icon: template
+          listable: hidden
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+          validate:
+            - required
+            - 'unique_entry_value:{collection},{id},{site}'
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true
+      -
+        handle: link_text
+        field:
+          input_type: text
+          antlers: false
+          display: 'Link text'
+          type: text
+          icon: text
+          instructions: 'Show this in links to this page instead of the title'
+          listable: hidden
+      -
+        handle: icon
+        field:
+          max_items: 1
+          mode: select
+          create: true
+          collections:
+            - icons
+          display: Icon
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          read_only: false

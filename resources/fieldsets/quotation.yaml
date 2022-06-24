@@ -1,24 +1,6 @@
 title: Quotation
 fields:
   -
-    handle: content
-    field: prose.content
-    config:
-      buttons:
-        - h2
-        - h3
-        - bold
-        - italic
-        - unorderedlist
-        - orderedlist
-        - removeformat
-        - quote
-        - anchor
-        - image
-        - table
-        - strikethrough
-        - horizontalrule
-  -
     handle: source
     field:
       max_items: 1
@@ -39,3 +21,22 @@ fields:
       type: text
       icon: text
       listable: hidden
+  -
+    handle: content
+    field: prose.complex_content
+    config:
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - anchor
+        - image
+        - strikethrough
+        - code
+        - codeblock
+        - horizontalrule
+        - small
+      display: Content
