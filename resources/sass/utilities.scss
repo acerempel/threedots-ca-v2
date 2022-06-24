@@ -105,6 +105,8 @@ $responsive-utilities: (
   flex: 1 0 auto;
 }
 
+.vertical-middle { vertical-align: middle; }
+
 b { font-weight: 500; }
 strong { font-weight: 600; }
 .oblique, cite { font-style: oblique; }

@@ -1,15 +1,14 @@
 <article class="serif{{ if mode == "grid" }} dl-grid{{ /if }}">
      <header class="mb-1/4 sans-serif colour-lighter light">
-       {{ partial:date :date="date" }}
-       {{ unless (display_options | raw | in_array:hide_title) }}
-       <h3 class="semibold font-size-3 mt-0 link-uline-normal"
-          ><a href="{{ url }}"
+        <time
+          datetime="{{ date format="Y-m-d" }}"
+        >{{ date format="{{ format ?? "j. F Y" }}" }}</time> • <h3
+         class="semibold inline font-size-2 mt-0 link-uline-normal"
+        ><a href="{{ url }}"
             >{{ if collection:handle == "books" }}<cite
               >{{ title }}</cite
             > by {{ author }}{{ else }}{{ title }}{{ /if }}</a
-          ></h3
-        >
-       {{ /unless }}
+        ></h3>
      </header>
        <div class="space-y-1/4">
        {{ partial:summary-content }}
