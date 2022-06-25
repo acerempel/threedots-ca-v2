@@ -26,6 +26,11 @@ fields:
         - anchor
         - image
         - table
+        - strikethrough
+        - small
+        - code
+        - codeblock
+        - horizontalrule
       save_html: false
       toolbar_mode: floating
       link_noopener: false

@@ -19,18 +19,6 @@ sections:
         handle: content
         field: prose.content
         config:
-          buttons:
-            - h2
-            - h3
-            - bold
-            - italic
-            - unorderedlist
-            - orderedlist
-            - removeformat
-            - quote
-            - anchor
-            - image
-            - table
           validate:
             - required
       -
@@ -79,11 +67,3 @@ sections:
       -
         handle: description
         field: prose.description
-      -
-        handle: marks
-        field:
-          type: terms
-          taxonomies:
-            - marks
-          display: Marks
-          mode: select
