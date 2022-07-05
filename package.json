@@ -11,13 +11,13 @@
     "@fullhuman/postcss-purgecss": "^4.1.3",
     "@fullhuman/purgecss-from-tsx": "^4.1.0",
     "babel-preset-solid": "^1.4.4",
+    "laravel-vite-plugin": "^0.3.0",
     "postcss": "^8.4.14",
     "postcss-url": "^10.1.3",
     "purgecss-from-html": "^4.1.1",
     "sass": "^1.52.3",
     "solid-js": "^1.4.4",
     "vite": "^2.9.12",
-    "vite-plugin-laravel": "^0.2.0-beta.21",
     "vite-plugin-solid": "^2.2.6"
   },
   "devDependencies": {

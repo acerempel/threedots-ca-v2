@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $page->title ?? "Good evening" }} … ‹three dots›</title>
-    @vite
+    @vite(['resources/js/main.ts', 'resources/sass/main.scss'])
     <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Vollkorn-Regular.woff2" crossorigin="anonymous">
     @if( $response_code == 200 )<link rel="canonical" href="{{ $meta->base_url }}{{ $page->url }}">@endif
     <meta name="google-site-verification" content="DhZUgJjUNSRFdHhycAzNuCiTKprn-1Csb49PU1lsABo">

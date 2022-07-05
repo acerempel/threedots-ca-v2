@@ -1,6 +1,6 @@
-import { defineConfig, loadEnv, UserConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
-import { laravel } from "vite-plugin-laravel";
+import laravel from "laravel-vite-plugin";
 
 const additionalCSSclasses = [
   // Classes applied via JS
@@ -34,7 +34,10 @@ export default defineConfig(async ({command, mode}) => {
   const config = {
     plugins: [
       solidPlugin(),
-      laravel(),
+      laravel([
+        'resources/js/main.ts',
+        'resources/sass/main.scss',
+      ]),
     ],
     css: {
       postcss: { plugins: [] }
