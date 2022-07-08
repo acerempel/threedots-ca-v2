@@ -1,5 +1,5 @@
 <div itemscope itemtype="https://schema.org/Blog" id="all-posts" class="space-y-2 border-rosey-grey bp-2">
-  <div aria-owns=toc class="prose max-width-content mx-auto">
+  <div class="prose max-width-content mx-auto">
     {{ content }}
       {{ partial src="blocks/{type}" }}
     {{ /content }}
@@ -25,11 +25,3 @@
       {{ /entries }}
     {{ /collection:posts }}
 </div>
-
-{{ section:footer }}
-<nav
-  id="toc"
-  class="fixed hidden lg:shown toc">
-  <h2 class="font-size-2 mb-1/2 medium">Jump to year</h2>
-</nav>
-{{ /section:footer }}

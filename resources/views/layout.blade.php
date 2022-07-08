@@ -24,9 +24,6 @@
         <div class="main-middle max-width-content">
           {!! $template_content !!}
         </div>
-        <aside class="sans-serif main-right">
-          {!! Statamic::tag('yield:footer') !!}
-        </aside>
         @endif
       </main>
     </div>
