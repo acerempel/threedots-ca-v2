@@ -1,9 +1,13 @@
     <article class="h-entry" itemscope itemtype="https://schema.org/BlogPosting">
       <header class="sans-serif mb-3/4">
+        <link itemprop="url" class="p-url" href="{{ meta:base_url }}{{ url }}">
+        {{ if description }}
+          <meta itemprop="abstract" class="p-summary" content="{{ description }}">
+        {{ /if }}
         <p class="colour-lighter light">
-          {{ partial:date :date="date" }}
+          {{ partial:date :date="date" itemprop="datePublished" class="dt-published" }}
           {{ if date_revised }}
-            <small> – Revised {{ partial:date :date="date_revised" }}</small>
+            <small> – Revised {{ partial:date :date="date_revised" itemprop="dateModified" class="dt-updated" }}</small>
           {{ /if }}
         </p>
         {{ unless (display_options | raw | in_array:hide_title) }}
