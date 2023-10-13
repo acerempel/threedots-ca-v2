@@ -67,6 +67,7 @@ $responsive-utilities: (
   medium: (font-weight 500),
   semibold: (font-weight 600),
   bold: (font-weight 700),
+  italic: (font-style italic),
   grid-auto-fit: (grid-template-columns string.unquote("repeat(auto-fit, minmax(var(--column-width, 18rem), 1fr))")),
   col-w-lg: (--column-width 18rem),
   col-w-md: (--column-width 15rem),
