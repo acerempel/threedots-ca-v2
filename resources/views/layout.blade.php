@@ -29,6 +29,8 @@
     </div>
     <footer class="font-size-1 colour-lighter border-top border-rosey-grey bp-2">
       {!! Statamic::tag('partial:settings') !!}
+      <p><a href="/subscribe">Subscribe</a></p>
+      {!! Statamic::tag('partial:edit_link') !!}
     </footer>
     <script data-goatcounter="https://threedots_ca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   </body>
