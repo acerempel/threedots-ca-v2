@@ -2,11 +2,11 @@
 id: 81bf2ff8-9a47-4222-8b16-56490adbd826
 blueprint: fancy_page
 title: Subscribe
-description: 'You can subscribe to this website in either of two ways: by RSS or by email.'
+description: 'You can subscribe to this website by RSS!'
 template: page
 link_text: Subscribe
 updated_by: ef566878-06e2-4591-9b05-2130076004d2
-updated_at: 1697466055
+updated_at: 1697468364
 content:
   -
     type: paragraph
@@ -50,5 +50,5 @@ content:
             content:
               -
                 type: text
-                text: 'By email – sign up for the email list and you will receive an email once a month with anything I''ve newly published since the previous email (unless I''ve published nothing in that time, in which case you won''t receive an email).'
+                text: 'There is actually no second way for now, although I may consider adding email subscriptions in the future if demand warrants it.'
 ---
