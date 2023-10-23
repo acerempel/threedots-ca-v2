@@ -12,10 +12,7 @@
               class="font-size-4 all-small-caps medium sans-serif swing mt-0"
               id="y{{ group }}"
             >{{ group }}</h2>
-            <div
-              class="grid col-gap-2 row-gap-3/2"
-              style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
-            >
+            <div class="grid col-gap-2 row-gap-3/2 grid-cols-articlelist">
               {{ items }}
                 {{ partial:post-summary }}
               {{ /items }}

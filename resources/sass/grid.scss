@@ -27,3 +27,6 @@ $side-width: settings.$max-width-content * 0.25;
   }
 }
 
+.grid-cols-articlelist {
+  grid-template-columns: 1fr 1fr;
+}
