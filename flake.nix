@@ -2,7 +2,7 @@
   description = "A website";
 
   # Nixpkgs / NixOS version to use.
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/22.05";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/23.11";
 
   outputs = { self, nixpkgs }:
     let
@@ -22,7 +22,7 @@
     {
       devShell = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
-        in pkgs.mkShell { buildInputs = [pkgs.php pkgs.php80Packages.composer]; }
+        in pkgs.mkShell { buildInputs = [pkgs.php83 pkgs.php83Packages.composer]; }
       );
     };
 }

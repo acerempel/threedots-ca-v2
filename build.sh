@@ -1,5 +1,5 @@
 #!/bin/bash
 set -eu
 
-npm exec vite build
+pnpm vite build
 php please ssg:generate
