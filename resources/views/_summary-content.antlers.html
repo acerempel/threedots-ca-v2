@@ -1,5 +1,5 @@
 {{ if description }}
-  <p>{{ description }}</p>
+  <p>{{ description | smartypants }}</p>
 {{ else }}
   {{ excerpt = content take (1) }}
   {{ excerpt }}
