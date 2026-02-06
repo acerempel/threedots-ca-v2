@@ -7,7 +7,6 @@ fields:
       antlers: false
       display: Title
       type: text
-      icon: text
       width: 50
       listable: hidden
       validate:
@@ -19,17 +18,17 @@ fields:
       antlers: false
       display: Author
       type: text
-      icon: text
       width: 50
       listable: hidden
-      validate:
-        - required
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
   -
     handle: year
     field:
       display: Year
       type: integer
-      icon: integer
       width: 50
       listable: hidden
   -
@@ -37,5 +36,4 @@ fields:
     field:
       display: Link
       type: link
-      icon: link
       listable: hidden

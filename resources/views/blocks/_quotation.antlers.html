@@ -4,7 +4,7 @@
   </blockquote>
   <figcaption>
     {{ quote_source }}
-    {{ author }},
+    {{ if author }}{{ author }}, {{ /if }}
     <a
       href="{{ link ?? url }}"
     ><cite>{{ title }}</cite
