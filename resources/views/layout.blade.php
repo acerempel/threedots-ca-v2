@@ -32,5 +32,10 @@
       {!! Statamic::tag('partial:edit_link') !!}
     </footer>
     <script data-goatcounter="https://threedots_ca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script>
+        if (location.host === "threedots.neocities.org") {
+            location.replace(`{{ $meta->base_url }}${location.pathname}${location.search}`)
+        }
+    </script>
   </body>
 </html>
