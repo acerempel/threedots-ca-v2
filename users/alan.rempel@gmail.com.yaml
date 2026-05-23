@@ -5,11 +5,12 @@ password_hash: $2y$10$iJHbe6fdfqhTmhK3zV9LmuC/uOxJ7PkcBcFHMfZ6vALdOvxvr5eeK
 preferences:
   collections:
     posts:
-      columns:
-        - title
-        - date
-        - description
       after_save: continue_editing
+      columns:
+        - date
+        - title
+        - description
+        - status
     books:
       columns:
         - title
